@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Blend · Temple of Sun | Aromatherapy &amp; Healing Retreats</title>
+<meta name="description" content="Eight gentle questions to find the templeofsun blend your days are asking for. Every recommendation explained through Peter&#39;s own formulas.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<header data-site-header></header>
+<div data-site-mobile></div>
+
+<main style="padding-top:44px">
+
+  <!-- INTRO / QUIZ -->
+  <section id="qzIntro">
+    <div class="wrap-text center reveal">
+      <div class="scent scent-amber" aria-hidden="true" style="margin-left:auto;margin-right:auto">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5c.6 3.6 2.9 5.9 6.5 6.5-3.6.6-5.9 2.9-6.5 6.5-.6-3.6-2.9-5.9-6.5-6.5 3.6-.6 5.9-2.9 6.5-6.5z"/></svg>
+      </div>
+      <span class="label" style="text-align:center">Find your blend</span>
+      <h1 style="font-size:clamp(36px,5vw,58px)">Which blend do<br>your days need?</h1>
+      <p class="italic" style="color:var(--clay-ink);font-size:20px;margin-top:14px">eight gentle questions · under two minutes</p>
+      <p style="margin:22px auto 36px;max-width:52ch">Answer softly and honestly. At the end I will show you up to three formulas, and, more importantly, why each one might be yours. Every reason comes from the blends themselves.</p>
+      <button class="btn btn-solid" id="qzStart" type="button">Begin</button>
+    </div>
+  </section>
+
+  <section id="qzQuiz" hidden>
+    <div class="qz-wrap">
+      <div class="qz-head">
+        <span class="label" id="qzStepLabel" style="margin-bottom:8px"></span>
+        <div class="qz-bar" aria-hidden="true"><i id="qzBarFill"></i></div>
+      </div>
+      <div class="qz-step" id="qzStep">
+        <h2 class="qz-q" id="qzQuestion"></h2>
+        <div class="qz-opts" id="qzOpts" role="group"></div>
+      </div>
+      <div class="qz-nav">
+        <button class="qz-back" id="qzBack" type="button" hidden>← Previous question</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="qzResults" hidden>
+    <div class="wrap-text center reveal" style="margin-bottom:14px">
+      <span class="label" style="text-align:center">What your answers whisper</span>
+      <h2 class="serif" id="qzResTitle">These blends are calling you</h2>
+      <p class="italic" style="color:var(--clay-ink);font-size:19px;margin-top:12px">read the why of each one, then trust your nose and your heart</p>
+    </div>
+    <div class="qz-wrap-wide" id="qzResList"></div>
+    <div class="wrap-text center" style="margin-top:44px">
+      <p style="font-size:13px;color:var(--sage);max-width:60ch;margin:0 auto 30px">A gentle word of care: if you are pregnant, breastfeeding, living with epilepsy, or taking medication, please read each blend&#39;s cautions and write to Peter before choosing.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:14px">
+        <a class="btn" id="qzShareWa" href="https://wa.me/36702879225" target="_blank" rel="noopener">Send my blends to Peter</a>
+        <button class="btn" type="button" id="qzCopy">Copy my results</button>
+      </div>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a class="btn" href="create-your-own-formula.html">Create your own formula</a>
+        <button class="btn" type="button" id="qzAgain">Begin again</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer data-site-footer></footer>
+<script src="js/site.js"></script>
+<script>
+(function(){
+  var QZ = {"blends": {"focus": {"name": "Focus", "price": "€33.20", "coll": "Rainbow Collection", "page": "rainbow-collection.html#focus", "img": "assets/img/products/focus.webp"}, "homecoming": {"name": "Homecoming", "price": "€32.00", "coll": "Rainbow Collection", "page": "rainbow-collection.html#homecoming", "img": "assets/img/products/homecoming.webp"}, "moonlight": {"name": "Moonlight", "price": "€29.50", "coll": "Rainbow Collection", "page": "rainbow-collection.html#moonlight", "img": "assets/img/products/moonlight.webp"}, "flow": {"name": "Flow", "price": "€32.00", "coll": "Rainbow Collection", "page": "rainbow-collection.html#flow", "img": "assets/img/products/flow.webp"}, "forest-bathing": {"name": "Forest Bathing", "price": "€33.20", "coll": "Rainbow Collection", "page": "rainbow-collection.html#forest-bathing", "img": "assets/img/products/forest-bathing.webp"}, "rainbow": {"name": "Rainbow", "price": "€40.60", "coll": "Rainbow Collection", "page": "rainbow-collection.html#rainbow", "img": "assets/img/products/rainbow.webp"}, "awakening-queen": {"name": "Awakening Queen", "price": "€34.40", "coll": "Rainbow Collection", "page": "rainbow-collection.html#awakening-queen", "img": "assets/img/products/awakening-queen.webp"}, "sunrise": {"name": "Sunrise", "price": "€30.70", "coll": "Rainbow Collection", "page": "rainbow-collection.html#sunrise", "img": "assets/img/products/sunrise.webp"}, "inner-king": {"name": "Inner King", "price": "€34.40", "coll": "Rainbow Collection", "page": "rainbow-collection.html#inner-king", "img": "assets/img/products/inner-king.webp"}, "space-maker": {"name": "Space Maker", "price": "€29.50", "coll": "Rainbow Collection", "page": "rainbow-collection.html#space-maker", "img": "assets/img/products/space-maker.webp"}, "confidence-serum": {"name": "Confidence Serum", "price": "€39.30", "coll": "Rainbow Collection", "page": "rainbow-collection.html#confidence-serum", "img": "assets/img/products/confidence-serum.webp"}, "chakra-essence": {"name": "Chakra Essence", "price": "€32.00", "coll": "Rainbow Collection", "page": "rainbow-collection.html#chakra-essence", "img": "assets/img/products/chakra-essence.webp"}, "speak-easy": {"name": "Speak Easy", "price": "€29.50", "coll": "Rainbow Collection", "page": "rainbow-collection.html#speak-easy", "img": "assets/img/products/speak-easy.webp"}, "defence": {"name": "Defence", "price": "€30.80", "coll": "Rainbow Collection", "page": "rainbow-collection.html#defence", "img": "assets/img/products/defence.webp"}, "let-go": {"name": "Let Go", "price": "€29.50", "coll": "Rainbow Collection", "page": "rainbow-collection.html#let-go", "img": "assets/img/products/let-go.webp"}, "mind-your-gut": {"name": "Mind Your Gut", "price": "€29.50", "coll": "Rainbow Collection", "page": "rainbow-collection.html#mind-your-gut", "img": "assets/img/products/mind-your-gut.webp"}, "solar-serum": {"name": "Solar Serum", "price": "€32.00", "coll": "Rainbow Collection", "page": "rainbow-collection.html#solar-serum", "img": "assets/img/products/solar-serum.webp"}, "shen-essence": {"name": "Shen Essence", "price": "€36.90", "coll": "Rainbow Collection", "page": "rainbow-collection.html#shen-essence", "img": "assets/img/products/shen-essence.webp"}, "earth-prithvi": {"name": "Earth · Prithvi", "price": "€40.00", "coll": "5 Elements Collection", "page": "5-elements.html#earth-prithvi", "img": "assets/img/products/earth-prithvi.webp"}, "water-jala": {"name": "Water · Jala", "price": "€40.00", "coll": "5 Elements Collection", "page": "5-elements.html#water-jala", "img": "assets/img/products/water-jala.webp"}, "fire-agni": {"name": "Fire · Agni", "price": "€40.00", "coll": "5 Elements Collection", "page": "5-elements.html#fire-agni", "img": "assets/img/products/fire-agni.webp"}, "air-vayu": {"name": "Air · Vayu", "price": "€40.00", "coll": "5 Elements Collection", "page": "5-elements.html#air-vayu", "img": "assets/img/products/air-vayu.webp"}, "ether-akasha": {"name": "Ether · Akasha", "price": "€40.00", "coll": "5 Elements Collection", "page": "5-elements.html#ether-akasha", "img": "assets/img/products/ether-akasha.webp"}}, "why": {"focus": {"purpose": "Made for periods of intense mental provocation: deadlines, exams, projects. Peter calls it your perfect study-mate.", "plants": "Studies show the synergy of sage, peppermint and lavender improves concentration and memory."}, "homecoming": {"purpose": "Made for feeling lost or unable to decide, to guide you back to your inner source.", "plants": "Vetiver helps rediscover inner strength, Atlas cedar guides you back to inner peace, and sage awakens intuition in foggy times."}, "moonlight": {"purpose": "Made to let body and mind dive into truly healing, restorative sleep; in Chinese medicine, harmonious sleep is how the twelve organs recharge.", "plants": "Mandarin, lavender and marjoram are well-known relaxants in aromatherapy."}, "flow": {"purpose": "Helps you let go of the unnecessary and move on with renewed positivity, out of the hamster wheel.", "plants": "Lemon zest shifts a stuck mindset like a fresh breeze for sailors, cardamom fires up the internal flow, cedarwood moves the Prana."}, "forest-bathing": {"purpose": "For anxious moments when you need to take a deep breath, when circumstances feel choking and your lung energy is drained.", "plants": "Pine, black spruce and Eastern hemlock energise the lungs and recharge your batteries."}, "rainbow": {"purpose": "The signature blend: the 21 oils that appear across the whole collection, in one bottle. Togetherness is its vibration.", "plants": "Joyful citruses, ancient Damask rose, geranium and ylang-ylang; 74 oils of the collection speaking as one."}, "awakening-queen": {"purpose": "Awakens your femininity and eases irritability and restlessness around your moon days.", "plants": "Damask rose, jasmine and rose geranium, the most exquisite flowers of heaven's garden, support the feminine creator force."}, "sunrise": {"purpose": "A morning ritual in a bottle; the way we wake determines the whole day, as Ayurveda and Chinese medicine both teach.", "plants": "Peppermint sobers chaotic thoughts, sunny lemon is a soft summer breeze for the soul, rosemary releases entrenched tension."}, "inner-king": {"purpose": "For blocks and stagnation around masculine Yang energy; it may boost self-confidence and emotional stability.", "plants": "Frankincense carries the highest vibration of male energies, with sandalwood and fiery, strengthening ginger."}, "space-maker": {"purpose": "Creates a crisp, fresh space full of light and keeps shared air purified: for homes, workplaces and studios.", "plants": "Tea tree, Brazilian eucalyptus and lemon are said to banish pathogens and negative energy."}, "confidence-serum": {"purpose": "Made to return your inner strength when the world leaves you feeling brittle and fragile, and to align you with your values.", "plants": "Tarragon invigorates the soul, vetiver supports stability, cardamom boosts the inner strength."}, "chakra-essence": {"purpose": "Unblocks and harmonises the whole chakra system when everything feels a little out of tune at once.", "plants": "From vetiver at the root to frankincense at the crown, with bergamot and ylang-ylang in between."}, "speak-easy": {"purpose": "For the lump in the throat before exams, interviews, presentations: the moments your voice matters most.", "plants": "Bay laurel releases blockages for clear speech, blue tansy balances and opens the throat chakra, lavender eases."}, "defence": {"purpose": "Supports your defensive Qi, awakens self-healing and helps you get back on your feet after exhausting periods.", "plants": "Eucalyptus, tea tree, saro and niaouli; their expectorant qualities help expel cold and soothe irritation."}, "let-go": {"purpose": "Supports the progress of mourning, of letting go, of processing; for transformations that ask you to jump into the unknown.", "plants": "Cypress helps process grief, Eastern hemlock connects you with your inner strength, sweet orange brings sunlight to the hardest moments."}, "mind-your-gut": {"purpose": "Your gut is your second brain: 95% of serotonin is produced by intestinal cells. This blend tends that quiet centre.", "plants": "Ginger, cardamom and peppermint have eased digestion, nausea and heaviness for centuries."}, "solar-serum": {"purpose": "The sunny, revitalising energy of Mediterranean citruses, pre-diluted and ready to wear.", "plants": "Sweet orange, bergamot and grapefruit are said to vibrate at the highest frequency: pure joy."}, "shen-essence": {"purpose": "Steadies the Shen, the Mind of the Heart, when you feel irritable, frustrated, tense or emotionally off balance.", "plants": "Lemon balm, called the elixir of life by Paracelsus, with Roman chamomile and marjoram to settle the waves."}, "earth-prithvi": {"purpose": "The Earth formula: for groundedness, presence and connection. Out of balance, Earth turns into worry.", "plants": "Vetiver, patchouli and black pepper root you gently back into your body."}, "water-jala": {"purpose": "The Water formula: for intuition, feeling and flow. Out of balance, Water turns into fear.", "plants": "Clary sage, lavender and cypress soften you back into your innate knowing."}, "fire-agni": {"purpose": "The Fire formula: for will, energy and the power of transformation; fire is the body's generator.", "plants": "Sweet orange, black pepper and cardamom feed your inner sun."}, "air-vayu": {"purpose": "The Air formula: about taking in and letting go, the full breath; Air carries grief out and inspiration in.", "plants": "Tasmanian eucalyptus, Scots pine and Eastern hemlock open the chest for an expansive breath."}, "ether-akasha": {"purpose": "The Ether formula: the first and most subtle element, the space in which everything else happens.", "plants": "Akasha lives in the body's openings and passages; this blend tends the throat chakra and the room within."}}, "q": {"gate": {"label": "Question one", "q": "What is asking for care right now?", "opts": [{"t": "My body", "e": "your body is asking for care", "w": {"defence": 2, "mind-your-gut": 2, "forest-bathing": 2, "moonlight": 1, "sunrise": 1}}, {"t": "My mind", "e": "your mind is asking for rest", "w": {"focus": 2, "shen-essence": 2, "sunrise": 1}}, {"t": "My heart", "e": "your heart is carrying something", "w": {"let-go": 2, "flow": 2, "homecoming": 2, "confidence-serum": 1, "awakening-queen": 1, "inner-king": 1}}, {"t": "My spirit", "e": "your spirit wants deepening", "w": {"chakra-essence": 3, "ether-akasha": 2, "rainbow": 1}}, {"t": "My space", "e": "your space needs tending", "w": {"space-maker": 4}}]}, "nights": {"label": "Question two", "q": "How are your nights?", "opts": [{"t": "Restless; falling asleep is hard", "e": "your nights are restless", "w": {"moonlight": 3, "shen-essence": 1}}, {"t": "I sleep, but wake unrested", "e": "you wake unrested", "w": {"moonlight": 2, "sunrise": 2}}, {"t": "My nights hold me well", "e": "", "w": {}}]}, "mornings": {"label": "Question three", "q": "And how do you rise in the morning?", "opts": [{"t": "Heavy and slow", "e": "mornings feel heavy", "w": {"sunrise": 3, "solar-serum": 2}}, {"t": "Awake, but with racing thoughts", "e": "you rise with racing thoughts", "w": {"shen-essence": 2, "sunrise": 1, "moonlight": 1}}, {"t": "Bright enough", "e": "", "w": {}}]}, "stress": {"label": "Question four", "q": "Where does stress sit in your body?", "opts": [{"t": "In my head, in the thoughts", "e": "stress gathers in your head", "w": {"focus": 2, "shen-essence": 2}}, {"t": "In my chest and breath", "e": "your chest asks for breath", "w": {"forest-bathing": 3, "air-vayu": 1}}, {"t": "In my belly", "e": "your belly carries the tension", "w": {"mind-your-gut": 3}}, {"t": "In my throat and voice", "e": "your voice gets caught", "w": {"speak-easy": 3, "ether-akasha": 1}}, {"t": "Nowhere in particular", "e": "", "w": {}}]}, "deep": [{"label": "Question five", "q": "What does your body need most?", "opts": [{"t": "A calmer digestion", "e": "your digestion asks for calm", "w": {"mind-your-gut": 3}}, {"t": "A deeper breath", "e": "you long for a deeper breath", "w": {"forest-bathing": 3}}, {"t": "Stronger defences; I catch everything", "e": "your defences feel thin", "w": {"defence": 3}}, {"t": "Truly restful sleep", "e": "you long for real rest", "w": {"moonlight": 2}}]}, {"label": "Question five", "q": "What are your thoughts doing lately?", "opts": [{"t": "Scattering when I need to focus", "e": "focus keeps slipping away", "w": {"focus": 3}}, {"t": "Circling and worrying", "e": "your thoughts keep circling", "w": {"shen-essence": 2, "moonlight": 1}}, {"t": "Simply exhausted", "e": "your mind is tired", "w": {"forest-bathing": 2, "sunrise": 1}}]}, {"label": "Question five", "q": "What is your heart holding?", "opts": [{"t": "A goodbye; a grief", "e": "you are carrying a goodbye", "w": {"let-go": 3}}, {"t": "A chapter that will not close", "e": "a chapter refuses to close", "w": {"flow": 3}}, {"t": "I feel far from myself", "e": "you feel far from yourself", "w": {"homecoming": 3}}, {"t": "My confidence has gone thin", "e": "your confidence feels thin", "w": {"confidence-serum": 3}}]}, {"label": "Question five", "q": "Where does your practice want to go?", "opts": [{"t": "My whole system needs tuning", "e": "your whole system asks for tuning", "w": {"chakra-essence": 3}}, {"t": "Toward the subtle and unseen", "e": "you are drawn to the subtle", "w": {"ether-akasha": 3}}, {"t": "Everything, gathered together", "e": "you want everything gathered in one", "w": {"rainbow": 3}}]}, {"label": "Question five", "q": "What does your space need?", "opts": [{"t": "Fresh, clear, purified air", "e": "your space wants clearing", "w": {"space-maker": 3}}, {"t": "Calm for practice and guests", "e": "your space holds people", "w": {"space-maker": 2}}, {"t": "Focus for work and study", "e": "your space is where you work", "w": {"space-maker": 2, "focus": 1}}]}], "energy": {"label": "Question six", "q": "Which energy in you wants tending?", "opts": [{"t": "The soft, receptive, moon side", "e": "your moon side wants tending", "w": {"awakening-queen": 3}}, {"t": "The direct, fiery, sun side", "e": "your sun side wants tending", "w": {"inner-king": 3, "fire-agni": 1}}, {"t": "They feel at peace", "e": "", "w": {}}]}, "element": {"label": "Question seven", "q": "Which element feels most out of balance?", "opts": [{"t": "Earth · my grounding and presence", "e": "your Earth wants grounding", "w": {"earth-prithvi": 4, "homecoming": 1}}, {"t": "Water · my feelings and intuition", "e": "your Water wants to flow again", "w": {"water-jala": 4, "flow": 1}}, {"t": "Fire · my drive and energy", "e": "your Fire wants rekindling", "w": {"fire-agni": 4, "sunrise": 1}}, {"t": "Air · my breath and letting go", "e": "your Air wants room to breathe", "w": {"air-vayu": 4, "forest-bathing": 1}}, {"t": "Ether · my sense of space and spirit", "e": "your Ether wants space", "w": {"ether-akasha": 4, "speak-easy": 1}}, {"t": "None that I feel", "e": "", "w": {}}]}, "time": {"label": "Question eight", "q": "How long has this been with you?", "opts": [{"t": "It arrived recently", "e": "", "w": {}}, {"t": "It has stayed a season", "e": "this has stayed with you a season", "w": {"chakra-essence": 1}}, {"t": "As long as I can remember", "e": "this has walked with you a long time", "w": {"chakra-essence": 2, "rainbow": 2}}]}}};
+  var flow = [];        /* built after gate answer */
+  var answers = [];     /* {qkey, optIndex} in flow order */
+  var step = 0;
+
+  var elIntro = document.getElementById('qzIntro');
+  var elQuiz = document.getElementById('qzQuiz');
+  var elRes = document.getElementById('qzResults');
+  var elQ = document.getElementById('qzQuestion');
+  var elOpts = document.getElementById('qzOpts');
+  var elLabel = document.getElementById('qzStepLabel');
+  var elBar = document.getElementById('qzBarFill');
+  var elBack = document.getElementById('qzBack');
+  var elStep = document.getElementById('qzStep');
+
+  function questionFor(i){
+    var key = flow[i];
+    if (key === 'deep') {
+      var g = answers[0] ? answers[0].optIndex : 0;
+      return QZ.q.deep[g];
+    }
+    return QZ.q[key];
+  }
+
+  function buildFlow(){ flow = ['gate','nights','mornings','stress','deep','energy','element','time']; }
+
+  /* a soft wash of colour for each question's mood */
+  var TINT = {
+    gate: 'rgba(212,169,106,.16)', nights: 'rgba(132,130,178,.15)',
+    mornings: 'rgba(204,141,92,.15)', stress: 'rgba(111,117,97,.14)',
+    deep: 'rgba(108,156,161,.14)', energy: 'rgba(199,167,92,.15)',
+    element: 'rgba(134,164,108,.14)', time: 'rgba(187,125,152,.13)'
+  };
+
+  var locked = false;
+
+  function render(){
+    var qd = questionFor(step);
+    elLabel.textContent = qd.label + ' of eight';
+    elBar.style.width = ((step) / flow.length * 100) + '%';
+    elQuiz.style.setProperty('--qz-glow', TINT[flow[step]] || TINT.gate);
+    elQ.textContent = qd.q;
+    elQ.style.animation = 'none';
+    void elQ.offsetWidth;               /* replay the rise */
+    elQ.style.animation = '';
+    elOpts.innerHTML = '';
+    qd.opts.forEach(function(o, i){
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'qz-opt';
+      b.textContent = o.t;
+      b.style.setProperty('--d', (0.07 + i * 0.06) + 's');
+      var prev = answers[step];
+      if (prev && prev.optIndex === i) b.classList.add('is-picked');
+      b.addEventListener('click', function(){ pick(i, b); });
+      elOpts.appendChild(b);
+    });
+    elBack.hidden = step === 0;
+    var f = elOpts.querySelector('.is-picked') || elOpts.firstChild;
+    if (f) f.focus({preventScroll:true});
+  }
+
+  function swapTo(fn){
+    elStep.classList.add('is-out');
+    setTimeout(function(){
+      elStep.classList.remove('is-out');
+      fn();
+    }, 240);
+  }
+
+  function pick(i, btn){
+    if (locked) return;
+    locked = true;
+    answers[step] = {qkey: flow[step], optIndex: i};
+    if (flow[step] === 'gate') answers.length = 1;  /* gate change resets deeper answers */
+    /* let the chosen answer glow for a breath before moving on */
+    [].forEach.call(elOpts.children, function(b){
+      b.disabled = true;
+      b.classList.remove('is-picked');
+      b.classList.toggle('is-chosen', b === btn);
+      if (b !== btn) b.classList.add('is-dim');
+    });
+    if (step === flow.length - 1) elBar.style.width = '100%';   /* the sun completes its walk */
+    setTimeout(function(){
+      locked = false;
+      if (step < flow.length - 1) { step++; swapTo(render); }
+      else finish();
+    }, 430);
+  }
+
+  /* arrow keys wander between answers */
+  elOpts.addEventListener('keydown', function(e){
+    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+    e.preventDefault();
+    var btns = [].slice.call(elOpts.children);
+    var idx = btns.indexOf(document.activeElement);
+    var next = e.key === 'ArrowDown' ? idx + 1 : idx - 1;
+    if (next < 0) next = btns.length - 1;
+    if (next >= btns.length) next = 0;
+    btns[next].focus();
+  });
+
+  function scores(){
+    var s = {};
+    answers.forEach(function(a, idx){
+      var qd = (a.qkey === 'deep') ? QZ.q.deep[answers[0].optIndex] : QZ.q[a.qkey];
+      var o = qd.opts[a.optIndex];
+      for (var slug in o.w) s[slug] = (s[slug] || 0) + o.w[slug];
+    });
+    return s;
+  }
+
+  function echoesFor(slug){
+    var out = [];
+    answers.forEach(function(a){
+      var qd = (a.qkey === 'deep') ? QZ.q.deep[answers[0].optIndex] : QZ.q[a.qkey];
+      var o = qd.opts[a.optIndex];
+      if (o.w[slug] && o.e) out.push({e: o.e, p: o.w[slug]});
+    });
+    out.sort(function(x, y){ return y.p - x.p; });
+    return out.slice(0, 2).map(function(x){ return x.e; });
+  }
+
+  function finish(){
+    var s = scores();
+    var ranked = Object.keys(s).sort(function(a, b){ return s[b] - s[a]; });
+    var top = ranked.slice(0, 3);
+    var flat = !ranked.length || (s[ranked[0]] || 0) < 4;
+    if (flat && top.indexOf('rainbow') < 0) { top = top.slice(0, 2); top.push('rainbow'); }
+    if (!top.length) top = ['rainbow'];
+
+    var list = document.getElementById('qzResList');
+    list.innerHTML = '';
+    top.forEach(function(slug, i){
+      var b = QZ.blends[slug], w = QZ.why[slug];
+      var ech = echoesFor(slug);
+      var echoLine = ech.length ? 'You told me ' + ech.join(', and ') + '.'
+                                : 'Your answers pointed many ways at once, and this blend holds them all.';
+      var row = document.createElement('article');
+      row.className = 'qz-res reveal in';
+      row.innerHTML =
+        '<a class="qz-res-img" href="' + b.page + '" aria-label="' + b.name + '">' +
+        '  <span class="frame"><img loading="lazy" decoding="async" src="' + b.img + '" alt="' + b.name + ' blend"></span></a>' +
+        '<div class="qz-res-body">' +
+        '  <span class="label" style="margin-bottom:8px">' + (i === 0 ? '01 · Your first companion' : '0' + (i + 1) + ' · Also calling you') + '</span>' +
+        '  <h3 class="serif" style="font-size:clamp(24px,3vw,32px)">' + b.name + '</h3>' +
+        '  <p class="qz-meta">' + b.coll + ' · ' + b.price + '</p>' +
+        '  <p class="qz-echo italic">' + echoLine + '</p>' +
+        '  <p class="qz-why">' + w.purpose + '</p>' +
+        '  <p class="qz-plants"><span class="label" style="display:block;margin-bottom:6px">Inside the bottle</span>' + w.plants + '</p>' +
+        '  <a class="lnk" href="' + b.page + '">Read its full story<span class="arr">→</span></a>' +
+        '</div>';
+      list.appendChild(row);
+    });
+
+    /* carry the result with you: WhatsApp to Peter, or copy */
+    var names = top.map(function(sl){ return QZ.blends[sl].name; });
+    var pageUrl = location.origin + location.pathname;
+    var shareText = 'My Temple of Sun blends: ' + names.join(', ') + ' · found with the Find Your Blend guide · ' + pageUrl;
+    var waBtn = document.getElementById('qzShareWa');
+    waBtn.href = 'https://wa.me/36702879225?text=' + encodeURIComponent('Hello Peter! ' + shareText);
+    var copyBtn = document.getElementById('qzCopy');
+    copyBtn.onclick = function(){
+      function done(){ copyBtn.textContent = 'Copied ☀'; setTimeout(function(){ copyBtn.textContent = 'Copy my results'; }, 2200); }
+      function fallback(){
+        var ta = document.createElement('textarea'); ta.value = shareText;
+        ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch (err) {}
+        document.body.removeChild(ta); done();
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(shareText).then(done, fallback); }
+      else fallback();
+    };
+
+    elQuiz.hidden = true;
+    elRes.hidden = false;
+    elIntro.hidden = true;
+    try { sessionStorage.setItem('tos-quiz', JSON.stringify(answers)); } catch (err) {}
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  document.getElementById('qzStart').addEventListener('click', function(){
+    buildFlow(); step = 0; answers = [];
+    elIntro.hidden = true; elQuiz.hidden = false; elRes.hidden = true;
+    render();
+    elQuiz.scrollIntoView({behavior: 'smooth', block: 'start'});
+  });
+  elBack.addEventListener('click', function(){ if (step > 0 && !locked) { step--; swapTo(render); } });
+  document.getElementById('qzAgain').addEventListener('click', function(){
+    try { sessionStorage.removeItem('tos-quiz'); } catch (err) {}
+    elRes.hidden = true; elIntro.hidden = false;
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+
+  /* coming back from a blend page: restore the results instead of starting over */
+  function restore(){
+    var saved = null;
+    try { saved = JSON.parse(sessionStorage.getItem('tos-quiz') || 'null'); } catch (err) {}
+    if (!saved || !saved.length || !saved[0] || saved[0].qkey !== 'gate') return;
+    buildFlow();
+    answers = saved;
+    step = flow.length - 1;
+    finish();
+    window.scrollTo(0, 0);
+  }
+  restore();
+  window.addEventListener('pageshow', function(e){ if (e.persisted && elRes.hidden && elIntro.hidden === false) restore(); });
+})();
+</script>
+</body>
+</html>
