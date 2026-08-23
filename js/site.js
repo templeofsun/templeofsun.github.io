@@ -24,13 +24,19 @@
     '<a class="brand" href="index.html"><img class="brand-logo" src="assets/img/logo2-brown.webp" alt="templeofsun · Alchemy of souls" onerror="this.outerHTML=\'<span>Temple of Sun</span>\'"></a>' +
     '<nav class="nav-desktop" aria-label="Main">' +
     '  <div class="nav-item"><button class="nav-link" type="button" aria-haspopup="true">Aromatherapy<span class="caret">▼</span></button>' +
-    '    <div class="dd"><a href="aromatherapy.html">Introduction</a><a href="collections.html">Collections</a><a href="create-your-own-formula.html">Create Your Own Formula</a></div></div>' +
+    '    <div class="dd"><a href="aromatherapy.html">Introduction</a>' +
+    '    <div class="dd-item"><a href="collections.html">Collections<span class="dd-arr" aria-hidden="true">›</span></a>' +
+    '      <div class="dd-fly">' +
+    '        <a href="rainbow-collection.html">The Rainbow Collection</a>' +
+    '        <a href="5-elements.html">The 5 Elements</a>' +
+    '      </div></div>' +
+    '    <a href="create-your-own-formula.html">Create Your Own Formula</a></div></div>' +
     '  <div class="nav-item"><button class="nav-link" type="button" aria-haspopup="true">Experiences<span class="caret">▼</span></button>' +
     '    <div class="dd"><a href="retreats.html">Soul Alchemy Retreats</a><a href="treatments.html">Treatments</a>' +
-    '    <a href="mindfulness-labs.html">Mindfulness LABs</a><a href="meditation.html">Meditation Classes</a>' +
-    '    <a href="online-sessions.html">Online Sessions</a></div></div>' +
+    '    <a href="mindfulness-labs.html">Mindfulness LABs</a><a href="meditation.html">Meditation Classes</a></div></div>' +
+    '  <a class="nav-link" href="online-sessions.html">Online Sessions</a>' +
     '  <div class="nav-item"><button class="nav-link" type="button" aria-haspopup="true">About<span class="caret">▼</span></button>' +
-    '    <div class="dd"><a href="about.html">My Story</a><a href="philosophy.html">Philosophy</a></div></div>' +
+    '    <div class="dd"><a href="bio.html">Bio</a><a href="about.html">My Story</a><a href="philosophy.html">Philosophy</a></div></div>' +
     '  <a class="nav-link" href="contact.html" data-nav="contact">Contact</a>' +
     '  <a class="btn btn-nav" href="contact.html?topic=session">Book a Session</a>' +
     '</nav>' +
@@ -39,13 +45,16 @@
   var MOBILE =
     '<div class="m-group"><a href="index.html">Home</a></div>' +
     '<div class="m-group"><div class="m-label">Aromatherapy</div>' +
-    '  <a href="aromatherapy.html">Introduction</a><a href="collections.html">Collections</a><a href="create-your-own-formula.html">Create Your Own Formula</a></div>' +
+    '  <a href="aromatherapy.html">Introduction</a><a href="collections.html">Collections</a>' +
+    '  <a class="m-sub" href="rainbow-collection.html">The Rainbow Collection</a>' +
+    '  <a class="m-sub" href="5-elements.html">The 5 Elements</a>' +
+    '  <a href="create-your-own-formula.html">Create Your Own Formula</a></div>' +
     '<div class="m-group"><div class="m-label">Experiences</div>' +
     '  <a href="retreats.html">Soul Alchemy Retreats</a><a href="treatments.html">Treatments</a>' +
-    '  <a href="mindfulness-labs.html">Mindfulness LABs</a><a href="meditation.html">Meditation Classes</a>' +
-    '  <a href="online-sessions.html">Online Sessions</a></div>' +
+    '  <a href="mindfulness-labs.html">Mindfulness LABs</a><a href="meditation.html">Meditation Classes</a></div>' +
+    '<div class="m-group"><a href="online-sessions.html">Online Sessions</a></div>' +
     '<div class="m-group"><div class="m-label">About</div>' +
-    '  <a href="about.html">My Story</a><a href="philosophy.html">Philosophy</a></div>' +
+    '  <a href="bio.html">Bio</a><a href="about.html">My Story</a><a href="philosophy.html">Philosophy</a></div>' +
     '<div class="m-group"><a href="contact.html">Contact</a></div>' +
     '<div class="m-group m-small"><div class="m-label">Say hello</div>' +
     '  <a href="mailto:templeofsunofficial@gmail.com">templeofsunofficial@gmail.com</a>' +
