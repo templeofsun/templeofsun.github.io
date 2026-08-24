@@ -15,6 +15,33 @@
     <image:image>
       <image:loc>https://templeofsun.com/assets/img/hero0.webp</image:loc>
     </image:image>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/hero1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/gal-1.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/images0.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/oils-ether.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/peter-bio.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/logos/ifa.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/logos/jncquoi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/logos/quinta-da-comporta.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/logos/vale-de-moses.webp</image:loc>
+    </image:image>
   </url>
 
   <!-- ═══════════════════════════════════════════════════
@@ -28,6 +55,8 @@
     <image:image>
       <image:loc>https://templeofsun.com/assets/img/collections-hero.webp</image:loc>
     </image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/rainbow.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/ether-akasha.webp</image:loc></image:image>
   </url>
 
   <url>
@@ -38,6 +67,24 @@
     <image:image>
       <image:loc>https://templeofsun.com/assets/img/rainbow-hero.webp</image:loc>
     </image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/focus.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/homecoming.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/moonlight.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/flow.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/forest-bathing.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/rainbow.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/awakening-queen.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/sunrise.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/inner-king.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/space-maker.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/confidence-serum.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/chakra-essence.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/speak-easy.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/defence.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/let-go.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/mind-your-gut.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/shen-essence.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/solar-serum.webp</image:loc></image:image>
   </url>
 
   <url>
@@ -48,6 +95,11 @@
     <image:image>
       <image:loc>https://templeofsun.com/assets/img/elements-hero.webp</image:loc>
     </image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/air-vayu.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/earth-prithvi.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/ether-akasha.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/fire-agni.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/products/water-jala.webp</image:loc></image:image>
   </url>
 
   <url>
@@ -58,6 +110,9 @@
     <image:image>
       <image:loc>https://templeofsun.com/assets/img/formula-hero.webp</image:loc>
     </image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/images2.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/jivamukti-1.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/jivamukti-2.webp</image:loc></image:image>
   </url>
 
   <url>
@@ -68,6 +123,9 @@
     <image:image>
       <image:loc>https://templeofsun.com/assets/img/jivamukti-1.webp</image:loc>
     </image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/jivamukti-2.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/jivamukti-bottle.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/jivamukti-rollon.webp</image:loc></image:image>
   </url>
 
   <!-- ═══════════════════════════════════════════════════
@@ -81,6 +139,8 @@
     <image:image>
       <image:loc>https://templeofsun.com/assets/img/treatments-hero.webp</image:loc>
     </image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/treatment-1.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/treatment-2.webp</image:loc></image:image>
   </url>
 
   <url>
@@ -101,6 +161,7 @@
     <image:image>
       <image:loc>https://templeofsun.com/assets/img/meditation-hero.webp</image:loc>
     </image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/meditation-1.webp</image:loc></image:image>
   </url>
 
   <url>
@@ -111,6 +172,8 @@
     <image:image>
       <image:loc>https://templeofsun.com/assets/img/labs-hero.webp</image:loc>
     </image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/gal-3.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/meditation-2.webp</image:loc></image:image>
   </url>
 
   <!-- ═══════════════════════════════════════════════════
@@ -124,6 +187,15 @@
     <image:image>
       <image:loc>https://templeofsun.com/assets/img/retreats-hero.webp</image:loc>
     </image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/hero-1.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/hero-3.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/hero-5.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/hero-6.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/gal-1.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/gal-2.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/gal-3.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/gal-4.webp</image:loc></image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/path-retreats.webp</image:loc></image:image>
 
     <!-- Guest testimonial 1 -->
     <video:video>
@@ -134,6 +206,10 @@
       <video:duration>94</video:duration>
       <video:publication_date>2026-05-01</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://templeofsun.com/bio.html">Temple of Sun</video:uploader>
+      <video:tag>Soul Alchemy Retreat</video:tag>
+      <video:tag>wellness retreat</video:tag>
+      <video:tag>guest testimonial</video:tag>
     </video:video>
 
     <!-- Guest testimonial 2 -->
@@ -145,6 +221,10 @@
       <video:duration>117</video:duration>
       <video:publication_date>2026-05-01</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://templeofsun.com/bio.html">Temple of Sun</video:uploader>
+      <video:tag>Soul Alchemy Retreat</video:tag>
+      <video:tag>wellness retreat</video:tag>
+      <video:tag>guest testimonial</video:tag>
     </video:video>
 
     <!-- Guest testimonial 3 (German) -->
@@ -156,6 +236,10 @@
       <video:duration>49</video:duration>
       <video:publication_date>2026-05-01</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://templeofsun.com/bio.html">Temple of Sun</video:uploader>
+      <video:tag>Soul Alchemy Retreat</video:tag>
+      <video:tag>wellness retreat</video:tag>
+      <video:tag>guest testimonial</video:tag>
     </video:video>
 
     <!-- Guest testimonial 4 -->
@@ -167,6 +251,10 @@
       <video:duration>51</video:duration>
       <video:publication_date>2026-05-01</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://templeofsun.com/bio.html">Temple of Sun</video:uploader>
+      <video:tag>Soul Alchemy Retreat</video:tag>
+      <video:tag>wellness retreat</video:tag>
+      <video:tag>guest testimonial</video:tag>
     </video:video>
 
     <!-- Guest testimonial 5 -->
@@ -178,6 +266,10 @@
       <video:duration>84</video:duration>
       <video:publication_date>2026-05-01</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://templeofsun.com/bio.html">Temple of Sun</video:uploader>
+      <video:tag>Soul Alchemy Retreat</video:tag>
+      <video:tag>wellness retreat</video:tag>
+      <video:tag>guest testimonial</video:tag>
     </video:video>
 
     <!-- Guest testimonial 6 -->
@@ -189,6 +281,10 @@
       <video:duration>56</video:duration>
       <video:publication_date>2026-05-01</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://templeofsun.com/bio.html">Temple of Sun</video:uploader>
+      <video:tag>Soul Alchemy Retreat</video:tag>
+      <video:tag>wellness retreat</video:tag>
+      <video:tag>guest testimonial</video:tag>
     </video:video>
   </url>
 
@@ -200,6 +296,9 @@
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/peter-story.webp</image:loc>
+    </image:image>
   </url>
 
   <url>
@@ -207,6 +306,9 @@
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/peter-bio.webp</image:loc>
+    </image:image>
   </url>
 
   <url>
@@ -217,6 +319,7 @@
     <image:image>
       <image:loc>https://templeofsun.com/assets/img/philosophy-hero.webp</image:loc>
     </image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/peter-philosophy.webp</image:loc></image:image>
   </url>
 
   <url>
@@ -241,6 +344,9 @@
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/contact-hero.webp</image:loc>
+    </image:image>
   </url>
 
   <!-- ═══════════════════════════════════════════════════

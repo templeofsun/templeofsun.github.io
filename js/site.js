@@ -85,7 +85,6 @@
     '</div>' +
     '<div class="footer-bottom">' +
     '  <span>© <span data-year></span> Temple of Sun · Aromatherapy &amp; Healing Retreats · Péter Frák, IFA member · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="faq.html">FAQ</a></span>' +
-    '  <span class="italic" style="color:#96603B">with love, Peter aka templeofsun ☀</span>' +
     '  <span class="f-legal">Aromatherapy at Temple of Sun is a complementary practice; it supports wellbeing and never replaces medical diagnosis, treatment or care.</span>' +
     '</div>';
 
