@@ -1,28 +1,247 @@
-# Temple of Sun · LAUNCH VERSION
-# On launch day: rename this file to robots.txt (replacing the preview one).
+# robots.txt - templeofsun.com
+# Temple of Sun - holistic wellness, aromatherapy & retreats by Péter Frák
+# Privacy policy: https://templeofsun.com/privacy.html
+# Last updated: 2026-08-24
+#
+# LAUNCH VERSION - on launch day, rename this file to robots.txt
+# (replacing the preview one that currently blocks everything).
+
+# ---------------------------------------------------------------------
+# Content Signals Policy
+# ---------------------------------------------------------------------
+# EU / EEA: Rights are expressly reserved under Article 4(3) of Directive
+# (EU) 2019/790 (DSM Directive). Per Article 53(1)(c) of Regulation (EU)
+# 2024/1689 (AI Act, in force 2 Aug 2025), providers of general-purpose AI
+# models must identify and honor these machine-readable reservations,
+# including for models trained outside the EU.
+# Worldwide: All rights reserved. No license is granted to use this content
+# to train or fine-tune AI models. The signals below reserve those rights.
+#
+#   search   = building a search index and serving search results
+#   ai-input = real-time use of content in AI responses (e.g. RAG)
+#   ai-train = training or fine-tuning AI models
+#
+# yes        = you may collect for the corresponding use
+# no         = you may NOT collect for the corresponding use
+#
+# Policy: AI search/inference is permitted. AI model training is not.
+# Content may appear in AI-generated answers but may not be used
+# to train or fine-tune any AI model without explicit written consent.
+
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
-User-agent: GPTBot
+# ---------------------------------------------------------------------
+# AI search & inference crawlers - permitted
+# ---------------------------------------------------------------------
+
+# OpenAI (ChatGPT search and browsing)
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
-User-agent: ClaudeBot
-Allow: /
-
+# Anthropic (Claude search and web features)
+User-agent: Claude-SearchBot
 User-agent: Claude-Web
+User-agent: Claude-User
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
+# Google (product/R&D fetchers - Search itself uses Googlebot, allowed by default)
+User-agent: GoogleOther
+User-agent: GoogleOther-Image
+User-agent: GoogleOther-Video
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+# Perplexity AI search
 User-agent: PerplexityBot
+User-agent: Perplexity-User
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
+# Apple (Siri and Safari Suggestions)
+User-agent: Applebot
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+# DuckDuckGo AI Answers
+User-agent: DuckAssistBot
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+# Mistral AI (Le Chat search)
+User-agent: MistralAI-User
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+# Amazon Alexa (web answers)
+User-agent: Amazonbot
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+# Microsoft (Bing search and Copilot answers)
+User-agent: Bingbot
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+# Meta AI (search answers)
+User-agent: meta-webindexer
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+# Brave (Leo AI search)
+User-agent: Bravebot
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+# You.com (AI search - note: also trains; ai-train=no signal still applies)
+User-agent: YouBot
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+# Google Gemini and Vertex grounding.
+# One token controls two things: grounding (Gemini citing this site in an answer) and
+# training future Gemini models. There is no way to take the first without the second, so
+# this is allowed for the grounding and the Content-Signal below states the intended use.
+# Googlebot, GoogleOther and AI Overviews were never affected by this token either way.
 User-agent: Google-Extended
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
+# Baidu (search, and the ERNIE / Yiyan assistant answers)
+# Baiduspider was already allowed by the * fallthrough; naming it makes the policy explicit
+# and keeps the Content-Signal attached to it. ERNIEBot and YiyanBot are reported by crawler
+# directories rather than Baidu's own documentation - not yet confirmed with the vendor.
+User-agent: Baiduspider
+User-agent: ERNIEBot
+User-agent: YiyanBot
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+# Kagi (assistant fetch)
+User-agent: kagi-fetcher
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+# Agentic browsers - a person (or their assistant) asked for this page.
+# Same category as ChatGPT-User and Perplexity-User above: user-initiated fetches, not
+# training crawlers. "Anchor Browser" is the vendor display name; RFC 9309 tokens cannot
+# contain spaces, so the space-free variant is listed alongside.
+User-agent: FirecrawlAgent
+User-agent: Manus-User
+User-agent: NovaAct
+User-agent: Crawlspace
+User-agent: Anchor Browser
+User-agent: AnchorBrowser
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+
+# ---------------------------------------------------------------------
+# AI training crawlers - not permitted
+# ---------------------------------------------------------------------
+
+# OpenAI (training)
+User-agent: GPTBot
+# Anthropic (training)
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+# Common Crawl (feeds most open LLM training datasets)
 User-agent: CCBot
-Allow: /
+# Apple (training)
+User-agent: Applebot-Extended
+# Google (Vertex AI / cloud model training)
+User-agent: Google-CloudVertexBot
+# xAI (Grok training - note: xAI ignores robots.txt; listed as notice)
+User-agent: GrokBot
+User-agent: xAI-Grok
+User-agent: Grok-DeepSearch
+# DeepSeek (training - note: undeclared crawler; listed as notice)
+User-agent: DeepSeekBot
+# Yandex (YandexGPT training)
+User-agent: YandexAdditional
+User-agent: YandexAdditionalBot
+# ByteDance / TikTok
+User-agent: Bytespider
+User-agent: TikTokSpider
+# Amazon Bedrock (model training)
+User-agent: BedrockBot
+# Cohere
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+# Meta
+User-agent: FacebookBot
+User-agent: meta-externalagent
+User-agent: meta-externalfetcher
+# Allen Institute (Dolma dataset)
+User-agent: AI2Bot
+User-agent: ai2bot-Dolma
+# Huawei
+User-agent: PanguBot
+# Chinese AI training
+User-agent: iaskspider/2.0
+# QuillBot
+User-agent: QuillBot
+# Data brokers and bulk scrapers
+User-agent: Diffbot
+User-agent: Omgili
+User-agent: Omgilibot
+User-agent: ImagesiftBot
+User-agent: TimpiBot
+User-agent: ICC-Crawler
+User-agent: ISSCyberRiskCrawler
+User-agent: PiplBot
+User-agent: Webzio-Extended
+User-agent: AwarioRssBot
+User-agent: AwarioSmartBot
+# RFC 9309 product tokens cannot contain spaces, so the multi-word names below
+# are vendor display names a compliant parser cannot match. The space-free
+# variant is listed alongside each. Not yet confirmed with the vendors.
+User-agent: Brightbot 1.0
+User-agent: Brightbot
+User-agent: FriendlyCrawler
+User-agent: img2dataset
+User-agent: Kangaroo Bot
+User-agent: KangarooBot
+User-agent: Sidetrade indexer bot
+User-agent: SidetradeIndexerBot
+User-agent: VelenPublicWebCrawler
+User-agent: ProRataInc
+User-agent: Novellum
+User-agent: Terracotta
+# Allow /llms.txt and /llms-full.txt only - lets these bots learn who Péter Frák
+# and Temple of Sun are for entity recognition without granting access to any
+# actual site content.
+# /sitemap.xml is allowed purely as the discovery route to those two files.
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /sitemap.xml
+Disallow: /
 
+# ---------------------------------------------------------------------
+# Competitive-intelligence / SEO scrapers - not permitted
+# ---------------------------------------------------------------------
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: SemrushBot-SA
+User-agent: SemrushBot-BA
+User-agent: SemrushBot-OCOB
+User-agent: SemrushBot-SWA
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: BLEXBot
+User-agent: DataForSeoBot
+User-agent: Mauibot
+User-agent: SeekportBot
+User-agent: PetalBot
+User-agent: AspiegelBot
+User-agent: ZoominfoBot
+Disallow: /
+
+# ---------------------------------------------------------------------
+# Sitemap
+# ---------------------------------------------------------------------
+# LLMs: https://templeofsun.com/llms.txt · https://templeofsun.com/llms-full.txt
 Sitemap: https://templeofsun.com/sitemap.xml
-
-# For AI assistants and LLM crawlers:
-# Index:        https://templeofsun.com/llms.txt
-# Full content: https://templeofsun.com/llms-full.txt

@@ -1,22 +1,280 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://templeofsun.com/5-elements.html</loc><lastmod>2026-08-24</lastmod><priority>0.9</priority></url>
-  <url><loc>https://templeofsun.com/about.html</loc><lastmod>2026-08-24</lastmod><priority>0.7</priority></url>
-  <url><loc>https://templeofsun.com/aromatherapy.html</loc><lastmod>2026-08-24</lastmod><priority>0.7</priority></url>
-  <url><loc>https://templeofsun.com/bio.html</loc><lastmod>2026-08-24</lastmod><priority>0.7</priority></url>
-  <url><loc>https://templeofsun.com/collections.html</loc><lastmod>2026-08-24</lastmod><priority>0.9</priority></url>
-  <url><loc>https://templeofsun.com/contact.html</loc><lastmod>2026-08-24</lastmod><priority>0.7</priority></url>
-  <url><loc>https://templeofsun.com/create-your-own-formula.html</loc><lastmod>2026-08-24</lastmod><priority>0.7</priority></url>
-  <url><loc>https://templeofsun.com/</loc><lastmod>2026-08-24</lastmod><priority>1.0</priority></url>
-  <url><loc>https://templeofsun.com/jivamukti-collaboration.html</loc><lastmod>2026-08-24</lastmod><priority>0.7</priority></url>
-  <url><loc>https://templeofsun.com/meditation.html</loc><lastmod>2026-08-24</lastmod><priority>0.7</priority></url>
-  <url><loc>https://templeofsun.com/mindfulness-labs.html</loc><lastmod>2026-08-24</lastmod><priority>0.7</priority></url>
-  <url><loc>https://templeofsun.com/online-sessions.html</loc><lastmod>2026-08-24</lastmod><priority>0.9</priority></url>
-  <url><loc>https://templeofsun.com/philosophy.html</loc><lastmod>2026-08-24</lastmod><priority>0.7</priority></url>
-  <url><loc>https://templeofsun.com/privacy.html</loc><lastmod>2026-08-24</lastmod><priority>0.3</priority></url>
-  <url><loc>https://templeofsun.com/rainbow-collection.html</loc><lastmod>2026-08-24</lastmod><priority>0.9</priority></url>
-  <url><loc>https://templeofsun.com/retreats.html</loc><lastmod>2026-08-24</lastmod><priority>0.9</priority></url>
-  <url><loc>https://templeofsun.com/terms.html</loc><lastmod>2026-08-24</lastmod><priority>0.3</priority></url>
-  <url><loc>https://templeofsun.com/treatments.html</loc><lastmod>2026-08-24</lastmod><priority>0.9</priority></url>
-  <url><loc>https://templeofsun.com/faq.html</loc><lastmod>2026-08-24</lastmod><priority>0.7</priority></url>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- ═══════════════════════════════════════════════════
+       Homepage
+       ═══════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://templeofsun.com/</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/hero0.webp</image:loc>
+    </image:image>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════
+       Collections
+       ═══════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://templeofsun.com/collections.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/collections-hero.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://templeofsun.com/rainbow-collection.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/rainbow-hero.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://templeofsun.com/5-elements.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/elements-hero.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://templeofsun.com/create-your-own-formula.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/formula-hero.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://templeofsun.com/jivamukti-collaboration.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/jivamukti-1.webp</image:loc>
+    </image:image>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════
+       Treatments, sessions & classes
+       ═══════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://templeofsun.com/treatments.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/treatments-hero.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://templeofsun.com/online-sessions.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/online-hero.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://templeofsun.com/meditation.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/meditation-hero.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://templeofsun.com/mindfulness-labs.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/labs-hero.webp</image:loc>
+    </image:image>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════
+       Soul Alchemy Retreats — with guest video testimonials
+       ═══════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://templeofsun.com/retreats.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/retreats-hero.webp</image:loc>
+    </image:image>
+
+    <!-- Guest testimonial 1 -->
+    <video:video>
+      <video:thumbnail_loc>https://templeofsun.com/assets/img/posters/guest-1.webp</video:thumbnail_loc>
+      <video:title>A guest on the Soul Alchemy Retreat — testimonial 1</video:title>
+      <video:description>A guest reflects at the end of her Soul Alchemy Retreat week: feeling lighter and more grounded, the treatments and breathing circle as highlights, and the Self-Love aromatherapy blend among her favourites.</video:description>
+      <video:content_loc>https://templeofsun.com/assets/video/guest-1.mp4</video:content_loc>
+      <video:duration>94</video:duration>
+      <video:publication_date>2026-05-01</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+
+    <!-- Guest testimonial 2 -->
+    <video:video>
+      <video:thumbnail_loc>https://templeofsun.com/assets/img/posters/guest-2.webp</video:thumbnail_loc>
+      <video:title>A guest on the Soul Alchemy Retreat — testimonial 2</video:title>
+      <video:description>A guest describes arriving uncertain and unprepared, and leaving after a week of meditation and reflection that pushed her out of her comfort zone and, in her words, felt life changing.</video:description>
+      <video:content_loc>https://templeofsun.com/assets/video/guest-2.mp4</video:content_loc>
+      <video:duration>117</video:duration>
+      <video:publication_date>2026-05-01</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+
+    <!-- Guest testimonial 3 (German) -->
+    <video:video>
+      <video:thumbnail_loc>https://templeofsun.com/assets/img/posters/guest-3.webp</video:thumbnail_loc>
+      <video:title>A guest on the Soul Alchemy Retreat — testimonial 3</video:title>
+      <video:description>A guest speaks in German about the week's meditation, yoga and community, describing the experience together as medicine that everyone needs.</video:description>
+      <video:content_loc>https://templeofsun.com/assets/video/guest-3.mp4</video:content_loc>
+      <video:duration>49</video:duration>
+      <video:publication_date>2026-05-01</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+
+    <!-- Guest testimonial 4 -->
+    <video:video>
+      <video:thumbnail_loc>https://templeofsun.com/assets/img/posters/guest-4.webp</video:thumbnail_loc>
+      <video:title>A guest on the Soul Alchemy Retreat — testimonial 4</video:title>
+      <video:description>A guest describes the retreat as an all-inclusive experience where every detail is taken care of, and reflects on how quickly the group connected as a family.</video:description>
+      <video:content_loc>https://templeofsun.com/assets/video/guest-4.mp4</video:content_loc>
+      <video:duration>51</video:duration>
+      <video:publication_date>2026-05-01</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+
+    <!-- Guest testimonial 5 -->
+    <video:video>
+      <video:thumbnail_loc>https://templeofsun.com/assets/img/posters/guest-5.webp</video:thumbnail_loc>
+      <video:title>A guest on the Soul Alchemy Retreat — testimonial 5</video:title>
+      <video:description>A guest describes how aromatherapy, yoga and meditation combined into what she calls a special container, and recalls an inner child healing exercise as a particularly moving moment of the week.</video:description>
+      <video:content_loc>https://templeofsun.com/assets/video/guest-5.mp4</video:content_loc>
+      <video:duration>84</video:duration>
+      <video:publication_date>2026-05-01</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+
+    <!-- Guest testimonial 6 -->
+    <video:video>
+      <video:thumbnail_loc>https://templeofsun.com/assets/img/posters/guest-6.webp</video:thumbnail_loc>
+      <video:title>A guest on the Soul Alchemy Retreat — testimonial 6</video:title>
+      <video:description>A guest shares a personal moment from the retreat's morning meditations: after losing both parents the year before, he describes feeling able to sense them again, supporting him.</video:description>
+      <video:content_loc>https://templeofsun.com/assets/video/guest-6.mp4</video:content_loc>
+      <video:duration>56</video:duration>
+      <video:publication_date>2026-05-01</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════
+       About Péter & the practice
+       ═══════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://templeofsun.com/about.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://templeofsun.com/bio.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://templeofsun.com/philosophy.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/philosophy-hero.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://templeofsun.com/aromatherapy.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/aromatherapy-hero.webp</image:loc>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://templeofsun.com/faq.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://templeofsun.com/contact.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════
+       Legal
+       ═══════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://templeofsun.com/privacy.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://templeofsun.com/terms.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════
+       AI agent entry points
+       ═══════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://templeofsun.com/llms.txt</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://templeofsun.com/llms-full.txt</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
 </urlset>

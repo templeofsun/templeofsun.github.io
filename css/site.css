@@ -1297,3 +1297,15 @@ button.product:focus-visible,button.product-el:focus-visible{outline:1.5px solid
   .faq-main{margin-top:30px}
   .faq-count{text-align:center}
 }
+
+/* ---- retreat guest video transcripts ---- */
+.vt-words{max-width:880px;margin-left:auto;margin-right:auto;text-align:center}
+.vt-words summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);transition:color var(--t-fast) ease}
+.vt-words summary::-webkit-details-marker{display:none}
+.vt-words summary::after{content:'';width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);transition:transform .3s}
+.vt-words[open] summary::after{transform:rotate(225deg)}
+.vt-words summary:hover{color:var(--umber)}
+.vt-words-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px;margin-top:28px;text-align:left}
+.vt-words-grid blockquote{margin:0;padding:22px 24px;background:var(--card-bg);border:1px solid var(--hairline);border-radius:4px}
+.vt-words-grid blockquote p{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.6;color:var(--umber);margin:0}
+.vt-words-grid cite{display:block;margin-top:14px;font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
