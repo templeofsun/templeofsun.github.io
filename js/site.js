@@ -21,7 +21,7 @@
 
   /* ---------- shared header ---------- */
   var HEADER =
-    '<a class="brand" href="index.html"><img class="brand-logo" src="assets/img/logo2-brown.webp" alt="templeofsun · Alchemy of souls" onerror="this.outerHTML=\'<span>Temple of Sun</span>\'"></a>' +
+    '<a class="brand" href="index.html"><img class="brand-logo" src="assets/img/logo2-brown.webp" alt="templeofsun · Alchemy of souls" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden>Temple of Sun</span></a>' +
     '<nav class="nav-desktop" aria-label="Main">' +
     '  <div class="nav-item"><button class="nav-link" type="button" aria-haspopup="true">Aromatherapy<span class="caret">▼</span></button>' +
     '    <div class="dd"><a href="aromatherapy.html">Introduction</a>' +
@@ -72,7 +72,7 @@
   };
   var FOOTER =
     '<div class="footer-min">' +
-    '  <a class="brand" href="index.html"><img class="brand-logo-f" src="assets/img/logo2-brown.webp" alt="templeofsun · Alchemy of souls" onerror="this.outerHTML=\'<span>Temple of Sun</span>\'"></a>' +
+    '  <a class="brand" href="index.html"><img class="brand-logo-f" src="assets/img/logo2-brown.webp" alt="templeofsun · Alchemy of souls" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden>Temple of Sun</span></a>' +
     '  <p class="f-tag">holistic wellness experiences by Péter Frák</p>' +
     '  <div class="f-icons">' +
     '    <a href="mailto:templeofsunofficial@gmail.com" aria-label="Email" title="templeofsunofficial@gmail.com">' + IC.email + '</a>' +
@@ -84,8 +84,9 @@
     '  </div>' +
     '</div>' +
     '<div class="footer-bottom">' +
-    '  <span>© <span data-year></span> Temple of Sun · Aromatherapy &amp; Healing Retreats · Péter Frák, IFA member · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>' +
+    '  <span>© <span data-year></span> Temple of Sun · Aromatherapy &amp; Healing Retreats · Péter Frák, IFA member · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="faq.html">FAQ</a></span>' +
     '  <span class="italic" style="color:#96603B">with love, Peter aka templeofsun ☀</span>' +
+    '  <span class="f-legal">Aromatherapy at Temple of Sun is a complementary practice; it supports wellbeing and never replaces medical diagnosis, treatment or care.</span>' +
     '</div>';
 
   /* ---------- inject ---------- */
@@ -95,12 +96,14 @@
   skip.className = 'skip'; skip.href = '#main'; skip.textContent = 'Skip to content';
   document.body.insertBefore(skip, document.body.firstChild);
 
+  /* nav + footer ship as static HTML (stamped at build time) so crawlers see
+     the full link graph; JS only fills a host that is still empty. */
   var headerHost = document.querySelector('[data-site-header]');
-  if (headerHost) { headerHost.className = 'site-header'; headerHost.innerHTML = HEADER; }
+  if (headerHost) { headerHost.className = 'site-header'; if (!headerHost.firstElementChild) headerHost.innerHTML = HEADER; }
   var mobileHost = document.querySelector('[data-site-mobile]');
-  if (mobileHost) { mobileHost.className = 'mobile-menu'; mobileHost.innerHTML = MOBILE; }
+  if (mobileHost) { mobileHost.className = 'mobile-menu'; if (!mobileHost.firstElementChild) mobileHost.innerHTML = MOBILE; }
   var footerHost = document.querySelector('[data-site-footer]');
-  if (footerHost) { footerHost.className = 'site-footer'; footerHost.innerHTML = FOOTER; }
+  if (footerHost) { footerHost.className = 'site-footer'; if (!footerHost.firstElementChild) footerHost.innerHTML = FOOTER; }
 
   /* floating WhatsApp — a real human answers */
   var wa = document.createElement('a');
@@ -437,7 +440,9 @@
 
     /* slow drift, both directions reachable by hand */
     var driftAcc = 0;
+    var vcRunning = false;
     function tick() {
+      if (!vcRunning) return;
       if (drifting && !paused && spanW && document.visibilityState === 'visible') {
         driftAcc += 0.45;
         var whole = Math.floor(driftAcc);
@@ -445,7 +450,13 @@
       }
       requestAnimationFrame(tick);
     }
-    requestAnimationFrame(tick);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) {
+        var vis = en[0].isIntersecting;
+        if (vis && !vcRunning) { vcRunning = true; requestAnimationFrame(tick); }
+        else if (!vis) vcRunning = false;
+      }).observe(vcShell);
+    } else { vcRunning = true; requestAnimationFrame(tick); }
     ['mouseenter', 'focusin', 'touchstart'].forEach(function (ev) { vcShell.addEventListener(ev, function () { paused = true; }, { passive: true }); });
     ['mouseleave', 'focusout'].forEach(function (ev) { vcShell.addEventListener(ev, function () { paused = false; }); });
 
@@ -536,6 +547,7 @@
   });
   if (document.readyState !== 'loading') document.body.classList.add('is-ready');
   document.addEventListener('click', function (e) {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
     var a = e.target.closest('a');
     if (!a) return;
     var href = a.getAttribute('href') || '';

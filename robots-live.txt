@@ -1,0 +1,28 @@
+# Temple of Sun · LAUNCH VERSION
+# On launch day: rename this file to robots.txt (replacing the preview one).
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://templeofsun.com/sitemap.xml
+
+# For AI assistants and LLM crawlers:
+# Index:        https://templeofsun.com/llms.txt
+# Full content: https://templeofsun.com/llms-full.txt
