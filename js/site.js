@@ -21,7 +21,7 @@
 
   /* ---------- shared header ---------- */
   var HEADER =
-    '<a class="brand" href="index.html"><img class="brand-logo" src="assets/img/logo2-brown.webp" alt="templeofsun · Alchemy of souls" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden>Temple of Sun</span></a>' +
+    '<a class="brand" href="index.html"><img class="brand-logo" src="assets/img/logo2-brown.webp" alt="templeofsun · Alchemy of souls" data-onerr="swap"><span hidden>Temple of Sun</span></a>' +
     '<nav class="nav-desktop" aria-label="Main">' +
     '  <div class="nav-item"><button class="nav-link" type="button" aria-haspopup="true">Aromatherapy<span class="caret">▼</span></button>' +
     '    <div class="dd"><a href="aromatherapy.html">Introduction</a>' +
@@ -72,7 +72,7 @@
   };
   var FOOTER =
     '<div class="footer-min">' +
-    '  <a class="brand" href="index.html"><img class="brand-logo-f" src="assets/img/logo2-brown.webp" alt="templeofsun · Alchemy of souls" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden>Temple of Sun</span></a>' +
+    '  <a class="brand" href="index.html"><img class="brand-logo-f" src="assets/img/logo2-brown.webp" alt="templeofsun · Alchemy of souls" data-onerr="swap"><span hidden>Temple of Sun</span></a>' +
     '  <p class="f-tag">holistic wellness experiences by Péter Frák</p>' +
     '  <div class="f-icons">' +
     '    <a href="mailto:templeofsunofficial@gmail.com" aria-label="Email" title="templeofsunofficial@gmail.com">' + IC.email + '</a>' +
@@ -97,12 +97,26 @@
 
   /* nav + footer ship as static HTML (stamped at build time) so crawlers see
      the full link graph; JS only fills a host that is still empty. */
+  /* pages in a sub-folder (products/) declare data-root="../" on <html>, so the
+     shared nav and footer links still point at the site root. Pages at the root
+     declare nothing and nothing changes for them. */
+  var ROOT = document.documentElement.getAttribute('data-root') || '';
+  function localise(host) {
+    if (!ROOT || !host) return;
+    host.querySelectorAll('[href],[src]').forEach(function (el) {
+      var attr = el.hasAttribute('href') ? 'href' : 'src';
+      var value = el.getAttribute(attr);
+      if (!value || /^(https?:|mailto:|tel:|data:|#|\/)/.test(value)) return;
+      el.setAttribute(attr, ROOT + value);
+    });
+  }
+
   var headerHost = document.querySelector('[data-site-header]');
-  if (headerHost) { headerHost.className = 'site-header'; if (!headerHost.firstElementChild) headerHost.innerHTML = HEADER; }
+  if (headerHost) { headerHost.className = 'site-header'; if (!headerHost.firstElementChild) { headerHost.innerHTML = HEADER; localise(headerHost); } }
   var mobileHost = document.querySelector('[data-site-mobile]');
-  if (mobileHost) { mobileHost.className = 'mobile-menu'; if (!mobileHost.firstElementChild) mobileHost.innerHTML = MOBILE; }
+  if (mobileHost) { mobileHost.className = 'mobile-menu'; if (!mobileHost.firstElementChild) { mobileHost.innerHTML = MOBILE; localise(mobileHost); } }
   var footerHost = document.querySelector('[data-site-footer]');
-  if (footerHost) { footerHost.className = 'site-footer'; if (!footerHost.firstElementChild) footerHost.innerHTML = FOOTER; }
+  if (footerHost) { footerHost.className = 'site-footer'; if (!footerHost.firstElementChild) { footerHost.innerHTML = FOOTER; localise(footerHost); } }
 
   /* floating WhatsApp — a real human answers */
   var wa = document.createElement('a');

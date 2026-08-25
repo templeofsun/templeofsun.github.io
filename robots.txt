@@ -1,2 +1,9 @@
+# SITE NOT PUBLIC YET.
+# Every crawler is blocked so unfinished pages never reach search results.
+#
+# On launch day, run:  python3 tools/prepare-for-upload.py --live
+# That replaces this file with robots-live.txt, which welcomes search engines
+# and refuses AI training.
+
 User-agent: *
 Disallow: /

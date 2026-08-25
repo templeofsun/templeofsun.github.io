@@ -1,5 +1,9 @@
 # Temple of Sun — Website
 
+> **Before deploying to Cloudflare:** set the build command to
+> `python3 tools/generate-headers.py` — see `START-HERE-CLOUDFLARE.md`.
+
+
 Static site for Peter (Péter Frák) — Temple of Sun, alchemy of souls.
 Pure HTML / CSS / JS. No frameworks, no build step. Open `index.html` in a browser and it works.
 

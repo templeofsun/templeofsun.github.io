@@ -128,6 +128,16 @@
     <image:image><image:loc>https://templeofsun.com/assets/img/jivamukti-rollon.webp</image:loc></image:image>
   </url>
 
+  <url>
+    <loc>https://templeofsun.com/find-your-blend.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/rainbow-hero.webp</image:loc>
+    </image:image>
+  </url>
+
   <!-- ═══════════════════════════════════════════════════
        Treatments, sessions & classes
        ═══════════════════════════════════════════════════ -->
@@ -382,5 +392,238 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
+  <!-- blend-pages start -->
+  <url>
+    <loc>https://templeofsun.com/products/focus.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/focus.webp</image:loc>
+      <image:title>Focus</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/homecoming.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/homecoming.webp</image:loc>
+      <image:title>Homecoming</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/moonlight.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/moonlight.webp</image:loc>
+      <image:title>Moonlight</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/flow.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/flow.webp</image:loc>
+      <image:title>Flow</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/forest-bathing.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/forest-bathing.webp</image:loc>
+      <image:title>Forest Bathing</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/rainbow.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/rainbow.webp</image:loc>
+      <image:title>Rainbow</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/awakening-queen.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/awakening-queen.webp</image:loc>
+      <image:title>Awakening Queen</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/sunrise.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/sunrise.webp</image:loc>
+      <image:title>Sunrise</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/inner-king.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/inner-king.webp</image:loc>
+      <image:title>Inner King</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/space-maker.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/space-maker.webp</image:loc>
+      <image:title>Space Maker</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/confidence-serum.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/confidence-serum.webp</image:loc>
+      <image:title>Confidence Serum</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/chakra-essence.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/chakra-essence.webp</image:loc>
+      <image:title>Chakra Essence</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/speak-easy.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/speak-easy.webp</image:loc>
+      <image:title>Speak Easy</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/defence.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/defence.webp</image:loc>
+      <image:title>Defence</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/let-go.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/let-go.webp</image:loc>
+      <image:title>Let Go</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/mind-your-gut.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/mind-your-gut.webp</image:loc>
+      <image:title>Mind Your Gut</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/solar-serum.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/solar-serum.webp</image:loc>
+      <image:title>Solar Serum</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/shen-essence.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/shen-essence.webp</image:loc>
+      <image:title>Shen Essence</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/earth-prithvi.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/earth-prithvi.webp</image:loc>
+      <image:title>Earth · Prithvi</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/water-jala.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/water-jala.webp</image:loc>
+      <image:title>Water · Jala</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/fire-agni.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/fire-agni.webp</image:loc>
+      <image:title>Fire · Agni</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/air-vayu.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/air-vayu.webp</image:loc>
+      <image:title>Air · Vayu</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://templeofsun.com/products/ether-akasha.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/products/ether-akasha.webp</image:loc>
+      <image:title>Ether · Akasha</image:title>
+    </image:image>
+  </url>
+  <!-- blend-pages end -->
 
 </urlset>
