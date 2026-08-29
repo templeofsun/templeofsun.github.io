@@ -190,6 +190,11 @@
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+
+/* Links take the colour of the text around them, never the browser's blue.
+   Anything that wants to look like a link says so for itself, further down. */
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
 body{
   background:var(--porcelain);
   color:var(--umber);
@@ -247,6 +252,26 @@ p.center,[style*="text-align:center"] p,.faq-empty p{margin-left:auto;margin-rig
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,88px);align-items:center}
 .split .media{order:2}
 .split.media-left .media{order:0}
+/* Peter's letter. Built on the site's editorial duo, mirrored: the words run
+   as ONE continuous column on the left at a readable line length, and the
+   heading and picture ride in a rail on the right that travels as you scroll,
+   so the full page width is used and nothing is left standing empty. */
+.duo.duo-letter{grid-template-columns:minmax(0,9fr) minmax(0,4fr);
+  gap:clamp(30px,3.6vw,52px)}
+.duo-letter .duo-rail{order:2;position:sticky;top:100px}
+.duo-letter .duo-rail .label{margin-bottom:14px}
+.duo-letter .duo-rail h2{font-size:clamp(28px,3vw,38px);text-wrap:balance}
+.duo-letter .duo-rail .frame{display:block;margin-top:26px}
+.duo-letter .letter p{font-size:17px;line-height:1.72}
+.duo-letter .letter p + p{margin-top:16px}
+.duo-letter .letter .lead{font-size:19.5px;line-height:1.6}
+.duo-letter .letter .sig{display:inline-block;margin-top:20px}
+@media(max-width:860px){
+  .duo.duo-letter{grid-template-columns:1fr}
+  .duo-letter .duo-rail{order:0;position:static}
+  .duo-letter .duo-rail .frame{margin-top:20px}
+}
+
 @media(max-width:820px){
   .split{grid-template-columns:1fr}
   .split .media,.split.media-left .media{order:0}
@@ -558,6 +583,10 @@ body.menu-open .mobile-menu a{opacity:1;transform:none;transition:opacity .5s va
 .card{display:block;text-decoration:none;color:var(--umber);transition:transform var(--t-fast) var(--ease)}
 a.card:hover{transform:translateY(-4px)}
 .card .card-body{padding:22px 4px 0}
+/* when titles wrap to different depths, keep every "read more" on one line */
+.grid-3 .card,.grid-2 .card{display:flex;flex-direction:column}
+.grid-3 .card .card-body,.grid-2 .card .card-body{display:flex;flex-direction:column;flex:1}
+.grid-3 .card .card-body .lnk,.grid-2 .card .card-body .lnk{margin-top:auto;padding-top:4px}
 .card .k{font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--sage)}
 .card h3{margin:8px 0 8px}
 .card p{font-size:15px;margin-bottom:12px}
@@ -615,7 +644,8 @@ a.card:hover{transform:translateY(-4px)}
 .testi-dots{display:flex;gap:9px;justify-content:center;margin-top:30px}
 .testi-dots button{width:22px;height:2px;border:none;background:var(--sand-deep);cursor:pointer;padding:0;transition:background .3s}
 .testi-dots button.is-active{background:var(--clay)}
-.trusted{display:flex;flex-wrap:wrap;gap:26px 48px;justify-content:center;align-items:center}
+/* seven marks on one line at desktop widths; wraps gracefully below */
+.trusted{display:flex;flex-wrap:wrap;gap:26px clamp(16px,2vw,26px);justify-content:center;align-items:center}
 
 /* the practices — serif words strung on gold diamonds */
 .practices{display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;column-gap:0;row-gap:14px;max-width:940px;margin:0 auto}
@@ -645,11 +675,18 @@ a.card:hover{transform:translateY(-4px)}
 .cred-row:hover .cred-note{color:var(--clay-ink)}
 .cred-row:hover .lead-line{border-color:var(--gold)}
 .cred-also{font-family:var(--serif);font-style:italic;font-size:16.5px;color:var(--sage);margin-top:26px}
-.cred-note a,.cred-also a{
+/* a link sitting inside a sentence: underlined in hairline, gold on hover */
+.subhero-content .label a{
+  color:inherit;text-decoration:none;border-bottom:1px solid currentColor;
+  padding-bottom:1px;opacity:.85;transition:opacity var(--t-fast) ease;
+}
+.subhero-content .label a:hover{opacity:1}
+.cred-note a,.cred-also a,.wrap-text p a,.duo-body p a{
   color:inherit;text-decoration:underline;text-decoration-color:var(--hairline);
   text-underline-offset:2px;transition:color var(--t-fast) ease,text-decoration-color var(--t-fast) ease;
 }
-.cred-note a:hover,.cred-also a:hover{color:var(--gold);text-decoration-color:var(--gold)}
+.cred-note a:hover,.cred-also a:hover,
+.wrap-text p a:hover,.duo-body p a:hover{color:var(--gold);text-decoration-color:var(--gold)}
 @media(max-width:640px){
   .cred-row{flex-direction:column;gap:5px;padding:17px 0;border-top:1px solid var(--hairline)}
   .cred-row:first-child{border-top:0;padding-top:0}
@@ -658,12 +695,14 @@ a.card:hover{transform:translateY(-4px)}
 }
 .t-item{display:inline-flex;align-items:center;justify-content:center}
 .t-item img{
-  height:44px;width:auto;max-width:170px;object-fit:contain;
+  height:44px;width:auto;max-width:134px;object-fit:contain;
   filter:grayscale(1) opacity(.55);
   transition:filter var(--t-fast) ease,transform var(--t-fast) var(--ease);
 }
 .t-item img:hover{filter:grayscale(0) opacity(.95);transform:translateY(-2px)}
 .t-item>span{display:none;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--sage)}
+/* square marks need more height than wordmarks to read at the same weight */
+.t-item img.t-square{height:60px;max-width:80px}
 .t-item.t-fallback img{display:none}
 .t-item.t-fallback>span{display:inline}
 
@@ -1495,3 +1534,26 @@ button.product:focus-visible,button.product-el:focus-visible{outline:1.5px solid
 .bp-index li a{color:var(--clay-ink);text-decoration:none;font-size:15.5px}
 .bp-index li a:hover{text-decoration:underline}
 .bp-index li span{font-size:12px;color:var(--sage);white-space:nowrap}
+
+/* bio — press / radio credits */
+#press{padding-top:clamp(10px,2vw,20px)}
+.press-item{
+  margin-top:26px;padding-top:24px;border-top:1px solid var(--hairline);
+}
+.press-item h3{
+  font-family:var(--serif);font-weight:400;font-size:clamp(23px,2.4vw,29px);
+  line-height:1.2;margin:0 0 6px;
+}
+.press-item h3 a{color:var(--umber);text-decoration:none}
+.press-item h3 a:hover{color:var(--clay-ink)}
+.press-meta{
+  font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--sage);margin:0 0 16px;
+}
+.press-item p{font-size:16px;line-height:1.7}
+.press-link{margin-top:14px}
+.press-link a{
+  color:var(--clay-ink);text-decoration:none;
+  border-bottom:1px solid var(--hairline);padding-bottom:2px;
+}
+.press-link a:hover{border-bottom-color:var(--clay-ink)}

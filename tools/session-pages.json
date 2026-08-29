@@ -1,0 +1,202 @@
+{
+  "_comment": [
+    "The three online session pages — Péter's own words, in one place.",
+    "",
+    "Edit the text here, run tools/prepare-for-upload.py, and the three pages",
+    "rebuild themselves. Never edit health-consultation.html, spiritual-mentoring.html",
+    "or meditation-guidance.html by hand: they are overwritten on every run.",
+    "",
+    "The wording is taken from templeofsun.com/healing/health-consultation/ and kept",
+    "as close to Péter's original as possible, with British spelling to match the site.",
+    "",
+    "hero  = the picture at the top. These are borrowed from other pages for now.",
+    "        Swap the filename here when Péter sends his own photographs.",
+    "icon  = which small drawn symbol to use. See ICONS in generate-session-pages.py.",
+    "blocks = the page, in order. Each one is either:",
+    "   duo   a heading on the left, paragraphs on the right",
+    "   rites a row of small symbols with a title and one line each",
+    "   quote a full-width line in Péter's voice",
+    "tone   = oat (warm panel) or sand (deeper panel). Leave out for plain."
+  ],
+
+  "pages": [
+    {
+      "slug": "health-consultation",
+      "title": "Holistic Health Consultation",
+      "navLabel": "Health Consultation",
+      "kicker": "One hour · one time · online",
+      "tagline": "receive personalised guidance designed to restore harmony from within",
+      "cardLine": "One online hour, built around your constitution, your habits and your history.",
+      "duration": "PT1H",
+      "hero": {
+        "img": "philosophy-hero.webp",
+        "alt": "Three rose petals, from fresh to dried, resting on linen",
+        "w": 1264,
+        "h": 848
+      },
+      "metaDescription": "A one-time, one-hour online Ayurveda-based holistic health consultation with Péter Frák: your constitution, your habits, your history, and personalised aromatherapy suggestions. Held in complete confidence, anywhere in the world.",
+      "serviceType": "Online holistic health consultation",
+      "blocks": [
+        {
+          "type": "duo",
+          "label": "In my own words",
+          "h2": "One hour, entirely about you",
+          "lead": "This is a one-time, online Ayurveda-based holistic health consultation.",
+          "paras": [
+            "During our one-hour session I gently guide you through a health and lifestyle questionnaire designed to help us explore your unique needs. Everything you share, whether intentionally or as it arises naturally in conversation, is held in complete confidentiality.",
+            "Changing one's lifestyle, behaviours and old counterproductive habits is necessary in this process. It is never easy; sometimes it is even unpleasant for a short time. I am here to support your journey with all my knowledge and compassion for all humankind, together with the healing power that aromatherapy offers."
+          ]
+        },
+        {
+          "type": "rites",
+          "tone": "oat",
+          "label": "The hour",
+          "h2": "What we look at together",
+          "items": [
+            { "icon": "speech", "title": "Your story", "line": "current challenges, habitual patterns, areas of imbalance" },
+            { "icon": "rings", "title": "Your constitution", "line": "your elemental and Doshic make-up, read carefully" },
+            { "icon": "drop", "title": "Your everyday", "line": "lifestyle, daily routines, foods, habits and tools" },
+            { "icon": "heart", "title": "Your inner landscape", "line": "health history, emotional and mental patterns" }
+          ]
+        },
+        {
+          "type": "duo",
+          "label": "What you leave with",
+          "h2": "Practical, and yours",
+          "paras": [
+            "Based on your elemental and Doshic constitution I offer practical and accessible recommendations: new directions, foods, habits and tools to support harmony and wellbeing in your everyday life.",
+            "From this holistic perspective I then create personalised aromatherapy suggestions to further assist your healing journey. If you choose to continue the process with me, I am here to offer ongoing support and guidance through aromatherapy, no matter where you are in the world."
+          ]
+        },
+        {
+          "type": "quote",
+          "text": "Everything you share, whether intentionally or as it arises naturally in conversation, will be held in complete confidentiality.",
+          "cite": "Péter Frák"
+        }
+      ]
+    },
+
+    {
+      "slug": "spiritual-mentoring",
+      "title": "Spiritual Mentoring &amp; Transformation",
+      "navLabel": "Spiritual Mentoring",
+      "kicker": "Three months · six sessions and an intro call · online",
+      "tagline": "reconnect with your authentic self through aromatherapy, empathy and presence",
+      "cardLine": "A three-month journey, with four blends made for the themes we walk through.",
+      "duration": "P3M",
+      "hero": {
+        "img": "labs-hero.webp",
+        "alt": "A single leaf sending ripples across a shallow bowl of water",
+        "w": 1264,
+        "h": 848
+      },
+      "metaDescription": "A three-month, one-to-one online spiritual mentoring and transformation programme with Péter Frák: six 60-minute sessions, an introduction call, and four templeofsun aromatherapy formulas created for your journey.",
+      "serviceType": "Online spiritual mentoring and transformation programme",
+      "blocks": [
+        {
+          "type": "duo",
+          "label": "In my own words",
+          "h2": "A three-month journey",
+          "lead": "This three-month programme is a deeply transformative journey designed to support your personal growth, healing and alignment.",
+          "paras": [
+            "We meet online twice a month for 60-minute sessions — six online sessions plus one introduction call in total — where you receive dedicated, one-to-one guidance and mentoring.",
+            "As part of the programme you receive three, plus one, templeofsun aromatherapy formulas of 5ml each, carefully created and attuned to your individual needs and to the themes we explore together. Each month you work with one formula daily, following my guidance to deepen your transformational process, while the additional blend supports your integration at the end of the journey."
+          ]
+        },
+        {
+          "type": "rites",
+          "tone": "oat",
+          "label": "What is included",
+          "h2": "Three months, held",
+          "items": [
+            { "icon": "spiral", "title": "Six sessions", "line": "60 minutes, twice a month, plus an introduction call" },
+            { "icon": "bottles", "title": "Four formulas", "line": "3 + 1 blends of 5ml, made for the themes we explore" },
+            { "icon": "lotus", "title": "Personal practices", "line": "meditations and reflective exercises, chosen for you" },
+            { "icon": "sparkle", "title": "Integration", "line": "a final blend to carry the work into your everyday" }
+          ]
+        },
+        {
+          "type": "duo",
+          "label": "Why aromatherapy",
+          "h2": "What a scent can open",
+          "paras": [
+            "Having witnessed the profound healing power of aromatherapy over the past decade, I have seen how it can open new pathways toward balance and wellbeing. When combined with mindful mentoring and active listening, this approach can catalyse truly life-changing shifts.",
+            "Throughout our work together we explore your current challenges, recurring patterns and areas of imbalance, as well as your lifestyle and daily routines. We also touch on your emotional and mental landscapes to gain a holistic understanding of your inner world. Everything shared during our sessions, whether spoken intentionally or arising naturally, is held in complete confidentiality.",
+            "You receive personalised meditation practices, reflective exercises and holistic tools designed to nurture specific aspects of your health and life. My intention is to provide you with gentle yet powerful guidance that encourages self-awareness, clarity and sustainable transformation."
+          ]
+        },
+        {
+          "type": "duo",
+          "tone": "oat",
+          "label": "Who is holding the space",
+          "h2": "Many stories before yours",
+          "paras": [
+            "Having worked as a holistic therapist for many years, I have had the privilege of connecting deeply with countless personal stories. These encounters have profoundly shaped my own healing and growth, as has my ongoing journey of learning from therapists and practitioners across various fields."
+          ],
+          "pull": "I understand how intimate and personal this kind of work is. I approach every session with empathy, presence, and dedication. Throughout our time together, I will be fully here for you: offering a safe, supportive, and nurturing space for your transformation to unfold."
+        }
+      ]
+    },
+
+    {
+      "slug": "meditation-guidance",
+      "title": "Meditation Guidance",
+      "navLabel": "Meditation Guidance",
+      "kicker": "One week · 40 minutes daily · online",
+      "tagline": "rediscover clarity, balance, and inner peace through personalised practice",
+      "cardLine": "Seven days, 40 minutes each, until the practice feels like yours.",
+      "duration": "P1W",
+      "hero": {
+        "img": "meditation-hero.webp",
+        "alt": "Three smooth stones stacked on pale sand beside a single leaf",
+        "w": 1264,
+        "h": 848
+      },
+      "metaDescription": "A one-week, one-to-one online meditation guidance programme with Péter Frák: 40 minutes a day of foundational Tibetan Buddhist technique and Pranayama breathing, adapted to your level.",
+      "serviceType": "Online one-to-one meditation guidance programme",
+      "blocks": [
+        {
+          "type": "duo",
+          "label": "Perhaps this sounds like you",
+          "h2": "When the practice keeps slipping",
+          "lead": "Do you often feel mentally or emotionally exhausted? Do you find it difficult to build, or return to, a consistent meditation practice? Are you longing for guidance to help you meditate with ease and confidence?",
+          "paras": [
+            "If so, this one-to-one programme is designed especially for you. Over the course of one week we meet online for 40 minutes each day, where I personally guide you through foundational meditation techniques rooted in Tibetan Buddhist practice, complemented by Pranayama breathing exercises.",
+            "Each session is adapted to your current level and needs, helping you establish a stable and personalised meditation routine that feels natural and sustainable, without pressure or disappointment."
+          ]
+        },
+        {
+          "type": "rites",
+          "tone": "oat",
+          "label": "The week",
+          "h2": "How the seven days run",
+          "items": [
+            { "icon": "sun", "title": "Daily, together", "line": "40 minutes online, every day for one week" },
+            { "icon": "breath", "title": "Breath first", "line": "Pranayama exercises alongside the sitting practice" },
+            { "icon": "lotus", "title": "Tibetan foundations", "line": "the techniques that hold everything else up" },
+            { "icon": "waves", "title": "Your own routine", "line": "adapted to your level, so it survives the week" }
+          ]
+        },
+        {
+          "type": "duo",
+          "label": "What the week is for",
+          "h2": "Something you look forward to",
+          "paras": [
+            "Throughout the week I hold a safe and supportive space for you to explore different approaches to meditation and experience their effects on your body, mind and emotions. My intention is to help you develop confidence and connection with your own inner stillness, so your practice becomes something you genuinely look forward to."
+          ]
+        },
+        {
+          "type": "duo",
+          "tone": "oat",
+          "label": "Where this comes from",
+          "h2": "Since I was a child",
+          "paras": [
+            "Meditation has been part of my life since childhood. In the beginning it served as a coping mechanism, an escape into the spiritual world. My first formal experience came during my initial Reiki training at age 15, and from that point onward meditation gradually evolved into a practice of acceptance, awareness and inner spaciousness.",
+            "Over the past decade I have studied and practised Vipassana meditation, in both the Goenka and Mahasi traditions, as well as Tibetan Buddhist pranayama and meditation at dedicated centres. A two-year journey through India and Southeast Asia deepened this path of exploration and self-discovery."
+          ],
+          "pull": "It would be my pleasure and honour to share the insights, tools, and practices that have supported me along the way, so that you, too, can cultivate peace, focus, and inner balance in your everyday life."
+        }
+      ]
+    }
+  ]
+}

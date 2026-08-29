@@ -227,7 +227,29 @@ def build_schema(slug: str, blend: dict, source: dict, url: str, image_abs: str)
         ],
     }
 
-    graph = {"@context": "https://schema.org", "@graph": [product, crumbs]}
+    # The product references #organization and #peter. Both must be defined on
+    # the page, or those references dangle and search engines drop them.
+    organization = {
+        "@type": "Organization",
+        "@id": f"{SITE}/#organization",
+        "name": "Temple of Sun",
+        "alternateName": "templeofsun",
+        "url": f"{SITE}/",
+        "founder": {"@id": f"{SITE}/#peter"},
+    }
+    person = {
+        "@type": "Person",
+        "@id": f"{SITE}/#peter",
+        "name": "Péter Frák",
+        "alternateName": "templeofsun",
+        "url": f"{SITE}/bio.html",
+        "jobTitle": ("Holistic healer, certified aromatherapist and Ayurvedic "
+                     "massage therapist"),
+        # tools/apply-press-schema.py fills in performerIn and subjectOf here.
+    }
+
+    graph = {"@context": "https://schema.org",
+             "@graph": [organization, person, product, crumbs]}
     return json.dumps(graph, ensure_ascii=False, separators=(", ", ": "))
 
 

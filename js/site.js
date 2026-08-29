@@ -34,7 +34,9 @@
     '  <div class="nav-item"><button class="nav-link" type="button" aria-haspopup="true">Experiences<span class="caret">▼</span></button>' +
     '    <div class="dd"><a href="retreats.html">Soul Alchemy Retreats</a><a href="treatments.html">Treatments</a>' +
     '    <a href="mindfulness-labs.html">Mindfulness LABs</a><a href="meditation.html">Meditation Classes</a></div></div>' +
-    '  <a class="nav-link" href="online-sessions.html">Online Sessions</a>' +
+    '  <div class="nav-item"><button class="nav-link" type="button" aria-haspopup="true">Online Sessions<span class="caret">▼</span></button>' +
+    '    <div class="dd">' +
+    /* session-links-desktop */'<a href="health-consultation.html">Health Consultation</a><a href="spiritual-mentoring.html">Spiritual Mentoring</a><a href="meditation-guidance.html">Meditation Guidance</a>' + '</div></div>' +
     '  <div class="nav-item"><button class="nav-link" type="button" aria-haspopup="true">About<span class="caret">▼</span></button>' +
     '    <div class="dd"><a href="bio.html">Bio</a><a href="about.html">My Story</a><a href="philosophy.html">Philosophy</a></div></div>' +
     '  <a class="nav-link" href="contact.html" data-nav="contact">Contact</a>' +
@@ -52,7 +54,8 @@
     '<div class="m-group"><div class="m-label">Experiences</div>' +
     '  <a href="retreats.html">Soul Alchemy Retreats</a><a href="treatments.html">Treatments</a>' +
     '  <a href="mindfulness-labs.html">Mindfulness LABs</a><a href="meditation.html">Meditation Classes</a></div>' +
-    '<div class="m-group"><a href="online-sessions.html">Online Sessions</a></div>' +
+    '<div class="m-group"><div class="m-label">Online Sessions</div>' +
+    /* session-links-mobile */'<a href="health-consultation.html">Health Consultation</a><a href="spiritual-mentoring.html">Spiritual Mentoring</a><a href="meditation-guidance.html">Meditation Guidance</a>' + '</div>' +
     '<div class="m-group"><div class="m-label">About</div>' +
     '  <a href="bio.html">Bio</a><a href="about.html">My Story</a><a href="philosophy.html">Philosophy</a></div>' +
     '<div class="m-group"><a href="contact.html">Contact</a></div>' +
@@ -67,6 +70,7 @@
     whatsapp: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.2 20.8l4.5-1.2A8.8 8.8 0 1 0 12 3.2z"/><path d="M9.1 8.6c.3-.7 1.3-.8 1.6-.1l.5 1.1c.1.3 0 .7-.2 1l-.5.5c.5 1.1 1.4 2 2.5 2.5l.5-.5c.3-.3.7-.4 1-.2l1.1.5c.7.3.6 1.3-.1 1.6-1 .4-2.1.3-3.1-.2a9.4 9.4 0 0 1-3.5-3.5c-.5-1-.6-2.1-.2-3.1z" stroke-width="1.2"/></svg>',
     telegram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 3.8L2.9 11l5.5 1.9.3 5.4 3.1-3.2 4.8 3.5 4.7-14.8z"/><path d="M8.4 12.9l12.9-9.1"/></svg>',
     instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="0.5" fill="currentColor" stroke="none"/></svg>',
+    youtube: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.4l5 2.6-5 2.6z"/></svg>',
     tiktok: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.6 3.5c.4 2.4 2 4 4.4 4.4v3a7.9 7.9 0 0 1-4.4-1.4v5.4a5.4 5.4 0 1 1-5.4-5.4c.3 0 .7 0 1 .1v3.2a2.3 2.3 0 1 0 1.3 2.1V3.5h3.1z"/></svg>',
     spotify: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.6"/><path d="M8 9.9c2.8-.8 5.7-.5 8.1.9M8.3 12.6c2.3-.6 4.7-.3 6.6.8M8.7 15.1c1.8-.4 3.5-.2 5 .6"/></svg>'
   };
@@ -80,6 +84,7 @@
     '    <a href="https://t.me/Templeofsunofficial" aria-label="Telegram" title="Telegram @Templeofsunofficial">' + IC.telegram + '</a>' +
     '    <a href="https://www.instagram.com/templeofsun/" aria-label="Instagram" title="Instagram @templeofsun">' + IC.instagram + '</a>' +
     '    <a href="https://www.tiktok.com/@templeofsun" aria-label="TikTok" title="TikTok @templeofsun">' + IC.tiktok + '</a>' +
+    '    <a href="https://www.youtube.com/@frakpeter3000" aria-label="YouTube" title="YouTube · Frak Peter">' + IC.youtube + '</a>' +
     '    <a href="https://open.spotify.com/user/templeofsun2017" aria-label="Spotify" title="Spotify">' + IC.spotify + '</a>' +
     '  </div>' +
     '</div>' +

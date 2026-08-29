@@ -8,16 +8,18 @@ Run this after ANY change to the site, then upload the folder as usual:
     python3 tools/prepare-for-upload.py            # while the site is private
     python3 tools/prepare-for-upload.py --live     # on launch day and after
 
-It does three things:
+It does four things:
 
 1. Rebuilds the 23 blend pages from the DATA in the two collection pages,
    and relinks them from the collections and the sitemap.
-2. Writes the right robots.txt.
+2. Syncs Péter's press credits (tools/press-credits.json) into the structured
+   data on every page.
+3. Writes the right robots.txt.
    default  -> blocks every crawler, so the unfinished site stays private
    --live   -> the real one: search engines welcome, AI training refused
-3. Rebuilds _headers so the security policy matches the pages.
+4. Rebuilds _headers so the security policy matches the pages.
 
-Step 3 is the one that matters most. The policy carries a fingerprint of the
+Step 4 is the one that matters most. The policy carries a fingerprint of the
 code inside each page. Edit a page without rerunning this, and that page's
 scripts stop working once it is live.
 
@@ -70,6 +72,9 @@ def main() -> None:
     # Content first — the headers are fingerprinted from the finished pages,
     # so anything that rewrites a page has to run before them.
     run("generate-product-pages.py", "product pages")
+    run("generate-session-pages.py", "online session pages")
+    run("stamp-shell.py", "menu and footer")
+    run("apply-press-schema.py", "press credits")
     run("generate-headers.py", "header generation")
 
     mode = write_robots(live)

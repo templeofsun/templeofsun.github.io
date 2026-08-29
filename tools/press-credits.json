@@ -1,0 +1,192 @@
+{
+  "_comment": [
+    "Péter's press, appearances and working relationships — the single source of truth.",
+    "Add or remove an entry here, run tools/prepare-for-upload.py, and every page on",
+    "the site updates. Nothing else to edit.",
+    "",
+    "'performerIn'  = events he appeared or spoke at.",
+    "'subjectOf'    = articles and interviews about him or featuring him.",
+    "'affiliation'  = organisations he works with. These come and go — when one ends,",
+    "                 delete it here and rerun. Do NOT use this for one-off jobs.",
+    "'memberOf'     = actual paid memberships only (IFA).",
+    "'hasCredential' = diplomas, certificates and memberships. Full list;",
+    "                 editing here updates every page.",
+    "",
+    "Newest first. Dates are YYYY-MM-DD."
+  ],
+  "performerIn": [
+    {
+      "@type": "Event",
+      "@id": "https://templeofsun.com/#elle-yoga-weekend-2026",
+      "name": "ELLE Yoga Weekend – Ride the Fire",
+      "startDate": "2026-05-16",
+      "endDate": "2026-05-17",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Ensana Thermal Hotel Margaret Island",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Budapest",
+          "addressCountry": "HU"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "ELLE Hungary",
+        "url": "https://elle.hu/"
+      },
+      "performer": {
+        "@id": "https://templeofsun.com/#peter"
+      },
+      "subEvent": {
+        "@type": "Event",
+        "name": "Mindfulness laboratórium – a belső teremtő tűz fellobbantása",
+        "description": "Mindfulness Laboratory: igniting the inner creative fire. A session on the alchemy of aromatic plants, massage therapy and energy healing, led by Péter Frák.",
+        "performer": {
+          "@id": "https://templeofsun.com/#peter"
+        },
+        "inLanguage": "hu"
+      }
+    }
+  ],
+  "subjectOf": [
+    {
+      "@type": "NewsArticle",
+      "@id": "https://elle.hu/eletmod/elle-yoga-weekend-ride-the-fire-2026-majus-eloadok#article",
+      "headline": "Ismerd meg az ELLE YOGA WEEKEND – RIDE THE FIRE esemény tűzről pattant előadóit",
+      "description": "ELLE Hungary's feature introducing the teachers and speakers of ELLE Yoga Weekend – Ride the Fire, including Péter Frák of Temple of Sun.",
+      "url": "https://elle.hu/eletmod/elle-yoga-weekend-ride-the-fire-2026-majus-eloadok",
+      "datePublished": "2026-05-07",
+      "inLanguage": "hu",
+      "author": {
+        "@type": "Person",
+        "name": "dr. Nagy Nóra Lili"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "ELLE Hungary",
+        "url": "https://elle.hu/"
+      },
+      "about": {
+        "@id": "https://templeofsun.com/#peter"
+      }
+    },
+    {
+      "@type": "RadioEpisode",
+      "@id": "https://templeofsun.com/bio.html#osszhang-2022",
+      "name": "Tudomány kizárva?",
+      "description": "Talk-show conversation on the place of ancient Indian medicine in modern healthcare, with Péter Frák as the invited expert on aromatherapy and massage therapy.",
+      "datePublished": "2022-11-14",
+      "inLanguage": "hu",
+      "url": "https://youtu.be/tFXyAvBLVL8",
+      "partOfSeries": {
+        "@type": "RadioSeries",
+        "name": "Összhang"
+      },
+      "publisher": {
+        "@type": "RadioStation",
+        "name": "Karc FM"
+      },
+      "actor": {
+        "@id": "https://templeofsun.com/#peter"
+      }
+    }
+  ],
+  "affiliation": [
+    {
+      "@type": "Organization",
+      "name": "Jivamukti Yoga",
+      "url": "https://jivamuktiyoga.com/",
+      "description": "Péter Frák created the Jivamukti Essence, the official aroma oil of Jivamukti Yoga, sold in their European shop."
+    },
+    {
+      "@type": "Organization",
+      "name": "Atemi Martial Arts Budo Academy",
+      "url": "https://www.atemibudoacademy.com/",
+      "sameAs": "https://www.atemibudoacademy.com/akademiai-tanarok/",
+      "description": "Péter Frák is listed among the academy's teachers, and holds their Universal Reiki teacher diploma."
+    },
+    {
+      "@type": "Organization",
+      "name": "AHOD World",
+      "url": "https://www.ahodworld.com/",
+      "sameAs": "https://www.ahodworld.com/aromatherapy-and-mentoring",
+      "description": "Aromatherapy and mentoring for AHOD World's wellbeing retreats."
+    },
+    {
+      "@type": "LodgingBusiness",
+      "name": "Vale de Moses",
+      "url": "https://www.valedemoses.com/",
+      "description": "Yoga retreat in central Portugal; Péter Frák has supported more than fifty retreats there."
+    },
+    {
+      "@type": "LodgingBusiness",
+      "name": "Quinta da Comporta",
+      "url": "https://www.quintadacomporta.com/",
+      "description": "Five-star wellness hotel in Comporta, Portugal."
+    },
+    {
+      "@type": "Organization",
+      "name": "JNcQUOI",
+      "url": "https://www.jncquoi.com/",
+      "description": "Lisbon club and restaurant group."
+    }
+  ],
+  "memberOf": {
+    "@type": "Organization",
+    "name": "International Federation of Aromatherapists",
+    "url": "https://ifaroma.org/",
+    "sameAs": "https://ifaroma.org/"
+  },
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Aromatherapy Diploma",
+      "credentialCategory": "diploma",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Panarom, Budapest",
+        "url": "https://panarom.hu/"
+      }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Member, International Federation of Aromatherapists",
+      "credentialCategory": "membership",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "International Federation of Aromatherapists",
+        "url": "https://ifaroma.org/"
+      }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Ayurvedic & Marma-Abhyanga Massage",
+      "credentialCategory": "certificate",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Mysore Ayurveda Academy, India",
+        "url": "https://mysoreayurveda.in/"
+      }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Teacher Diploma, Universal Reiki (Atemi 5 Elements Energy Flow)",
+      "credentialCategory": "diploma",
+      "dateCreated": "2025-11-16",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "Atemi Martial Arts Budo Academy",
+        "url": "https://www.atemibudoacademy.com/",
+        "sameAs": "https://www.atemibudoacademy.com/akademiai-tanarok/"
+      }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Rebirthing Breathwork Facilitator",
+      "credentialCategory": "certificate"
+    }
+  ]
+}
