@@ -358,6 +358,16 @@
     </image:image>
     <image:image><image:loc>https://templeofsun.com/assets/img/peter-philosophy.webp</image:loc></image:image>
   </url>
+<url>
+    <loc>https://templeofsun.com/the-essence-of-you.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/philosophy-hero.webp</image:loc>
+    </image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/peter-philosophy.webp</image:loc></image:image>
+  </url>
 
   <url>
     <loc>https://templeofsun.com/aromatherapy.html</loc>

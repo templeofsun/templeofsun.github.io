@@ -73,6 +73,7 @@ def main() -> None:
     # so anything that rewrites a page has to run before them.
     run("generate-product-pages.py", "product pages")
     run("generate-session-pages.py", "online session pages")
+    run("build-poem-page.py", "the poem page")
     run("stamp-shell.py", "menu and footer")
     run("apply-press-schema.py", "press credits")
     run("generate-headers.py", "header generation")
