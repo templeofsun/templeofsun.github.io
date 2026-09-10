@@ -1,5 +1,20 @@
-/* Temple of Sun — image fallbacks.
+/* Temple of Sun — image fallbacks, and the "JavaScript is on" flag.
  *
+ * FIRST, before anything else: mark the page as having JavaScript.
+ *
+ * The site fades in — the body starts invisible and the sections rise into
+ * place. That is fine when JavaScript runs, because JavaScript is what makes
+ * them appear. With JavaScript off, nothing ever did, and every page rendered
+ * as a blank cream rectangle.
+ *
+ * So the hiding is now conditional on this one class. No JavaScript means no
+ * class, which means nothing is hidden and the page simply shows. This file is
+ * loaded in <head> on all 48 pages, so the class lands before the body paints
+ * and there is no flicker.
+ */
+document.documentElement.classList.add("js");
+
+/*
  * Replaces the old inline onerror="..." attributes on <img> tags, which a
  * strict Content-Security-Policy blocks. Same behaviour, one shared handler.
  *

@@ -39,9 +39,6 @@
     <image:image>
       <image:loc>https://templeofsun.com/assets/img/logos/quinta-da-comporta.webp</image:loc>
     </image:image>
-    <image:image>
-      <image:loc>https://templeofsun.com/assets/img/logos/vale-de-moses.webp</image:loc>
-    </image:image>
   </url>
 
   <!-- ═══════════════════════════════════════════════════
@@ -328,15 +325,6 @@
   <!-- ═══════════════════════════════════════════════════
        About Péter & the practice
        ═══════════════════════════════════════════════════ -->
-  <url>
-    <loc>https://templeofsun.com/about.html</loc>
-    <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://templeofsun.com/assets/img/peter-story.webp</image:loc>
-    </image:image>
-  </url>
 
   <url>
     <loc>https://templeofsun.com/bio.html</loc>
@@ -350,6 +338,26 @@
 
   <url>
     <loc>https://templeofsun.com/philosophy.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/philosophy-hero.webp</image:loc>
+    </image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/peter-philosophy.webp</image:loc></image:image>
+  </url>
+<url>
+    <loc>https://templeofsun.com/journal.html</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://templeofsun.com/assets/img/philosophy-hero.webp</image:loc>
+    </image:image>
+    <image:image><image:loc>https://templeofsun.com/assets/img/peter-philosophy.webp</image:loc></image:image>
+  </url>
+<url>
+    <loc>https://templeofsun.com/journal/placeholder-example.html</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

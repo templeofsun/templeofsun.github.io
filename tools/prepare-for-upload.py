@@ -27,6 +27,7 @@ There is no build step on Cloudflare. Whatever sits in this folder is exactly
 what gets served.
 """
 
+import re
 import sys
 from pathlib import Path
 import subprocess
@@ -48,13 +49,60 @@ Disallow: /
 """
 
 
+def check_live_robots(text: str) -> None:
+    """
+    Refuse to launch with a robots.txt that hides the site.
+
+    The live file blocks AI training crawlers on purpose, so a bare search for
+    'Disallow: /' would trip on those and mean nothing. What matters is the one
+    group that everybody else falls into: 'User-agent: *'. If that group says
+    Disallow: /, the entire site disappears from Google and nobody notices for
+    weeks. So this reads the file the way a crawler does — user-agent lines
+    group together until a rule line appears — and inspects only that group.
+    """
+    agents: list[str] = []
+    star_rules: list[tuple[str, str]] = []
+    collecting = False
+
+    for raw in text.splitlines():
+        line = raw.split("#", 1)[0].strip()
+        if not line or ":" not in line:
+            continue
+        field, _, value = line.partition(":")
+        field, value = field.strip().lower(), value.strip()
+        if field == "user-agent":
+            if collecting:          # a new group begins
+                agents, collecting = [], False
+            agents.append(value)
+        elif field in ("allow", "disallow"):
+            collecting = True
+            if "*" in agents:
+                star_rules.append((field, value))
+
+    if not star_rules:
+        sys.exit("ERROR: robots-live.txt has no rules for 'User-agent: *'. "
+                 "Search engines would have nothing to follow.")
+    for field, value in star_rules:
+        if field == "disallow" and value == "/":
+            sys.exit("ERROR: robots-live.txt blocks every crawler — 'User-agent: *' "
+                     "has 'Disallow: /'.\nThe whole site would vanish from Google. "
+                     "Fix that line before launching.")
+    if not any(f == "allow" and v == "/" for f, v in star_rules):
+        print("  ! note: 'User-agent: *' has no 'Allow: /'. That is legal, but check "
+              "it is what you meant.")
+    if not re.search(r"(?im)^\s*sitemap:\s*http", text):
+        sys.exit("ERROR: robots-live.txt has no Sitemap line. Add it before launching.")
+
+
 def write_robots(live: bool) -> str:
     if live:
         if not LIVE_SOURCE.exists():
             sys.exit(
                 f"ERROR: {LIVE_SOURCE.name} is missing — cannot write the live robots.txt."
             )
-        ROBOTS.write_text(LIVE_SOURCE.read_text(encoding="utf-8"), encoding="utf-8")
+        text = LIVE_SOURCE.read_text(encoding="utf-8")
+        check_live_robots(text)
+        ROBOTS.write_text(text, encoding="utf-8")
         return "LIVE — search engines welcome, AI training refused"
     ROBOTS.write_text(PRIVATE_ROBOTS, encoding="utf-8")
     return "PRIVATE — every crawler blocked"
@@ -74,15 +122,32 @@ def main() -> None:
     run("generate-product-pages.py", "product pages")
     run("generate-session-pages.py", "online session pages")
     run("build-poem-page.py", "the poem page")
+    run("sync-journal.py", "the journal list")
     run("stamp-shell.py", "menu and footer")
     run("apply-press-schema.py", "press credits")
+    run("generate-reviews-schema.py", "guest reviews")
+    run("generate-faq-schema.py", "the FAQ data")
+    run("generate-llms.py", "the AI map")
+    run("generate-redirects.py", "redirects from the old site")
     run("generate-headers.py", "header generation")
 
     mode = write_robots(live)
     print(f"robots.txt: {mode}")
 
     print("\nFolder is ready to upload.")
-    if not live:
+    if live:
+        print("\n" + "=" * 62)
+        print("LAUNCH DAY — do not skip this")
+        print("=" * 62)
+        print("robots.txt now says search engines are welcome. That only counts")
+        print("once it is actually on the server. AFTER uploading, check it:")
+        print()
+        print("    curl -s https://templeofsun.com/robots.txt")
+        print()
+        print("You should see 'Allow: /'. If you see 'Disallow: /', the upload")
+        print("did not take and the whole site is invisible to Google.")
+        print("=" * 62)
+    else:
         print("Reminder: on launch day run this again with --live.")
 
 

@@ -38,7 +38,7 @@
     '    <div class="dd">' +
     /* session-links-desktop */'<a href="health-consultation.html">Health Consultation</a><a href="spiritual-mentoring.html">Spiritual Mentoring</a><a href="meditation-guidance.html">Meditation Guidance</a>' + '</div></div>' +
     '  <div class="nav-item"><button class="nav-link" type="button" aria-haspopup="true">About<span class="caret">▼</span></button>' +
-    '    <div class="dd"><a href="bio.html">Bio</a><a href="about.html">My Story</a><a href="philosophy.html">Philosophy</a></div></div>' +
+    '    <div class="dd"><a href="bio.html">My Story</a><a href="philosophy.html">Philosophy</a><a href="journal.html">Journal</a></div></div>' +
     '  <a class="nav-link" href="contact.html" data-nav="contact">Contact</a>' +
     '  <a class="btn btn-nav" href="contact.html?topic=session">Book a Session</a>' +
     '</nav>' +
@@ -57,7 +57,7 @@
     '<div class="m-group"><div class="m-label">Online Sessions</div>' +
     /* session-links-mobile */'<a href="health-consultation.html">Health Consultation</a><a href="spiritual-mentoring.html">Spiritual Mentoring</a><a href="meditation-guidance.html">Meditation Guidance</a>' + '</div>' +
     '<div class="m-group"><div class="m-label">About</div>' +
-    '  <a href="bio.html">Bio</a><a href="about.html">My Story</a><a href="philosophy.html">Philosophy</a></div>' +
+    '  <a href="bio.html">My Story</a><a href="philosophy.html">Philosophy</a><a href="journal.html">Journal</a></div>' +
     '<div class="m-group"><a href="contact.html">Contact</a></div>' +
     '<div class="m-group m-small"><div class="m-label">Say hello</div>' +
     '  <a href="mailto:templeofsunofficial@gmail.com">templeofsunofficial@gmail.com</a>' +

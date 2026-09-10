@@ -37,6 +37,8 @@ def load_credits() -> dict:
 def main() -> None:
     credits = load_credits()
     pages = sorted(ROOT.glob("*.html")) + sorted((ROOT / "products").glob("*.html"))
+    # the journal entries live one folder down too
+    pages += sorted(p for p in (ROOT / "journal").glob("*.html"))
 
     touched = 0
     skipped = []

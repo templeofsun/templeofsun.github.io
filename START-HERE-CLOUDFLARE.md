@@ -74,6 +74,7 @@ ready.
 | `llms.txt` / `llms-full.txt` | What AI assistants read to learn who you are | move out of the root |
 | `robots-live.txt` | The real robots.txt, copied into place by `--live` | delete or rename |
 | `_headers` | The security policy | edit by hand — it is regenerated |
+| `_redirects` | Sends all ~70 old WordPress addresses to the right new page | edit by hand — it is regenerated |
 | `js/img-fallback.js` | Handles images that fail to load | delete |
 | `tools/` | The scripts that keep everything in step | delete |
 | `products/` | The 23 blend pages — generated, one per formula | edit by hand; they are rebuilt |
@@ -95,14 +96,54 @@ later once the site is proven healthy.
 
 ---
 
-## After it is live — 4 checks
+## After it is live — 5 checks
 
-1. Visit `templeofsun.com/robots.txt`. It must **not** say `Disallow: /`.
-   If it does, you forgot `--live`.
-2. Open the site, press F12 → Console. Any red "Refused to load…" line means
-   something needs allowing in the policy. There were none in testing.
-3. Scan at https://securityheaders.com — expect **A+**.
-4. Submit `templeofsun.com/sitemap.xml` in Google Search Console.
+### 1. robots.txt — the one that can quietly kill the site
+
+Do this first, before anything else:
+
+```
+curl -s https://templeofsun.com/robots.txt
+```
+
+Near the top you must see **`Allow: /`** under `User-agent: *`.
+
+If you see **`Disallow: /`**, stop. The whole site is invisible to Google and
+it will stay invisible until you fix it. It means either the `--live` step was
+skipped, or the upload did not replace the old file. Run the prepare command
+with `--live`, upload `robots.txt` again, and re-run the check.
+
+> Further down the file you *will* see `Disallow: /` several times, under names
+> like GPTBot and ClaudeBot. That is deliberate — those are the AI training
+> crawlers, and blocking them is the point. Only the `User-agent: *` group at
+> the top matters for search engines.
+
+The prepare command now refuses to write a `robots.txt` that blocks everyone,
+so this check is a second pair of eyes rather than the only guard.
+
+### 2. Old addresses still work
+
+Try two of the old shop links. Both should land on the new page, not an error:
+
+```
+curl -sI https://templeofsun.com/product/focus/        | head -2
+curl -sI https://templeofsun.com/shop/rainbow-collection/ | head -2
+```
+
+Expect `301` and a `location:` pointing at the new page.
+
+### 3. Nothing blocked in the browser
+
+Open the site, press F12 → Console. Any red "Refused to load…" line means
+something needs allowing in the policy. There were none in testing.
+
+### 4. Security grade
+
+Scan at https://securityheaders.com — expect **A+**.
+
+### 5. Tell Google
+
+Submit `templeofsun.com/sitemap.xml` in Google Search Console.
 
 ---
 

@@ -16,8 +16,13 @@ is left exactly as it was.
 This script is what keeps them honest. It reads the real menu out of
 js/site.js and writes it into every page that carries a copy.
 
-The blend pages in products/ are left alone on purpose: their hosts are empty,
-so site.js fills them at load time and rewrites the links with ../ in front.
+The blend pages in products/ get the same treatment, with one difference: they
+sit one folder down, so every link has to have ../ put in front of it. That is
+what site.js used to do at load time, and why those pages were originally left
+empty. Leaving them empty meant that anything not running JavaScript — GPTBot,
+ClaudeBot, PerplexityBot, and Google when it first fetches a page — saw no menu,
+no footer, and no medical disclaimer, on the 23 pages that carry the safety
+cautions. So they are stamped too, and the ../ is written in here instead.
 
 Run directly, or let tools/prepare-for-upload.py run it for you:
 
@@ -74,6 +79,33 @@ def read_var(js: str, name: str, icons: dict) -> str:
     return "".join(out)
 
 
+# values that are already absolute, or not a path at all
+SKIP_PREFIX = re.compile(r"^(https?:|mailto:|tel:|data:|#|/)")
+
+
+def page_root(text: str) -> str:
+    """
+    How far down is this page? Pages in products/ carry data-root="../" on the
+    <html> tag; pages at the top carry nothing. Same signal site.js reads.
+    """
+    m = re.search(r'<html[^>]*\sdata-root="([^"]*)"', text)
+    return m.group(1) if m else ""
+
+
+def localise(markup: str, root: str) -> str:
+    """Put ../ in front of every link that points at a file in this site."""
+    if not root:
+        return markup
+
+    def fix(m):
+        attr, value = m.group(1), m.group(2)
+        if not value or SKIP_PREFIX.match(value):
+            return m.group(0)
+        return f'{attr}="{root}{value}"'
+
+    return re.sub(r'\b(href|src)="([^"]*)"', fix, markup)
+
+
 def find_host(text: str, tag: str, attr: str):
     """
     Locate one host element and the exact span of what sits inside it.
@@ -108,32 +140,43 @@ def main() -> None:
     icons = read_icons(js)
     markup = {name: read_var(js, name, icons) for name, _, _, _ in HOSTS}
 
-    pages = sorted(ROOT.glob("*.html"))
-    changed, empty_hosts = [], 0
+    pages = sorted(ROOT.glob("*.html")) + sorted((ROOT / "products").glob("*.html"))
+    # the journal entries live one folder down too
+    pages += sorted(p for p in (ROOT / "journal").glob("*.html"))
+    changed, missing_hosts = [], []
 
     for page in pages:
         text = page.read_text(encoding="utf-8")
         before = text
+        root = page_root(text)
         for name, tag, attr, css in HOSTS:
             found = find_host(text, tag, attr)
             if not found:
+                missing_hosts.append(f"{page.name}:{attr}")
                 continue
             inner_start, inner_end, _ = found
-            if not text[inner_start:inner_end].strip():
-                empty_hosts += 1          # site.js will fill this one at load
-                continue
-            text = text[:inner_start] + markup[name] + text[inner_end:]
+            text = text[:inner_start] + localise(markup[name], root) + text[inner_end:]
         if text != before:
             page.write_text(text, encoding="utf-8")
             changed.append(page.name)
+
+    # the medical disclaimer travels inside the footer; confirm it landed
+    no_disclaimer = [
+        p.name for p in pages
+        if "complementary practice" not in p.read_text(encoding="utf-8")
+    ]
 
     print(f"shell: {len(pages)} pages checked, {len(changed)} updated")
     if changed:
         preview = ", ".join(changed[:6])
         more = f" and {len(changed)-6} more" if len(changed) > 6 else ""
         print(f"  {preview}{more}")
-    if empty_hosts:
-        print(f"  {empty_hosts} empty hosts left for site.js to fill")
+    if missing_hosts:
+        print(f"  ! no host for: {', '.join(missing_hosts[:6])}")
+    if no_disclaimer:
+        sys.exit("ERROR: the medical disclaimer is missing from: "
+                 + ", ".join(no_disclaimer))
+    print(f"  menu, footer and medical disclaimer present on all {len(pages)}")
 
 
 if __name__ == "__main__":

@@ -52,6 +52,8 @@ def collect_hashes():
     hashes = {}          # hash -> list of "file (kind)"
     # Every page on the site: the root, plus the generated product pages.
     pages = sorted(ROOT.glob("*.html")) + sorted((ROOT / "products").glob("*.html"))
+    # the journal entries live one folder down too
+    pages += sorted(p for p in (ROOT / "journal").glob("*.html"))
     if not pages:
         sys.exit("No .html files found. Run this from inside the Website folder.")
 
