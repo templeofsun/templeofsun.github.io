@@ -159,6 +159,7 @@ def sibling_cards(pages: list, current: str, heading: str) -> str:
             <span class="k">{p["kicker"]}</span>
             <h3>{p["title"]}</h3>
             <p>{p["cardLine"]}</p>
+            <span class="card-price">&euro;{int(float(p["price"]))} <span>{p["priceNote"]}</span></span>
             <span class="lnk">Read more<span class="arr">&rarr;</span></span>
           </div>
         </a>"""
@@ -197,6 +198,7 @@ def build_main(page: dict, pages: list) -> str:
       <span class="label"><a href="online-sessions.html">Online Sessions</a> &middot; {page["kicker"]}</span>
       <h1>{page["title"]}</h1>
       <p class="italic">{page["tagline"]}</p>
+      <p class="sh-price">&euro;{int(float(page["price"]))} <span>{page["priceNote"]}</span></p>
     </div>
   </section>
 """
@@ -267,6 +269,14 @@ def stamp_head(shell: str, page: dict) -> str:
         "provider": {"@id": BASE + "#organization"},
         "areaServed": [{"@type": "Place", "name": "Worldwide"}],
         "audience": {"@type": "Audience", "audienceType": "Adults seeking holistic wellbeing support"},
+        "offers": {
+            "@type": "Offer",
+            "price": page["price"],
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": BASE + "contact.html?topic=online",
+            "seller": {"@id": BASE + "#organization"},
+        },
         "availableChannel": {
             "@type": "ServiceChannel",
             "serviceUrl": url,
@@ -303,6 +313,7 @@ def front_door(pages: list) -> str:
             <span class="k">{p["kicker"]}</span>
             <h3>{p["title"]}</h3>
             <p>{p["cardLine"]}</p>
+            <span class="card-price">&euro;{int(float(p["price"]))} <span>{p["priceNote"]}</span></span>
             <span class="lnk">Read more<span class="arr">&rarr;</span></span>
           </div>
         </a>"""

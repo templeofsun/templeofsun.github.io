@@ -16,9 +16,9 @@
     "   duo   a heading on the left, paragraphs on the right",
     "   rites a row of small symbols with a title and one line each",
     "   quote a full-width line in Péter's voice",
+    "price  = the number only, in euros. priceNote = the short line beside it.",
     "tone   = oat (warm panel) or sand (deeper panel). Leave out for plain."
   ],
-
   "pages": [
     {
       "slug": "health-consultation",
@@ -28,6 +28,8 @@
       "tagline": "receive personalised guidance designed to restore harmony from within",
       "cardLine": "One online hour, built around your constitution, your habits and your history.",
       "duration": "PT1H",
+      "price": "55.00",
+      "priceNote": "for the hour",
       "hero": {
         "img": "philosophy-hero.webp",
         "alt": "Three rose petals, from fresh to dried, resting on linen",
@@ -53,10 +55,26 @@
           "label": "The hour",
           "h2": "What we look at together",
           "items": [
-            { "icon": "speech", "title": "Your story", "line": "current challenges, habitual patterns, areas of imbalance" },
-            { "icon": "rings", "title": "Your constitution", "line": "your elemental and Doshic make-up, read carefully" },
-            { "icon": "drop", "title": "Your everyday", "line": "lifestyle, daily routines, foods, habits and tools" },
-            { "icon": "heart", "title": "Your inner landscape", "line": "health history, emotional and mental patterns" }
+            {
+              "icon": "speech",
+              "title": "Your story",
+              "line": "current challenges, habitual patterns, areas of imbalance"
+            },
+            {
+              "icon": "rings",
+              "title": "Your constitution",
+              "line": "your elemental and Doshic make-up, read carefully"
+            },
+            {
+              "icon": "drop",
+              "title": "Your everyday",
+              "line": "lifestyle, daily routines, foods, habits and tools"
+            },
+            {
+              "icon": "heart",
+              "title": "Your inner landscape",
+              "line": "health history, emotional and mental patterns"
+            }
           ]
         },
         {
@@ -75,7 +93,6 @@
         }
       ]
     },
-
     {
       "slug": "spiritual-mentoring",
       "title": "Spiritual Mentoring &amp; Transformation",
@@ -84,6 +101,8 @@
       "tagline": "reconnect with your authentic self through aromatherapy, empathy and presence",
       "cardLine": "A three-month journey, with four blends made for the themes we walk through.",
       "duration": "P3M",
+      "price": "444.00",
+      "priceNote": "for the three months",
       "hero": {
         "img": "labs-hero.webp",
         "alt": "A single leaf sending ripples across a shallow bowl of water",
@@ -109,10 +128,26 @@
           "label": "What is included",
           "h2": "Three months, held",
           "items": [
-            { "icon": "spiral", "title": "Six sessions", "line": "60 minutes, twice a month, plus an introduction call" },
-            { "icon": "bottles", "title": "Four formulas", "line": "3 + 1 blends of 5ml, made for the themes we explore" },
-            { "icon": "lotus", "title": "Personal practices", "line": "meditations and reflective exercises, chosen for you" },
-            { "icon": "sparkle", "title": "Integration", "line": "a final blend to carry the work into your everyday" }
+            {
+              "icon": "spiral",
+              "title": "Six sessions",
+              "line": "60 minutes, twice a month, plus an introduction call"
+            },
+            {
+              "icon": "bottles",
+              "title": "Four formulas",
+              "line": "3 + 1 blends of 5ml, made for the themes we explore"
+            },
+            {
+              "icon": "lotus",
+              "title": "Personal practices",
+              "line": "meditations and reflective exercises, chosen for you"
+            },
+            {
+              "icon": "sparkle",
+              "title": "Integration",
+              "line": "a final blend to carry the work into your everyday"
+            }
           ]
         },
         {
@@ -137,7 +172,6 @@
         }
       ]
     },
-
     {
       "slug": "meditation-guidance",
       "title": "Meditation Guidance",
@@ -146,6 +180,8 @@
       "tagline": "rediscover clarity, balance, and inner peace through personalised practice",
       "cardLine": "Seven days, 40 minutes each, until the practice feels like yours.",
       "duration": "P1W",
+      "price": "108.00",
+      "priceNote": "for the week",
       "hero": {
         "img": "meditation-hero.webp",
         "alt": "Three smooth stones stacked on pale sand beside a single leaf",
@@ -171,10 +207,26 @@
           "label": "The week",
           "h2": "How the seven days run",
           "items": [
-            { "icon": "sun", "title": "Daily, together", "line": "40 minutes online, every day for one week" },
-            { "icon": "breath", "title": "Breath first", "line": "Pranayama exercises alongside the sitting practice" },
-            { "icon": "lotus", "title": "Tibetan foundations", "line": "the techniques that hold everything else up" },
-            { "icon": "waves", "title": "Your own routine", "line": "adapted to your level, so it survives the week" }
+            {
+              "icon": "sun",
+              "title": "Daily, together",
+              "line": "40 minutes online, every day for one week"
+            },
+            {
+              "icon": "breath",
+              "title": "Breath first",
+              "line": "Pranayama exercises alongside the sitting practice"
+            },
+            {
+              "icon": "lotus",
+              "title": "Tibetan foundations",
+              "line": "the techniques that hold everything else up"
+            },
+            {
+              "icon": "waves",
+              "title": "Your own routine",
+              "line": "adapted to your level, so it survives the week"
+            }
           ]
         },
         {
