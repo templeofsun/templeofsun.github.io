@@ -1,0 +1,106 @@
+# Temple of Sun — where every old address goes.
+#
+# GENERATED FILE. Do not edit by hand.
+# Rebuilt from tools/redirects.json by tools/prepare-for-upload.py
+#
+# Read by Cloudflare Pages and Netlify. Ignored by GitHub Pages.
+# Cloudflare takes the first line that matches, so the exact addresses
+# come first and the wildcards sit underneath as a safety net.
+
+
+# The 23 blends. Each one has a true one-to-one home now.
+/product/rainbow/                               /products/rainbow.html  301
+/product/mind-your-gut/                         /products/mind-your-gut.html  301
+/product/let-go/                                /products/let-go.html  301
+/product/focus/                                 /products/focus.html  301
+/product/speak-easy/                            /products/speak-easy.html  301
+/product/confidence-serum/                      /products/confidence-serum.html  301
+/product/inner-king/                            /products/inner-king.html  301
+/product/forest-bathing/                        /products/forest-bathing.html  301
+/product/shen-essence/                          /products/shen-essence.html  301
+/product/flow/                                  /products/flow.html  301
+/product/solars-serum/                          /products/solar-serum.html  301
+/product/homecoming/                            /products/homecoming.html  301
+/product/defence/                               /products/defence.html  301
+/product/chakra-flow/                           /products/chakra-essence.html  301
+/product/space-maker/                           /products/space-maker.html  301
+/product/sunrise/                               /products/sunrise.html  301
+/product/water-jala/                            /products/water-jala.html  301
+/product/earth-prithvi/                         /products/earth-prithvi.html  301
+/product/air-vayu/                              /products/air-vayu.html  301
+/product/fire-agni/                             /products/fire-agni.html  301
+/product/ether-akasha/                          /products/ether-akasha.html  301
+/product/moonlight/                             /products/moonlight.html  301
+/product/awakening-queen/                       /products/awakening-queen.html  301
+
+# Shop and collection pages.
+/shop/                                          /collections.html  301
+/shop/rainbow-collection/                       /rainbow-collection.html  301
+/shop/5-elements/                               /5-elements.html  301
+/shop/collaborations-create-your-own-formula/   /create-your-own-formula.html  301
+/shop/7-chakras-coming-soon/                    /collections.html  301
+/webshop/                                       /collections.html  301
+/rainbow-catalogue/                             /rainbow-collection.html  301
+/welcome-to-my-alchemy-shop/                    /collections.html  301
+/product-category/essential-oil-blends/         /collections.html  301
+/product-category/essential-oil-blends/rainbow-collection/  /rainbow-collection.html  301
+/product-category/essential-oil-blends/5-elements-aromatherapy-collection/  /5-elements.html  301
+/product-tag/5-elements/                        /5-elements.html  301
+
+# The shop had a cart and accounts. The new site has neither yet, so these go to the blends.
+/cart/                                          /collections.html  301
+/checkout/                                      /collections.html  301
+/my-account/                                    /collections.html  301
+
+# Healing and techniques.
+/healing/                                       /treatments.html  301
+/healing/treatments/                            /treatments.html  301
+/healing/meditations/                           /meditation.html  301
+/healing/health-consultation/                   /health-consultation.html  301
+/techniques/                                    /aromatherapy.html  301
+/techniques/aromatherapy/                       /aromatherapy.html  301
+/techniques/massage-therapy/                    /treatments.html  301
+/techniques/energy-healing/                     /treatments.html  301
+/techniques/chakra-balancing/                   /treatments.html  301
+/techniques/sound-healing/                      /treatments.html  301
+/techniques/5-element-acupuncture/              /treatments.html  301
+/techniques/ecstatic-dance/                     /retreats.html  301
+
+# Retreats. Four old addresses, one new page.
+/upcoming-retreats/                             /retreats.html  301
+/upcoming-retreats-copy/                        /retreats.html  301
+/soul-alchem-retreat/                           /retreats.html  301
+/soul-alchemy-retreat-gallery/                  /retreats.html  301
+/gallery/                                       /retreats.html  301
+
+# About. Bio and My Story are one page now, called My Story.
+/about/                                         /bio.html  301
+/about/bio/                                     /bio.html  301
+/about/my-story/                                /bio.html  301
+/about/philosophy/                              /philosophy.html  301
+/about/feedback/                                /contact.html  301
+/the-team-coming-soon/                          /bio.html  301
+/testimonials/                                  /#voices  301
+/jivamukti-collaboration/                       /jivamukti-collaboration.html  301
+/category/collaborations/                       /jivamukti-collaboration.html  301
+/tag/collaborations/                            /jivamukti-collaboration.html  301
+/blog/                                          /journal.html  301
+
+# Contact and policies.
+/contact/                                       /contact.html  301
+/privacy-policy/                                /privacy.html  301
+/terms-and-conditions/                          /terms.html  301
+/rx-schedule-email-unsubscribe/                 /contact.html  301
+
+# --- wildcards: anything the sitemaps did not list ---
+
+# Anything the sitemaps missed, so nothing lands on a dead end.
+/product/*                                      /collections.html  301
+/product-category/*                             /collections.html  301
+/product-tag/*                                  /collections.html  301
+/shop/*                                         /collections.html  301
+/techniques/*                                   /aromatherapy.html  301
+/healing/*                                      /treatments.html  301
+/about/*                                        /bio.html  301
+/category/*                                     /  301
+/tag/*                                          /  301
