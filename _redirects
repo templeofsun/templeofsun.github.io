@@ -74,6 +74,9 @@
 /gallery/                                       /retreats.html  301
 
 # About. Bio and My Story are one page now, called My Story.
+
+# about.html is still sitting on GitHub unused; this makes sure nobody lands on it.
+/about.html                                     /bio.html  301
 /about/                                         /bio.html  301
 /about/bio/                                     /bio.html  301
 /about/my-story/                                /bio.html  301

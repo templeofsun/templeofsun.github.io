@@ -583,6 +583,16 @@ body.menu-open .mobile-menu a{opacity:1;transform:none;transition:opacity .5s va
 .subhero-light .subhero-content .label{color:var(--clay-ink)}
 .subhero-light .subhero-content .italic{color:var(--clay-ink)}
 
+/* the price, under the tagline at the top of a session page */
+.sh-price{font-family:var(--serif);font-size:clamp(24px,2.8vw,31px);margin-top:16px;color:var(--umber)}
+.sh-price span{font-family:var(--sans);font-size:14px;letter-spacing:.04em;color:var(--clay-ink);
+  margin-left:8px;vertical-align:middle}
+.subhero-light .sh-price{color:var(--umber)}
+
+/* the same price, smaller, on a session card */
+.card-price{font-family:var(--serif);font-size:19px;color:var(--umber);margin-top:12px;display:block}
+.card-price span{font-family:var(--sans);font-size:13px;color:var(--sage);margin-left:6px}
+
 /* ---------- cards & grids ---------- */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,34px)}
 .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.6vw,34px)}
@@ -1824,4 +1834,104 @@ button.product:focus-visible,button.product-el:focus-visible{outline:1.5px solid
      a scroll. The writing is what they came for; let it start. */
   .jr-toc{display:none}
   .jr-rail{gap:0 16px;padding-bottom:18px}
+}
+
+/* ---------- the five LABs: one row to choose from, one panel to read ----------
+   Five equal cards never divide evenly into a grid. So the five become a row of
+   choices, and only the chosen one is read. Without JavaScript every panel is
+   simply shown, one after another, and nothing is lost. */
+
+.labs{margin-top:clamp(34px,4vw,52px)}
+
+.labs-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0;
+  border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+
+.lab-tab{appearance:none;background:none;border:0;cursor:pointer;
+  display:grid;justify-items:center;gap:9px;
+  padding:clamp(18px,2.2vw,26px) 10px;
+  text-align:center;color:var(--umber);position:relative;
+  transition:background var(--t-fast) var(--ease),box-shadow var(--t-med) var(--ease)}
+.lab-tab+.lab-tab{box-shadow:inset 1px 0 0 var(--hairline)}
+.lab-tab .lab-mark{width:46px;height:46px;min-height:0;
+  box-shadow:inset 0 0 0 1px rgba(78,62,44,.14);   /* the palest circles need an edge on oat */
+  transition:transform var(--t-med) var(--ease),box-shadow var(--t-med) var(--ease)}
+.lab-tab .lab-mark svg{width:22px;height:22px;stroke-width:1.7}
+.lab-tab .lab-name{font-family:var(--serif);font-size:clamp(18px,1.55vw,22px);
+  line-height:1.15;color:var(--umber)}
+/* the ones not chosen still have to be readable: clay, not pale sage.
+   #8A5733 clears 4.5:1 on the oat panel; --clay-ink lands just under it. */
+.lab-tab .lab-practice{font-size:10.5px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:#8A5733;line-height:1.35}
+
+/* the chosen one: its own pale card, a gold rule, a ring around the mark */
+.lab-tab::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;
+  background:var(--gold);transform:scaleX(0);transform-origin:50% 50%;
+  transition:transform var(--t-med) var(--ease)}
+.labs-js .lab-tab[aria-selected="true"]{background:var(--card-bg);
+  box-shadow:inset 1px 0 0 var(--hairline),0 10px 26px -18px rgba(78,62,44,.5)}
+.labs-js .lab-tab[aria-selected="true"]::after{transform:scaleX(1)}
+.labs-js .lab-tab[aria-selected="true"] .lab-mark{transform:translateY(-3px) scale(1.12);
+  box-shadow:0 0 0 4px var(--card-bg),0 0 0 5px var(--gold)}
+.labs-js .lab-tab[aria-selected="true"] .lab-name{color:#3A2E24}
+.labs-js .lab-tab[aria-selected="true"] .lab-practice{color:var(--gold-ink)}
+.lab-tab:hover .lab-mark{transform:translateY(-3px)}
+.lab-tab:focus-visible{outline:2px solid var(--gold);outline-offset:-3px;border-radius:2px}
+
+/* the panel: name and line on the left, the writing on the right */
+.lab-panel{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);
+  gap:clamp(26px,4vw,64px);align-items:start;
+  padding:clamp(34px,4.4vw,58px) 0 clamp(8px,1vw,14px)}
+.lab-panel+.lab-panel{border-top:1px solid var(--hairline)}
+.lab-panel h3{font-size:clamp(28px,3.4vw,42px);line-height:1.08}
+.lab-tag{font-family:var(--serif);font-style:italic;font-size:clamp(17px,1.7vw,20px);
+  color:var(--clay);margin-top:12px}
+.lab-panel-body p{max-width:60ch}
+.lab-meta{margin-top:20px;font-size:10.5px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--sage)}
+.lab-meta span{white-space:nowrap}        /* break between the facts, never inside one */
+.lab-meta .dot{margin:0 2px;opacity:.6}
+
+/* with JavaScript, one at a time */
+.labs-js .lab-panel{display:none}
+.labs-js .lab-panel.is-on{display:grid;animation:labIn .5s var(--ease) both}
+.labs-js .lab-panel+.lab-panel{border-top:0}
+@keyframes labIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* arrows and the counter, quiet, under the panel */
+.labs-pager{display:flex;align-items:center;justify-content:flex-end;gap:14px;
+  padding-top:clamp(18px,2.2vw,26px);border-top:1px solid var(--hairline);
+  margin-top:clamp(18px,2.2vw,26px)}
+.labs-arrow{appearance:none;background:none;cursor:pointer;color:var(--umber);
+  width:38px;height:38px;display:grid;place-items:center;
+  border:1px solid var(--hairline);border-radius:50%;
+  transition:border-color var(--t-fast) var(--ease),background var(--t-fast) var(--ease)}
+.labs-arrow svg{width:19px;height:19px}
+.labs-arrow:hover{border-color:var(--gold);background:var(--card-bg)}
+.labs-arrow:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.labs-count{font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--sage);
+  min-width:5ch;text-align:center}
+
+/* the thin line that runs out while the next one waits */
+.labs-progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--gold);
+  width:0;opacity:.5}
+.labs-js .labs-row{position:relative}
+.is-playing .labs-progress{animation:labRun 7s linear forwards}
+@keyframes labRun{from{width:0}to{width:100%}}
+
+@media(max-width:900px){
+  .lab-panel{grid-template-columns:1fr;gap:16px}
+  .lab-tab .lab-practice{display:none}
+}
+/* phones: the row stays a row, and slides */
+@media(max-width:620px){
+  .labs-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .labs-row::-webkit-scrollbar{display:none}
+  .lab-tab{flex:0 0 30%;scroll-snap-align:center;padding:16px 6px}
+  .lab-tab .lab-mark{width:36px;height:36px}
+  .lab-meta{letter-spacing:.1em;font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  .labs-js .lab-panel.is-on{animation:none}
+  .lab-tab .lab-mark,.lab-tab::after{transition:none}
 }

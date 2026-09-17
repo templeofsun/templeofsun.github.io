@@ -283,6 +283,99 @@
     tRestart();
   }
 
+  /* ---------- the five LABs: choose one, read one ----------
+     Without this the page simply shows all five, one under the other.
+     It moves on by itself every 7 seconds, and stops the moment anyone
+     touches it, hovers it, tabs into it, or scrolls it out of sight.
+     Someone who has asked for less motion never sees it move at all. */
+  document.querySelectorAll('[data-labs]').forEach(function (labs) {
+    var tabs = Array.prototype.slice.call(labs.querySelectorAll('.lab-tab'));
+    var panels = Array.prototype.slice.call(labs.querySelectorAll('.lab-panel'));
+    if (tabs.length < 2 || tabs.length !== panels.length) return;
+    labs.classList.add('labs-js');
+
+    var row = labs.querySelector('.labs-row');
+    var pager = labs.querySelector('[data-labs-pager]');
+    var count = labs.querySelector('[data-labs-count]');
+    var prev = labs.querySelector('[data-labs-prev]');
+    var next = labs.querySelector('[data-labs-next]');
+    var bar = null;
+    var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var timer = null, stopped = false, seen = false, hovered = false, current = 0;
+
+    if (pager) {
+      pager.hidden = false;
+      bar = document.createElement('span');
+      bar.className = 'labs-progress';
+      row.appendChild(bar);
+    }
+
+    function show(i, moveFocus) {
+      current = (i + tabs.length) % tabs.length;
+      tabs.forEach(function (t, n) {
+        var on = n === current;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        panels[n].classList.toggle('is-on', on);
+      });
+      if (count) count.textContent = (current + 1) + ' / ' + tabs.length;
+      if (moveFocus) tabs[current].focus();
+      /* on a phone the row slides: keep the chosen one in view */
+      if (row.scrollWidth > row.clientWidth + 4) {
+        var t = tabs[current];
+        row.scrollTo({ left: t.offsetLeft - (row.clientWidth - t.offsetWidth) / 2,
+                       behavior: calm.matches ? 'auto' : 'smooth' });
+      }
+      restart();
+    }
+
+    function tick() { if (!stopped && !hovered && seen) show(current + 1, false); }
+
+    function restart() {
+      clearInterval(timer);
+      labs.classList.remove('is-playing');
+      if (stopped || hovered || !seen || calm.matches) return;
+      if (bar) { void bar.offsetWidth; }      /* replay the line from zero */
+      labs.classList.add('is-playing');
+      timer = setInterval(tick, 7000);
+    }
+
+    /* any deliberate choice means they are reading: stop moving for good */
+    function stop() { stopped = true; clearInterval(timer); labs.classList.remove('is-playing'); }
+
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { stop(); show(i, false); });
+      t.addEventListener('keydown', function (e) {
+        var k = e.key, last = tabs.length - 1, to = -1;
+        if (k === 'ArrowRight' || k === 'ArrowDown') to = i === last ? 0 : i + 1;
+        else if (k === 'ArrowLeft' || k === 'ArrowUp') to = i === 0 ? last : i - 1;
+        else if (k === 'Home') to = 0;
+        else if (k === 'End') to = last;
+        if (to < 0) return;
+        e.preventDefault();
+        stop();
+        show(to, true);
+      });
+    });
+    if (prev) prev.addEventListener('click', function () { stop(); show(current - 1, false); });
+    if (next) next.addEventListener('click', function () { stop(); show(current + 1, false); });
+
+    labs.addEventListener('mouseenter', function () { hovered = true; restart(); });
+    labs.addEventListener('mouseleave', function () { hovered = false; restart(); });
+    labs.addEventListener('focusin', stop);
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        seen = entries[0].isIntersecting;
+        restart();
+      }, { threshold: 0.35 }).observe(labs);
+    } else {
+      seen = true;
+    }
+
+    show(0, false);
+  });
+
   /* ---------- lightbox with prev / next ---------- */
   var lbLinks = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox]'));
   if (lbLinks.length) {
