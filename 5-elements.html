@@ -111,36 +111,36 @@
       </div>
       
       <div class="grid-3 chip-grid" style="margin-top:44px">
-<button type="button" id="earth-prithvi" class="product prod-img" data-prod="earth-prithvi" data-tags="el-earth">
+<a id="earth-prithvi" class="product prod-img" href="products/earth-prithvi.html" data-prod="earth-prithvi" data-tags="el-earth">
       <span class="frame"><img loading="lazy" decoding="async" data-onerr="hide" src="assets/img/products/earth-prithvi.webp" alt="Earth · Prithvi blend" width="640" height="640"></span>
       <span class="k">root chakra</span><h3>EARTH · PRITHVI</h3>
       <p class="for">Grounding, presence, support.</p>
       <span class="row"><span class="price">€40.00</span><span class="soon" style="color:var(--clay-ink)">Details →</span></span>
-    </button>
-<button type="button" id="water-jala" class="product prod-img" data-prod="water-jala" data-tags="el-water">
+    </a>
+<a id="water-jala" class="product prod-img" href="products/water-jala.html" data-prod="water-jala" data-tags="el-water">
       <span class="frame"><img loading="lazy" decoding="async" data-onerr="hide" src="assets/img/products/water-jala.webp" alt="Water · Jala blend" width="640" height="640"></span>
       <span class="k">sacral chakra</span><h3>WATER · JALA</h3>
       <p class="for">Intuition, flow, feeling.</p>
       <span class="row"><span class="price">€40.00</span><span class="soon" style="color:var(--clay-ink)">Details →</span></span>
-    </button>
-<button type="button" id="fire-agni" class="product prod-img" data-prod="fire-agni" data-tags="el-fire">
+    </a>
+<a id="fire-agni" class="product prod-img" href="products/fire-agni.html" data-prod="fire-agni" data-tags="el-fire">
       <span class="frame"><img loading="lazy" decoding="async" data-onerr="hide" src="assets/img/products/fire-agni.webp" alt="Fire · Agni blend" width="640" height="640"></span>
       <span class="k">solar plexus</span><h3>FIRE · AGNI</h3>
       <p class="for">Energy, transformation, will.</p>
       <span class="row"><span class="price">€40.00</span><span class="soon" style="color:var(--clay-ink)">Details →</span></span>
-    </button>
-<button type="button" id="air-vayu" class="product prod-img" data-prod="air-vayu" data-tags="el-air">
+    </a>
+<a id="air-vayu" class="product prod-img" href="products/air-vayu.html" data-prod="air-vayu" data-tags="el-air">
       <span class="frame"><img loading="lazy" decoding="async" data-onerr="hide" src="assets/img/products/air-vayu.webp" alt="Air · Vayu blend" width="640" height="640"></span>
       <span class="k">heart chakra</span><h3>AIR · VAYU</h3>
       <p class="for">Breath, letting go, inspiration.</p>
       <span class="row"><span class="price">€40.00</span><span class="soon" style="color:var(--clay-ink)">Details →</span></span>
-    </button>
-<button type="button" id="ether-akasha" class="product prod-img" data-prod="ether-akasha" data-tags="el-ether">
+    </a>
+<a id="ether-akasha" class="product prod-img" href="products/ether-akasha.html" data-prod="ether-akasha" data-tags="el-ether">
       <span class="frame"><img loading="lazy" decoding="async" data-onerr="hide" src="assets/img/products/ether-akasha.webp" alt="Ether · Akasha blend" width="640" height="640"></span>
       <span class="k">throat chakra</span><h3>ETHER · AKASHA</h3>
       <p class="for">Spirit, space, the subtle.</p>
       <span class="row"><span class="price">€40.00</span><span class="soon" style="color:var(--clay-ink)">Details →</span></span>
-    </button>
+    </a>
       </div>
       <p class="center chip-empty" hidden style="margin-top:34px;font-family:var(--serif);font-style:italic;font-size:19px;color:var(--sage)">Nothing here carries that feeling; Rainbow carries them all.</p>
     </div>
@@ -235,9 +235,6 @@
     if(returnTo){ returnTo.focus(); returnTo = null; }
   }
   function nav(step){ show(ORDER[(cur + step + ORDER.length) % ORDER.length]); }
-  document.querySelectorAll('[data-prod]').forEach(function(b){
-    b.addEventListener('click', function(){ open(b.getAttribute('data-prod'), b); });
-  });
   pm.addEventListener('click', close);
   card.addEventListener('click', function(e){ e.stopPropagation(); });
   pm.querySelector('.pm-close').addEventListener('click', function(e){ e.stopPropagation(); close(); });

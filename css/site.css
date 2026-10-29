@@ -869,7 +869,7 @@ button.product,button.product-el{
   -webkit-appearance:none;appearance:none;
 }
 button.product-el{text-align:center}
-button.product:focus-visible,button.product-el:focus-visible{outline:1.5px solid var(--gold);outline-offset:3px}
+button.product:focus-visible,button.product-el:focus-visible,a.product:focus-visible{outline:1.5px solid var(--gold);outline-offset:3px}
 .product-el{transition:transform var(--t-fast) var(--ease),box-shadow var(--t-fast) ease}
 .product-el:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(58,46,36,.08)}
 .product-el .scent{margin:0 auto 14px}
