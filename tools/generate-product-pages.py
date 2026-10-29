@@ -3,19 +3,15 @@
 Temple of Sun — give every blend its own page.
 
 Peter has written roughly 10,700 words describing the 23 blends. All of it
-lives inside the `DATA` objects in rainbow-collection.html and 5-elements.html,
-and only appears after a visitor clicks a tile. Search engines and AI
-assistants never click, so until now that writing was invisible to them — and
-no blend had an address anyone could link to or cite.
+lives in tools/blend-pages.json, grouped by collection page. This reads it and
+writes one page per blend:
 
-This reads those same `DATA` objects and writes one page per blend:
+    products/focus.html, products/moonlight.html, ...
 
-    blend-focus.html, blend-moonlight.html, ...
+Nothing is rewritten. The words are Peter's.
 
-Nothing is rewritten. The words are Peter's, moved somewhere readable.
-
-GENERATED FILES — do not edit blend-*.html by hand. Edit the `DATA` entry in
-the collection page, then rerun. `tools/prepare-for-upload.py` does this for
+GENERATED FILES — do not edit products/*.html by hand. Edit the blend in
+tools/blend-pages.json, then rerun. `tools/prepare-for-upload.py` does this for
 you on every run.
 """
 
@@ -158,12 +154,10 @@ def esc(text) -> str:
 
 
 def load(source: dict) -> dict:
-    path = ROOT / source["file"]
-    text = path.read_text(encoding="utf-8")
-    match = re.search(r"var DATA = (\{.*?\});\s*\n", text, re.S)
-    if not match:
-        sys.exit(f"ERROR: no DATA object found in {source['file']}")
-    return json.loads(match.group(1))
+    data = json.loads((ROOT / "tools" / "blend-pages.json").read_text(encoding="utf-8"))
+    if source["file"] not in data:
+        sys.exit(f"ERROR: no blends for {source['file']} in tools/blend-pages.json")
+    return data[source["file"]]
 
 
 def plain(fragment: str) -> str:
@@ -255,27 +249,6 @@ def build_schema(slug: str, blend: dict, source: dict, url: str, image_abs: str)
 
 LIST_START = "<!-- blend-pages start -->"
 LIST_END = "<!-- blend-pages end -->"
-
-
-def add_modal_link(source: dict) -> bool:
-    """Give the pop-up a link to the blend's own page."""
-    path = ROOT / source["file"]
-    text = path.read_text(encoding="utf-8")
-    linked = (
-        "document.getElementById('pmBody').innerHTML = d.body + "
-        "'<a class=\"pm-fullpage\" href=\"products/' + slug + '.html\">"
-        "Read the full page for ' + d.name + ' \\u2192</a>';"
-    )
-    if linked in text:
-        return False
-
-    # Matches the untouched line and any earlier version of this patch, so the
-    # link can be repointed without hand-editing the collection page.
-    pattern = re.compile(r"document\.getElementById\('pmBody'\)\.innerHTML = d\.body[^\n]*?;")
-    if not pattern.search(text):
-        sys.exit(f"ERROR: could not find the modal body line in {source['file']}")
-    path.write_text(pattern.sub(lambda _: linked, text, count=1), encoding="utf-8")
-    return True
 
 
 def add_link_list(source: dict, blends: list) -> None:
@@ -397,7 +370,6 @@ def main() -> None:
 
     for source in SOURCES:
         mine = [row for row in index if row[3] == source["collection"]]
-        add_modal_link(source)
         add_link_list(source, mine)
 
     listed = update_sitemap(index)
