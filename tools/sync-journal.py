@@ -9,7 +9,7 @@ any other page on the site. Nothing rewrites what you wrote.
 
 To add a new entry, copy an existing one:
 
-    cp journal/placeholder-example.html journal/my-new-entry.html
+    cp journal/jivamukti-essence.html journal/my-new-entry.html
 
 then change, inside that file:
     · the <title>

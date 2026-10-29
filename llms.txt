@@ -72,7 +72,6 @@ Every blend has its own page, with the plants inside it, how to use it, who it i
 <!-- journal start -->
 - [The Journal](https://templeofsun.com/journal.html): Péter's longer writing on aromatherapy, the blends and the practice
 - [The story of the Jivamukti Essence](https://templeofsun.com/journal/jivamukti-essence.html): How a treatment in a Crete ashram in February 2022 became the Jivamukti Essence: twelve essential oils carrying the spirit of a yoga community.
-- [Lorem ipsum dolor sit amet, consectetur](https://templeofsun.com/journal/placeholder-example.html): Lorem ipsum placeholder. This entry exists only to show how a published journal entry looks in the list and on the page. It is not real writing.
 <!-- journal end -->
 
 ## Press & appearances
