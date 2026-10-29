@@ -137,9 +137,10 @@ def read_entries() -> list:
 
 
 def fix_read_time(e: dict) -> bool:
-    """Keep 'N min read' true to what is actually written."""
+    """Keep 'N min read' and the wordCount in the data true to what is written."""
     s = e["file"].read_text(encoding="utf-8")
     new = re.sub(r"\b\d+ min read", f"{e['read']} min read", s)
+    new = re.sub(r'"wordCount": \d+', f'"wordCount": {e["words"]}', new)
     if new != s:
         e["file"].write_text(new, encoding="utf-8")
         return True

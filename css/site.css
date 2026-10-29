@@ -1935,3 +1935,14 @@ button.product:focus-visible,button.product-el:focus-visible{outline:1.5px solid
   .labs-js .lab-panel.is-on{animation:none}
   .lab-tab .lab-mark,.lab-tab::after{transition:none}
 }
+
+/* a photo inside the writing, and the small print that follows a section */
+.jr-inline{margin:clamp(34px,4vw,48px) 0}
+/* keep the photo's own shape, and never let it swallow the page */
+.frame-free{aspect-ratio:auto;min-height:0;background:none}
+.frame-free img{position:static;width:100%;height:auto;max-height:62vh;object-fit:contain;display:block}
+.jr-inline figcaption{margin-top:12px;font-size:13.5px;color:var(--sage);font-style:italic}
+.jr-note{margin-top:clamp(26px,3vw,36px);padding-top:18px;border-top:1px solid var(--hairline);
+  font-size:14px;line-height:1.7;color:var(--sage)}
+.jr-note a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--hairline)}
+.jr-body h3{margin-top:clamp(26px,3vw,34px)}

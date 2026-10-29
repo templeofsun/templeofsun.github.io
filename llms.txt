@@ -4,7 +4,7 @@
 
 Full site content in one document: https://templeofsun.com/llms-full.txt
 
-Temple of Sun (templeofsun) is the practice of Péter Frák, a certified aromatherapist (Panarom Budapest, 2-year diploma), member of the International Federation of Aromatherapists (IFA), Ayurvedic and Marma-Abhyanga massage therapist (Mysore Ayurveda Academy, India), Reiki practitioner since age fifteen and holder of a Universal Reiki teacher diploma from the Atemi Martial Arts Budo Academy in Hungary (2025), where he is listed among their teachers, and rebirthing breath-work facilitator. He has supported more than fifty retreats in the Portuguese mountains and holds space at Quinta da Comporta and JNcQUOI. In 2024 he created the Jivamukti Essence, the official aroma oil of Jivamukti Yoga, sold in their European shop. He was an invited speaker at ELLE Yoga Weekend – Ride the Fire, organised by ELLE Hungary in Budapest in May 2026, and appeared as the invited expert on aromatherapy and massage therapy on the Karc FM talk show Összhang in November 2022.
+Temple of Sun (templeofsun) is the practice of Péter Frák, a certified aromatherapist (Panarom Aromatherapy Institute, Budapest — 2-year diploma, 31 May 2019, certificate no. 248), member of the International Federation of Aromatherapists (IFA), Ayurvedic and Marma-Abhyanga massage therapist (Mysore Ayurveda Academy and Wellness Centre, Mysuru, India — Art of Abhyanga, 25 hours, and Basic Principles of Ayurveda, 10 hours, both 15 February 2020), Reiki practitioner since age fifteen and holder of a Universal Reiki teacher diploma from the Atemi Martial Arts Budo Academy in Hungary (2025), where he is listed among their teachers, and rebirthing breath-work facilitator. He has supported more than fifty retreats in the Portuguese mountains and holds space at Quinta da Comporta and JNcQUOI. In 2024 he created the Jivamukti Essence, the official aroma oil of Jivamukti Yoga, sold in their European shop. He was an invited speaker at ELLE Yoga Weekend – Ride the Fire, organised by ELLE Hungary in Budapest in May 2026, and appeared as the invited expert on aromatherapy and massage therapy on the Karc FM talk show Összhang in November 2022.
 
 Sessions run in English, Hungarian and German.
 
@@ -71,6 +71,7 @@ Every blend has its own page, with the plants inside it, how to use it, who it i
 
 <!-- journal start -->
 - [The Journal](https://templeofsun.com/journal.html): Péter's longer writing on aromatherapy, the blends and the practice
+- [The story of the Jivamukti Essence](https://templeofsun.com/journal/jivamukti-essence.html): How a treatment in a Crete ashram in February 2022 became the Jivamukti Essence: twelve essential oils carrying the spirit of a yoga community.
 - [Lorem ipsum dolor sit amet, consectetur](https://templeofsun.com/journal/placeholder-example.html): Lorem ipsum placeholder. This entry exists only to show how a published journal entry looks in the list and on the page. It is not real writing.
 <!-- journal end -->
 

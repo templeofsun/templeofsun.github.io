@@ -138,10 +138,14 @@
     {
       "@type": "EducationalOccupationalCredential",
       "name": "Aromatherapy Diploma",
+      "description": "Two-year aromatherapy programme, completed with distinction in the professional examination. Certificate no. 248.",
       "credentialCategory": "diploma",
+      "educationalLevel": "Professional qualification: Aromatherapist",
+      "dateCreated": "2019-05-31",
+      "identifier": "248",
       "recognizedBy": {
-        "@type": "Organization",
-        "name": "Panarom, Budapest",
+        "@type": "EducationalOrganization",
+        "name": "Panarom Aromatherapy Institute, Budapest",
         "url": "https://panarom.hu/"
       }
     },
@@ -158,21 +162,38 @@
     {
       "@type": "EducationalOccupationalCredential",
       "name": "Ayurvedic & Marma-Abhyanga Massage",
+      "description": "Art of Abhyanga: Ayurvedic massage and special healing therapies, 25 hours of training, with Marma work studied alongside it.",
       "credentialCategory": "certificate",
+      "dateCreated": "2020-02-15",
+      "timeRequired": "PT25H",
       "recognizedBy": {
-        "@type": "Organization",
-        "name": "Mysore Ayurveda Academy, India",
+        "@type": "EducationalOrganization",
+        "name": "Mysore Ayurveda Academy and Wellness Centre, Mysuru, India",
+        "url": "https://mysoreayurveda.in/"
+      }
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Basic Principles of Ayurveda",
+      "description": "Panchamahabhuta, Tridosha and Triguna theory, Prakriti, Dinacharya, Rutucharya, Trayopasthambhas and Ayurvedic home remedies. 10 hours.",
+      "credentialCategory": "certificate",
+      "dateCreated": "2020-02-15",
+      "timeRequired": "PT10H",
+      "recognizedBy": {
+        "@type": "EducationalOrganization",
+        "name": "Mysore Ayurveda Academy and Wellness Centre, Mysuru, India",
         "url": "https://mysoreayurveda.in/"
       }
     },
     {
       "@type": "EducationalOccupationalCredential",
       "name": "Teacher Diploma, Universal Reiki (Atemi 5 Elements Energy Flow)",
+      "description": "Awarded the rank of Reiki Teacher after completing the Universal Reiki methods of the Atemi Budo Academy.",
       "credentialCategory": "diploma",
       "dateCreated": "2025-11-16",
       "recognizedBy": {
-        "@type": "Organization",
-        "name": "Atemi Martial Arts Budo Academy",
+        "@type": "EducationalOrganization",
+        "name": "Atemi Martial Arts Budo Academy, Hungary",
         "url": "https://www.atemibudoacademy.com/",
         "sameAs": "https://www.atemibudoacademy.com/akademiai-tanarok/"
       }
