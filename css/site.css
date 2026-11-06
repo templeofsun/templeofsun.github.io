@@ -708,6 +708,10 @@ a.card:hover{transform:translateY(-4px)}
 .cred-note a:hover,.cred-also a:hover,
 .wrap-text p a:hover,.duo-body p a:hover,
 .jr-body p a:hover,.jr-body li a:hover,.jr-empty a:hover{color:var(--gold);text-decoration-color:var(--gold)}
+/* buttons placed inside body text keep their own look */
+.wrap-text p a.btn,.duo-body p a.btn,.jr-body p a.btn{text-decoration:none}
+.wrap-text p a.btn-solid,.duo-body p a.btn-solid,.jr-body p a.btn-solid,
+.wrap-text p a.btn-solid:hover,.duo-body p a.btn-solid:hover,.jr-body p a.btn-solid:hover{color:var(--card-bg)}
 @media(max-width:640px){
   .cred-row{flex-direction:column;gap:5px;padding:17px 0;border-top:1px solid var(--hairline)}
   .cred-row:first-child{border-top:0;padding-top:0}
