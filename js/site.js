@@ -185,13 +185,13 @@
   var revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && revealEls.length && !reduceMotion) {
     /* plays every time an element enters the view — scrolling down OR back up.
-       exception: photo product cards reveal once and stay (replaying image grids
+       exception: photo cards, gallery tiles and journal photos reveal once and stay (replaying image grids
        reads as images re-loading and makes long grids feel heavy on scroll) */
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) {
           e.target.classList.add('in');
-          if (e.target.classList.contains('prod-img')) io.unobserve(e.target);
+          if (e.target.matches('.prod-img,.gallery > *,.gallery-strip,.jr-featured,.jr-inline')) io.unobserve(e.target);
         }
         else e.target.classList.remove('in');   /* resets quietly off-screen, ready to play again */
       });
@@ -245,7 +245,17 @@
       slides[current].classList.add('is-active');      /* new photo breathes in on top */
       if (dots[old]) dots[old].classList.remove('is-active');
       if (dots[current]) dots[current].classList.add('is-active');
+      warm(current + 1);
     }
+    /* the slides after the first wait offscreen with loading="lazy", and a hidden
+       slide may never be fetched in time: it would fade in empty and the previous
+       photo would keep showing. Fetch the next one ahead, one at a time. */
+    function warm(i) {
+      var img = slides[(i + slides.length) % slides.length].querySelector('img');
+      if (img && img.loading === 'lazy') img.loading = 'eager';
+    }
+    if (document.readyState === 'complete') warm(1);
+    else window.addEventListener('load', function () { warm(1); });
     function restart() { clearInterval(timer); timer = setInterval(function () { go(current + 1); }, 6000); }
     restart();
     var prevBtn = document.querySelector('.hero-arrow.prev');
@@ -377,6 +387,113 @@
   });
 
   /* ---------- lightbox with prev / next ---------- */
+  /* ---------- gallery strip: drag to scroll with the mouse (touch scrolls natively) ---------- */
+  document.querySelectorAll('.gallery-strip').forEach(function (strip) {
+    var down = false, startX = 0, startLeft = 0, moved = false;
+    strip.addEventListener('mousedown', function (e) {
+      if (e.button !== 0) return;
+      down = true; moved = false; startX = e.pageX; startLeft = strip.scrollLeft;
+      strip.classList.add('is-drag');
+    });
+    window.addEventListener('mousemove', function (e) {
+      if (!down) return;
+      var dx = e.pageX - startX;
+      if (Math.abs(dx) > 5) moved = true;
+      if (moved) strip.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('mouseup', function () { down = false; strip.classList.remove('is-drag'); });
+    /* a drag must not count as a click on a photo */
+    strip.addEventListener('click', function (e) {
+      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+    }, true);
+    strip.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
+    /* endless loop: the strip is followed by copies of itself, and when you reach
+       the end of one round you are put back at the start of it, which looks identical.
+       The copies are decoration: hidden from screen readers, out of the tab order,
+       and a click on one opens the real photo. */
+    /* 29 photos in 3 rows leave one gap per round. It is filled with one of the
+       photos, picked at random on each visit, but never one that would sit right
+       next to its own twin (the first column of the next round, or its own column). */
+    var gap = strip.querySelector('.gallery-fill');
+    if (gap) {
+      var pics = Array.prototype.slice.call(strip.querySelectorAll('a[data-lightbox]'));
+      var pool = pics.filter(function (p, i) { return i > 2 && i < pics.length - 3; });
+      if (pool.length) {
+        var pick = pool[Math.floor(Math.random() * pool.length)];
+        var fill = pick.cloneNode(true);
+        fill.removeAttribute('data-lightbox');
+        fill.setAttribute('aria-hidden', 'true');
+        fill.setAttribute('tabindex', '-1');
+        fill.addEventListener('click', function (e) { e.preventDefault(); pick.click(); });
+        strip.replaceChild(fill, gap);
+      }
+    }
+    var originals = Array.prototype.slice.call(strip.children);
+    var cycle = 0;
+    function measure() {
+      var first = originals[0], again = strip.children[originals.length];
+      cycle = again ? again.offsetLeft - first.offsetLeft : 0;
+    }
+    var copies = Math.ceil(Math.max(window.innerWidth, strip.clientWidth) / Math.max(strip.clientWidth, 1)) + 2;
+    for (var c = 0; c < copies; c++) {
+      originals.forEach(function (o, idx) {
+        var cl = o.cloneNode(true);
+        cl.removeAttribute('data-lightbox');
+        cl.setAttribute('aria-hidden', 'true');
+        cl.setAttribute('tabindex', '-1');
+        cl.classList.add('is-copy');
+        if (cl.tagName === 'A') cl.addEventListener('click', function (e) { e.preventDefault(); o.click(); });
+        strip.appendChild(cl);
+      });
+    }
+    measure();
+    if (cycle > 0) {
+      strip.scrollLeft = cycle;
+      var jump = function () {
+        var sl = strip.scrollLeft, d = 0;
+        if (sl >= 2 * cycle) d = -cycle; else if (sl < cycle * 0.5) d = cycle;
+        if (d) { strip.scrollLeft = sl + d; startLeft += d; pos += d; }
+      };
+      strip.addEventListener('scroll', jump, { passive: true });
+      window.addEventListener('resize', function () { var r = strip.scrollLeft / (cycle || 1); measure(); strip.scrollLeft = r * cycle; pos = strip.scrollLeft; });
+    }
+
+    /* slow drift to the left, forever. It stops while the pointer is over the
+       strip, while a finger or key is on it, and for a few seconds after any
+       manual move. Not at all for people who asked for less motion. */
+    var SPEED = 26;                      /* pixels per second */
+    var pos = strip.scrollLeft, hover = false, focus = false, touching = false;
+    var resumeAt = 0, last = 0, onScreen = false, raf = 0;
+    function hold(ms) { resumeAt = Math.max(resumeAt, window.performance.now() + ms); }
+    function tick(t) {
+      raf = 0;
+      if (!onScreen || document.hidden) { last = 0; return; }
+      var dt = last ? Math.min(t - last, 64) : 0; last = t;
+      if (!hover && !focus && !touching && !down && t >= resumeAt && cycle > 0) {
+        if (Math.abs(strip.scrollLeft - pos) > 2) pos = strip.scrollLeft;   /* the visitor moved it: carry on from there */
+        pos += SPEED * dt / 1000;
+        strip.scrollLeft = pos;
+      } else { last = 0; }
+      raf = window.requestAnimationFrame(tick);
+    }
+    function go() { if (!reduceMotion && !raf && onScreen) raf = window.requestAnimationFrame(tick); }
+    strip.addEventListener('mouseenter', function () { hover = true; });
+    strip.addEventListener('mouseleave', function () { hover = false; hold(1200); go(); });
+    strip.addEventListener('focusin', function () { focus = true; });
+    strip.addEventListener('focusout', function () { focus = false; hold(1200); go(); });
+    strip.addEventListener('touchstart', function () { touching = true; }, { passive: true });
+    strip.addEventListener('touchend', function () { touching = false; hold(3000); go(); }, { passive: true });
+    strip.addEventListener('wheel', function () { hold(3000); }, { passive: true });
+    window.addEventListener('mouseup', function () { hold(2500); go(); });
+    document.addEventListener('visibilitychange', go);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) {
+        onScreen = en[0].isIntersecting; if (onScreen) { last = 0; pos = strip.scrollLeft; go(); }
+      }, { threshold: 0.2 }).observe(strip);
+    }
+  });
+
   var lbLinks = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox]'));
   if (lbLinks.length) {
     var lb = document.createElement('div');
@@ -658,6 +775,7 @@
   });
   if (document.readyState !== 'loading') document.body.classList.add('is-ready');
   document.addEventListener('click', function (e) {
+    if (e.defaultPrevented) return;   /* another handler (gallery, lightbox) already dealt with this click */
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
     var a = e.target.closest('a');
     if (!a) return;

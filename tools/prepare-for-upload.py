@@ -123,6 +123,7 @@ def main() -> None:
     run("generate-session-pages.py", "online session pages")
     run("build-poem-page.py", "the poem page")
     run("sync-journal.py", "the journal list")
+    run("sitemap-images.py", "the photo lists in the sitemap")
     run("stamp-shell.py", "menu and footer")
     run("apply-press-schema.py", "press credits")
     run("generate-reviews-schema.py", "guest reviews")

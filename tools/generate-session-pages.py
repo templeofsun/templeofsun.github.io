@@ -88,6 +88,28 @@ def block_duo(b: dict) -> str:
         body += f"\n          <p>{p}</p>"
     if b.get("pull"):
         body += f'\n          <p class="pull">&ldquo;{b["pull"]}&rdquo;</p>'
+    if b.get("img"):
+        # with a photo, use the site's standard photo-and-text layout
+        # (the same as the intro of Meditation Classes): arched photo on the left,
+        # label, heading and text beside it
+        i = b["img"]
+        body = re.sub(r'<p( class="[^"]*")?>', lambda m: f'<p{m.group(1) or ""} style="margin-top:20px">',
+                      body, count=1)   # same breathing room under the heading as Meditation Classes
+        return f"""
+  <section{cls}>
+    <div class="wrap">
+      <div class="split media-left">
+        <div class="media reveal">
+          <div class="frame {i.get("frame", "arch ratio-45")}"><img loading="lazy" decoding="async" data-onerr="remote" src="assets/img/{i["src"]}" alt="{i["alt"]}" width="{i["w"]}" height="{i["h"]}"></div>
+        </div>
+        <div class="reveal" style="--d:.12s">
+          <span class="label">{b["label"]}</span>
+          <h2>{b["h2"]}</h2>{body}
+        </div>
+      </div>
+    </div>
+  </section>
+"""
     return f"""
   <section{cls}>
     <div class="wrap">

@@ -47,7 +47,14 @@
           "paras": [
             "During our one-hour session I gently guide you through a health and lifestyle questionnaire designed to help us explore your unique needs. Everything you share, whether intentionally or as it arises naturally in conversation, is held in complete confidentiality.",
             "Changing one's lifestyle, behaviours and old counterproductive habits is necessary in this process. It is never easy; sometimes it is even unpleasant for a short time. I am here to support your journey with all my knowledge and compassion for all humankind, together with the healing power that aromatherapy offers."
-          ]
+          ],
+          "img": {
+            "src": "health-consultation-peter-pink-wall.webp",
+            "alt": "Péter in a green patterned kaftan against a terracotta wall, holding a sprig to his temple",
+            "w": 1000,
+            "h": 1250,
+            "frame": "ratio-45"
+          }
         },
         {
           "type": "rites",
@@ -168,7 +175,14 @@
           "paras": [
             "Having worked as a holistic therapist for many years, I have had the privilege of connecting deeply with countless personal stories. These encounters have profoundly shaped my own healing and growth, as has my ongoing journey of learning from therapists and practitioners across various fields."
           ],
-          "pull": "I understand how intimate and personal this kind of work is. I approach every session with empathy, presence, and dedication. Throughout our time together, I will be fully here for you: offering a safe, supportive, and nurturing space for your transformation to unfold."
+          "pull": "I understand how intimate and personal this kind of work is. I approach every session with empathy, presence, and dedication. Throughout our time together, I will be fully here for you: offering a safe, supportive, and nurturing space for your transformation to unfold.",
+          "img": {
+            "src": "spiritual-mentoring-peter-meditating.webp",
+            "alt": "Péter meditating with hands at the heart, on the grass between two guests",
+            "w": 1400,
+            "h": 933,
+            "frame": "ratio-32"
+          }
         }
       ]
     },
@@ -246,7 +260,14 @@
             "Meditation has been part of my life since childhood. In the beginning it served as a coping mechanism, an escape into the spiritual world. My first formal experience came during my initial Reiki training at age 15, and from that point onward meditation gradually evolved into a practice of acceptance, awareness and inner spaciousness.",
             "Over the past decade I have studied and practised Vipassana meditation, in both the Goenka and Mahasi traditions, as well as Tibetan Buddhist pranayama and meditation at dedicated centres. A two-year journey through India and Southeast Asia deepened this path of exploration and self-discovery."
           ],
-          "pull": "It would be my pleasure and honour to share the insights, tools, and practices that have supported me along the way, so that you, too, can cultivate peace, focus, and inner balance in your everyday life."
+          "pull": "It would be my pleasure and honour to share the insights, tools, and practices that have supported me along the way, so that you, too, can cultivate peace, focus, and inner balance in your everyday life.",
+          "img": {
+            "src": "meditation-guidance-peter-with-guests.webp",
+            "alt": "Péter seated on the grass with two guests around an altar of crystals and shells",
+            "w": 1400,
+            "h": 933,
+            "frame": "ratio-32"
+          }
         }
       ]
     }
