@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>
 /* works at the domain root AND on GitHub Pages project sites */
-var seg = location.hostname.slice(-10) === '.github.io' ? (location.pathname.split('/')[1] || '') : '';
+var h = location.hostname, seg = (h.slice(-10) === '.github.io' && h !== 'templeofsun.github.io') ? (location.pathname.split('/')[1] || '') : '';
 document.write('<base href="/' + (seg ? seg + '/' : '') + '">');
 </script>
 <title>A quiet detour · Temple of Sun</title>
