@@ -1,62 +1,65 @@
-# Temple of Sun — Website
+# Temple of Sun website
 
-> **Before deploying to Cloudflare:** set the build command to
-> `python3 tools/generate-headers.py` — see `START-HERE-CLOUDFLARE.md`.
+The website of Péter Frák (templeofsun, alchemy of souls). Plain HTML, CSS and JavaScript, no framework.
+This folder is the only copy to edit.
 
+- Test site: https://templeofsun.github.io/
+- GitHub repo: `templeofsun/templeofsun.github.io` (organisation `templeofsun`)
+- Real domain templeofsun.com is still on HostGator. Moving to Cloudflare, see `Platform/Domain move to Cloudflare.md`.
 
-Static site for Peter (Péter Frák) — Temple of Sun, alchemy of souls.
-Pure HTML / CSS / JS. No frameworks, no build step. Open `index.html` in a browser and it works.
-
-## Photos: work immediately, go local when you want
-
-Every image tries the local file in `assets/img/` first; if it's missing, it
-loads the same photo straight from templeofsun.com (needs internet). So the
-site looks right out of the box.
-
-To make it fully local/offline, pull the 26 photos once:
+## Before every publish
 
 ```bash
 cd "path/to/the/website-folder"
-bash get-images.sh
+python3 tools/prepare-for-upload.py
 ```
 
-After that, no internet needed for images. `_IMAGES.html` is a visual
-checklist of every photo if you'd rather save any by hand.
+It rebuilds the generated pages, the menu and footer on every page, the sitemap, the AI map
+(llms.txt), the redirects and the security headers. Skip it and some page scripts stop working.
+On launch day run it with `--live` (see `START-HERE-CLOUDFLARE.md`).
 
-## Files
+Then publish: clone the repo, copy this folder into it, commit, push to `main`. GitHub rebuilds the
+test site in about a minute.
 
-| File | What it is |
+## What is where
+
+| Folder / file | What it is |
 |---|---|
-| `index.html` | Home — hero slideshow, welcome, 3 paths, quote, testimonials, newsletter |
-| `aromatherapy.html` | Aromatherapy introduction — what it is, history, how it works, safety |
-| `collections.html` | Aromatherapy — the shop: Rainbow + 5 Elements collections |
-| `create-your-own-formula.html` | Bespoke signature scents |
-| `retreats.html` | Soul Alchemy Retreats — no upcoming edition; subscribe block |
-| `treatments.html` | Anahata + Marma-Abhyanga (no prices — enquire) |
-| `mindfulness-labs.html` | The four LABs + venue class menu |
-| `meditation.html` | Weekly community practice + 28-day challenge |
-| `online-sessions.html` | Three online programs + discovery call |
-| `about.html` | My story, timeline, credentials |
-| `philosophy.html` | The five beliefs |
-| `contact.html` | Form (visual only) + direct channels |
-| `css/site.css` | Everything visual. Design tokens at the top. |
-| `js/site.js` | Header/footer injection, nav, slideshow, reveals, lightbox, forms |
-| `get-images.sh` | Downloads the 25 photos into `assets/img/` |
-| `_PLAN.html` | The approved plan (design system + blueprints) |
-| `_IMAGES.html` | Visual checklist of all photos |
+| `*.html` (root) | The 25 main pages |
+| `products/` | 23 blend pages, built from `tools/blend-pages.json` |
+| `journal/` | Journal posts (Péter's own words) |
+| `css/site.css` | All styling. Colours at the top (`:root`), dark mode at the bottom |
+| `js/site.js` | Menu, footer, slideshow, gallery, lightbox, forms, light/dark button |
+| `js/img-fallback.js` | Loaded first on every page: picks light/dark, handles broken images |
+| `assets/` | Photos (`img/`), guest videos (`video/`), fonts, icons |
+| `tools/` | Build scripts and their data files (see below) |
+| `translations/` | Ready for PT, HU, DE. Not started, see `translations/README.md` |
+| `robots.txt` / `robots-live.txt` | Private now (blocks search engines). Live version for launch day |
+| `_headers`, `_redirects` | Security headers and old-address redirects, for Cloudflare |
+| `c59f5...txt` | IndexNow key. Keep at the root, never rename |
 
-## Conventions (for future edits)
+## Pages that are built, not edited by hand
 
-- **Design tokens** live at the top of `css/site.css` (`:root`). Colours: lighter mix approved Aug 2026 — porcelain `#FAF6EF` ~70%, oat `#F4EDE1`, sand `#E7DAC5`, clay `#C08B5C` for buttons, umber `#4E3E2C` for text (lightened from the report's `#3A2E24`), sage + gold as rare accents. Footer is light (oat), not dark. Fonts: Cormorant Garamond (headlines) + Inter (body), loaded from Google Fonts.
-- **Header/footer/menu are edited once** — in the `HEADER` / `MOBILE` / `FOOTER` strings inside `js/site.js`. Every page just has `<header data-site-header>` etc.
-- **New page:** copy any inner page, change `<title>`, description and content. Pages with a photo hero use `body class="has-hero"` (transparent nav over the image).
-- **Motion:** one easing `cubic-bezier(.22,1,.36,1)`. Add `class="reveal"` (+ optional `style="--d:.12s"` stagger) to anything that should fade up on scroll.
-- **Voice:** warm, devotional, first-person. "May help you feel…", never medical claims. Sign-offs: *with love, Peter aka templeofsun*.
-- **Facts only from the vault** — prices, dates, names. Nothing invented.
+| Edit this | To change |
+|---|---|
+| `tools/blend-pages.json` | The 23 blend pages |
+| `tools/session-pages.json` | Health Consultation, Spiritual Mentoring, Meditation Guidance |
+| `js/site.js` (HEADER / MOBILE / FOOTER) | The menu and footer on every page |
+| `tools/redirects.json` | Old HostGator addresses that forward to new pages |
+| `tools/press-credits.json` | Press credits |
 
-## Wired later (currently visual-only)
+## Rules for edits
 
-- **Newsletter + contact form + ebook signup** (aromatherapy.html) — front-end only; submitting shows a soft thank-you. To connect: Formspree (form `action`), Mailchimp/Buttondown embed for newsletter. The ebook itself doesn't exist yet — Peter provides the PDF, then the form delivers it.
-- **Shop** — product cards say "Shop coming soon". When the shop exists, each card's footer gets a real link.
-- **Retreat block** — when the next edition is confirmed: dates, venue, price + "Request your spot" button on `retreats.html`.
-- **Fonts offline** — currently from Google Fonts CDN; can be self-hosted into `assets/fonts/` for a fully offline site.
+- Facts only from Péter: prices, dates, names, oil safety. Nothing invented.
+- His voice is warm, devotional, first person. Don't polish it.
+- Photos: WebP, compressed, descriptive file names.
+- Light mode is the default. Dark only when a visitor picks it with the sun/moon button.
+- Anything loaded from another website (YouTube, booking widget, analytics) is blocked until its
+  address is added to `tools/generate-headers.py`.
+
+## Still to do before launch
+
+- Phone version.
+- Contact form and newsletter (they only look like they work for now).
+- Domain move to Cloudflare, then `prepare-for-upload.py --live`.
+- Shop: waiting on Péter's tax details.

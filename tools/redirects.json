@@ -84,7 +84,7 @@
     ["/gallery/",                      "/retreats.html"],
 
     ["_note", "About. Bio and My Story are one page now, called My Story."],
-    ["_note", "about.html is still sitting on GitHub unused; this makes sure nobody lands on it."],
+    ["_note", "about.html was the old My Story address; this forwards it to bio.html."],
     ["/about.html",                "/bio.html"],
     ["/about/",                    "/bio.html"],
     ["/about/bio/",                "/bio.html"],
