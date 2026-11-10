@@ -16,16 +16,14 @@ document.documentElement.classList.add("js");
 
 /*
  * Light or dark, decided before the page paints so it never flashes.
- * A visitor's own choice (the sun/moon button, saved in localStorage) wins;
- * otherwise the site follows their phone or computer setting.
+ * Light is the default for everyone. Dark only appears once a visitor picks
+ * it with the sun/moon button (saved in localStorage).
  * The button itself lives in the menu and is wired up in js/site.js.
  */
 (function () {
   var t = null;
   try { t = localStorage.getItem('tos-theme'); } catch (e) {}
-  if (t !== 'light' && t !== 'dark') {
-    t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
+  if (t !== 'dark') t = 'light';
   document.documentElement.setAttribute('data-theme', t);
 })();
 

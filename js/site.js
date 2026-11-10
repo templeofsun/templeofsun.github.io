@@ -177,16 +177,6 @@
     applyTheme(next);
     try { localStorage.setItem('tos-theme', next); } catch (err) {}
   });
-  /* no saved choice yet: follow the device if it switches (e.g. at sunset) */
-  if (window.matchMedia) {
-    var mq = matchMedia('(prefers-color-scheme: dark)');
-    var follow = function (ev) {
-      var saved = null;
-      try { saved = localStorage.getItem('tos-theme'); } catch (err) {}
-      if (!saved) applyTheme(ev.matches ? 'dark' : 'light');
-    };
-    if (mq.addEventListener) mq.addEventListener('change', follow);
-  }
 
   /* ---------- burger ---------- */
   var burger = document.querySelector('.burger');
