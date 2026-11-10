@@ -12,7 +12,7 @@ folder is exactly what the world sees. So the folder has to be correct
 ## 1. Before you upload — one command
 
 ```bash
-cd "path/to/the/website-folder"
+cd path/to/the/website-folder
 python3 tools/prepare-for-upload.py --live
 ```
 
@@ -157,4 +157,4 @@ allow that one domain.
 ---
 
 Full detail: `SECURITY-HEADERS.md` in this folder.
-Site as it was before this work: `../Website-backup-before-csp/`
+Site as it was before this work: a backup copy kept outside this repo.

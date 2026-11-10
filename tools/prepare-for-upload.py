@@ -4,7 +4,7 @@ Temple of Sun — get the folder ready to upload to GitHub.
 
 Run this after ANY change to the site, then upload the folder as usual:
 
-    cd "path/to/the/website-folder"
+    cd path/to/the/website-folder
     python3 tools/prepare-for-upload.py            # while the site is private
     python3 tools/prepare-for-upload.py --live     # on launch day and after
 

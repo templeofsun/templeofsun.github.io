@@ -4,7 +4,7 @@ Temple of Sun — rebuild the _headers file.
 
 Run this after editing ANY .html file:
 
-    cd "path/to/the/website-folder"
+    cd path/to/the/website-folder
     python3 tools/generate-headers.py
 
 Why it exists

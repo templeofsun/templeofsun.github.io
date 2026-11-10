@@ -1,16 +1,16 @@
 # Temple of Sun website
 
 The website of Péter Frák (templeofsun, alchemy of souls). Plain HTML, CSS and JavaScript, no framework.
-This folder is the only copy to edit.
+This folder is the one copy to edit; GitHub gets an exact copy of it.
 
 - Test site: https://templeofsun.github.io/
 - GitHub repo: `templeofsun/templeofsun.github.io` (organisation `templeofsun`)
-- Real domain templeofsun.com is still on HostGator. Moving to Cloudflare, see `Platform/Domain move to Cloudflare.md`.
+- Real domain templeofsun.com is still on HostGator. Moving to Cloudflare (notes kept outside this repo).
 
 ## Before every publish
 
 ```bash
-cd "path/to/the/website-folder"
+cd path/to/the/website-folder
 python3 tools/prepare-for-upload.py
 ```
 

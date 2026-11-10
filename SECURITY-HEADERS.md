@@ -13,7 +13,7 @@ as-is. So the folder has to be correct before it leaves your computer.
 **Edit any page → run this → then upload.**
 
 ```bash
-cd "path/to/the/website-folder"
+cd path/to/the/website-folder
 python3 tools/prepare-for-upload.py --live
 ```
 
@@ -82,4 +82,4 @@ structured data, images and page text on every page. Product modals, FAQ search,
 the blend quiz and image fallbacks all still work.
 
 The site as it was before these edits is kept at
-`Platform/Website-backup-before-csp/`.
+a backup copy kept outside this repo.
