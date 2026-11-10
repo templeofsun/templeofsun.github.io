@@ -166,6 +166,11 @@
   --hairline:rgba(176,141,87,.25);
   --card-bg:#FFFDF8;
 
+  /* fixed in both light and dark mode: text on photos and on clay buttons */
+  --light:#FAF6EF;
+  --dark:#4E3E2C;
+  --on-clay:#FFFDF8;
+
   /* text-safe shades of the brand hues — same family, readable at small sizes */
   --gold-ink:#87683A;
   --sage-ink:#677058;
@@ -352,11 +357,11 @@ a:hover>.frame img,.card:hover .frame img,.frame:hover img{transform:scale(1.05)
   background:transparent;border-radius:2px;cursor:pointer;
   transition:background var(--t-fast) ease,color var(--t-fast) ease,border-color var(--t-fast) ease;
 }
-.btn:hover{background:var(--clay-btn);border-color:var(--clay-btn);color:var(--card-bg)}
-.btn-solid{background:var(--clay-btn);border-color:var(--clay-btn);color:var(--card-bg)}
+.btn:hover{background:var(--clay-btn);border-color:var(--clay-btn);color:var(--on-clay)}
+.btn-solid{background:var(--clay-btn);border-color:var(--clay-btn);color:var(--on-clay)}
 .btn-solid:hover{background:var(--clay-ink);border-color:var(--clay-ink)}
-.btn-light{border-color:rgba(250,246,239,.85);color:var(--porcelain)}
-.btn-light:hover{background:var(--porcelain);color:var(--umber)}
+.btn-light{border-color:rgba(250,246,239,.85);color:var(--light)}
+.btn-light:hover{background:var(--light);color:var(--dark)}
 .btn-faded{background:rgba(192,139,92,.55);border-color:rgba(192,139,92,.2);color:#FFFDF8}
 .btn-faded:hover{background:var(--clay);border-color:var(--clay);color:#FFFDF8}
 
@@ -407,7 +412,8 @@ body{padding-top:64px}
 .brand-logo-f{height:36px;width:auto;display:block}
 @media(max-width:520px){.brand-logo{height:24px}}
 
-.nav-desktop{display:flex;align-items:center;gap:clamp(18px,2.4vw,34px)}
+.nav-desktop{display:flex;align-items:center;gap:clamp(18px,2.4vw,34px);margin-left:auto}
+.hdr-tools{display:flex;align-items:center;margin-left:clamp(8px,1.2vw,16px)}
 .nav-item{position:relative;display:inline-flex;align-items:center}
 .nav-link{
   font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:.17em;
@@ -568,7 +574,7 @@ body.menu-open .mobile-menu a{opacity:1;transform:none;transition:opacity .5s va
 /* sub-hero (inner pages) */
 .subhero{
   position:relative;min-height:56vh;display:flex;align-items:flex-end;
-  color:var(--porcelain);overflow:hidden;background:#8A7355;
+  color:var(--light);overflow:hidden;background:#8A7355;
 }
 .subhero .frame{position:absolute;inset:0;border-radius:0;background:#8A7355;min-height:0}
 .subhero .frame::before{opacity:.25}
@@ -712,7 +718,7 @@ a.card:hover{transform:translateY(-4px)}
 /* buttons placed inside body text keep their own look */
 .wrap-text p a.btn,.duo-body p a.btn,.jr-body p a.btn{text-decoration:none}
 .wrap-text p a.btn-solid,.duo-body p a.btn-solid,.jr-body p a.btn-solid,
-.wrap-text p a.btn-solid:hover,.duo-body p a.btn-solid:hover,.jr-body p a.btn-solid:hover{color:var(--card-bg)}
+.wrap-text p a.btn-solid:hover,.duo-body p a.btn-solid:hover,.jr-body p a.btn-solid:hover{color:var(--on-clay)}
 @media(max-width:640px){
   .cred-row{flex-direction:column;gap:5px;padding:17px 0;border-top:1px solid var(--hairline)}
   .cred-row:first-child{border-top:0;padding-top:0}
@@ -868,7 +874,7 @@ a.card:hover{transform:translateY(-4px)}
 .lightbox.is-open{opacity:1;visibility:visible;transition:opacity .28s ease,visibility 0s}
 .lightbox img{max-width:calc(100% - 120px);max-height:100%;border-radius:3px;transform:scale(.96);transition:transform .28s var(--ease),opacity .3s ease}
 .lightbox.is-open img{transform:scale(1)}
-.lightbox-close{position:absolute;top:26px;right:34px;background:none;border:none;color:var(--porcelain);font-size:30px;cursor:pointer;line-height:1;font-family:var(--serif);z-index:2}
+.lightbox-close{position:absolute;top:26px;right:34px;background:none;border:none;color:var(--light);font-size:30px;cursor:pointer;line-height:1;font-family:var(--serif);z-index:2}
 .lightbox-nav{
   position:absolute;top:50%;transform:translateY(-50%);z-index:2;
   background:none;border:none;cursor:pointer;padding:24px 14px;
@@ -878,7 +884,7 @@ a.card:hover{transform:translateY(-4px)}
 .lightbox-nav svg{width:34px;height:34px;display:block}
 .lightbox-nav.prev{left:clamp(4px,2vw,26px)}
 .lightbox-nav.next{right:clamp(4px,2vw,26px)}
-.lightbox-nav:hover{color:var(--porcelain)}
+.lightbox-nav:hover{color:var(--light)}
 .lightbox-nav.prev:hover{transform:translateY(-50%) translateX(-3px)}
 .lightbox-nav.next:hover{transform:translateY(-50%) translateX(3px)}
 @media(max-width:640px){.lightbox img{max-width:calc(100% - 8px)}.lightbox-nav svg{width:26px;height:26px}}
@@ -979,7 +985,7 @@ button.product:focus-visible,button.product-el:focus-visible,a.product:focus-vis
   .pm .lightbox-nav{
     top:auto;bottom:14px;transform:none;padding:0;
     width:44px;height:44px;border-radius:50%;
-    background:rgba(38,29,22,.6);color:var(--porcelain);
+    background:rgba(38,29,22,.6);color:var(--light);
     display:flex;align-items:center;justify-content:center;
   }
   .pm .lightbox-nav svg{width:22px;height:22px}
@@ -1157,7 +1163,7 @@ button.product:focus-visible,button.product-el:focus-visible,a.product:focus-vis
   transition:background var(--t-fast) ease,color var(--t-fast) ease,border-color var(--t-fast) ease;
 }
 .vc-arrow svg{width:20px;height:20px}
-.vc-arrow:hover{background:var(--clay-btn);border-color:var(--clay-btn);color:var(--card-bg)}
+.vc-arrow:hover{background:var(--clay-btn);border-color:var(--clay-btn);color:var(--on-clay)}
 .vc-bar{max-width:280px;height:2px;background:var(--sand);border-radius:2px;margin:18px auto 0;overflow:hidden}
 .vc-bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .2s ease}
 .voice-stars{color:var(--gold);letter-spacing:4px;font-size:13px;margin:-4px 0 12px}
@@ -1206,7 +1212,7 @@ button.product:focus-visible,button.product-el:focus-visible,a.product:focus-vis
   transition:color var(--t-fast) ease,border-color var(--t-fast) ease,background var(--t-fast) ease;
 }
 .chip:hover{border-color:var(--gold);color:var(--umber)}
-.chip.is-on{background:var(--clay-btn);border-color:var(--clay-btn);color:var(--card-bg)}
+.chip.is-on{background:var(--clay-btn);border-color:var(--clay-btn);color:var(--on-clay)}
 .chip-grid [data-prod][hidden]{display:none}
 
 /* ---------- chakra body map ---------- */
@@ -1293,7 +1299,7 @@ button.product:focus-visible,button.product-el:focus-visible,a.product:focus-vis
 }
 .wa-float svg{width:26px;height:26px;transition:transform .35s var(--ease)}
 .wa-float:hover{
-  background:var(--clay-btn);color:var(--card-bg);border-color:var(--clay-btn);
+  background:var(--clay-btn);color:var(--on-clay);border-color:var(--clay-btn);
   box-shadow:0 14px 34px rgba(78,62,44,.24);
   animation-play-state:paused,paused;
 }
@@ -1383,7 +1389,7 @@ button.product:focus-visible,button.product-el:focus-visible,a.product:focus-vis
   }
   .faq-nav .chip::before{display:none}
   .faq-nav .chip:hover{border:1px solid var(--gold)}
-  .faq-nav .chip.is-on{background:var(--clay-btn);border-color:var(--clay-btn);color:var(--card-bg)}
+  .faq-nav .chip.is-on{background:var(--clay-btn);border-color:var(--clay-btn);color:var(--on-clay)}
   .faq-nav .chip .n{display:none}
   .faq-ask{display:none}
   .faq-main{margin-top:30px}
@@ -1975,3 +1981,103 @@ button.product:focus-visible,button.product-el:focus-visible,a.product:focus-vis
   font-size:14px;line-height:1.7;color:var(--sage)}
 .jr-note a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--hairline)}
 .jr-body h3{margin-top:clamp(26px,3vw,34px)}
+
+/* =====================================================================
+   DARK MODE (Nov 2026)
+   Turned on by data-theme="dark" on <html>, set in js/img-fallback.js
+   before the page paints. The sun/moon button in the menu flips it.
+   Same warm family as the light site: deep brown instead of porcelain,
+   cream text instead of umber. Photos are left exactly as they are.
+   ===================================================================== */
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --porcelain:#1C1814;
+  --oat:#231E19;
+  --oat-deep:#2A241E;
+  --sand:#3A3128;
+  --sand-deep:#55473A;
+  --card-bg:#28221C;
+  --umber:#EDE3D3;
+  --ink:rgba(237,227,211,.82);
+  --sage:#A9B099;
+  --sage-soft:#8A9179;
+  --gold:#C9A46A;
+  --clay:#CF9868;
+  --clay-deep:#BA8452;
+  --hairline:rgba(201,164,106,.2);
+  --gold-ink:#D2B07A;
+  --sage-ink:#AEB69E;
+  --clay-ink:#DEA87B;
+}
+/* page fade, so the switch between pages is not a flash of cream */
+html[data-theme="dark"]{background:#1C1814}
+
+/* menu bar and its drop-downs */
+html[data-theme="dark"] .site-header{background:rgba(28,24,20,.92)}
+html[data-theme="dark"] .site-header.is-solid{box-shadow:0 8px 28px rgba(0,0,0,.35)}
+html[data-theme="dark"] .dd,
+html[data-theme="dark"] .dd-fly{background:rgba(40,34,28,.97)}
+html[data-theme="dark"] .dd a:hover{background:rgba(58,49,40,.7)}
+
+/* home hero: the frosted card turns dark, the photo stays */
+html[data-theme="dark"] .hero-scrim{background:linear-gradient(rgba(28,24,20,.28),rgba(28,24,20,.05) 40%,rgba(28,24,20,.35))}
+html[data-theme="dark"] .hero-content{background:rgba(28,24,20,.58);border-color:rgba(201,164,106,.28)}
+html[data-theme="dark"] .hero-line{color:rgba(237,227,211,.78)}
+html[data-theme="dark"] .hero-dots button{background:rgba(237,227,211,.3)}
+html[data-theme="dark"] .scroll-cue::after{background:rgba(237,227,211,.55)}
+
+/* light page covers (e.g. Collections) look exactly as in light mode: dark text on the pale photo */
+html[data-theme="dark"] .subhero-light,
+html[data-theme="dark"] .subhero-light .sh-price{color:#4E3E2C}
+html[data-theme="dark"] .subhero-light .subhero-content .label,
+html[data-theme="dark"] .subhero-light .subhero-content .italic{color:#96603B}
+
+/* fades that blend into the section colour */
+html[data-theme="dark"] .voices-clip::after{background:linear-gradient(to bottom,rgba(28,24,20,0),var(--porcelain))}
+html[data-theme="dark"] .section-oat .voices-clip::after{background:linear-gradient(to bottom,rgba(35,30,25,0),var(--oat))}
+
+/* small fixed shades */
+html[data-theme="dark"] .nl-form input::placeholder{color:rgba(237,227,211,.4)}
+html[data-theme="dark"] .sched tr:hover{background:rgba(58,49,40,.6)}
+html[data-theme="dark"] .labs-js .lab-tab[aria-selected="true"] .lab-name{color:var(--umber)}
+html[data-theme="dark"] .f-tag{color:rgba(237,227,211,.7)}
+html[data-theme="dark"] .product:hover,
+html[data-theme="dark"] .product-el:hover{box-shadow:0 20px 44px rgba(0,0,0,.35)}
+
+/* scent chips and avatars: soft tints of their own colour instead of pastel blocks */
+html[data-theme="dark"] .scent-sage,html[data-theme="dark"] .ava-sage{background:rgba(126,138,108,.22);color:#B5C09F}
+html[data-theme="dark"] .scent-amber,html[data-theme="dark"] .ava-amber{background:rgba(188,132,85,.22);color:#E0AE7E}
+html[data-theme="dark"] .scent-rose,html[data-theme="dark"] .ava-rose{background:rgba(176,126,107,.24);color:#DDAE9C}
+html[data-theme="dark"] .scent-water,html[data-theme="dark"] .ava-water{background:rgba(126,151,160,.22);color:#A9C2CB}
+html[data-theme="dark"] .scent-air,html[data-theme="dark"] .ava-air{background:rgba(147,160,142,.22);color:#BCC8B6}
+html[data-theme="dark"] .scent-ether,html[data-theme="dark"] .ava-ether{background:rgba(150,134,166,.24);color:#C4B6D4}
+html[data-theme="dark"] .scent-peach,html[data-theme="dark"] .ava-peach{background:rgba(194,144,100,.22);color:#E4B48A}
+
+/* the logo is brown on transparent: show the cream version instead */
+html[data-theme="dark"] .brand-logo,
+html[data-theme="dark"] .brand-logo-f{content:url('../assets/img/logo2-light.webp')}
+
+/* the sun/moon button */
+.theme-toggle{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;padding:0;margin-left:6px;
+  background:none;border:1px solid transparent;border-radius:50%;
+  color:var(--umber);cursor:pointer;transition:border-color var(--t-fast),color var(--t-fast);
+}
+.theme-toggle:hover{border-color:var(--hairline);color:var(--clay)}
+.theme-toggle svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.theme-toggle .ic-moon{display:none}
+html[data-theme="dark"] .theme-toggle .ic-sun{display:none}
+html[data-theme="dark"] .theme-toggle .ic-moon{display:block}
+
+/* spots the dark-mode contrast check flagged */
+html[data-theme="dark"] .duo-num{color:#7A6650}
+html[data-theme="dark"] .lab-tab .lab-practice{color:var(--clay-ink)}
+
+/* partner logos (Trusted by & seen at): most are dark ink on transparent,
+   so in dark mode they are turned into soft cream silhouettes */
+html[data-theme="dark"] .t-item img{filter:grayscale(1) brightness(0) invert(.88) opacity(.6)}
+html[data-theme="dark"] .t-item img:hover{filter:grayscale(1) brightness(0) invert(.92) opacity(.95)}
+/* IFA has white lettering inside its badge: flip it instead, so the letters stay readable */
+html[data-theme="dark"] .t-item img[src*="logos/ifa"]{filter:grayscale(1) invert(.88) opacity(.65)}
+html[data-theme="dark"] .t-item img[src*="logos/ifa"]:hover{filter:grayscale(1) invert(.92) opacity(.95)}

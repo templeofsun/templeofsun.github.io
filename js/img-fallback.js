@@ -15,6 +15,21 @@
 document.documentElement.classList.add("js");
 
 /*
+ * Light or dark, decided before the page paints so it never flashes.
+ * A visitor's own choice (the sun/moon button, saved in localStorage) wins;
+ * otherwise the site follows their phone or computer setting.
+ * The button itself lives in the menu and is wired up in js/site.js.
+ */
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('tos-theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') {
+    t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+
+/*
  * Replaces the old inline onerror="..." attributes on <img> tags, which a
  * strict Content-Security-Policy blocks. Same behaviour, one shared handler.
  *

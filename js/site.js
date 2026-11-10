@@ -42,7 +42,13 @@
     '  <a class="nav-link" href="contact.html" data-nav="contact">Contact</a>' +
     '  <a class="btn btn-nav" href="contact.html?topic=session">Book a Session</a>' +
     '</nav>' +
-    '<button class="burger" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>';
+    '<div class="hdr-tools">' +
+    '<button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Light or dark">' +
+    '<svg class="ic-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>' +
+    '<svg class="ic-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6z"/></svg>' +
+    '</button>' +
+    '<button class="burger" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>' +
+    '</div>';
 
   var MOBILE =
     '<div class="m-group"><a href="index.html">Home</a></div>' +
@@ -151,6 +157,36 @@
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  /* ---------- light / dark button ---------- */
+  /* The starting theme is set in js/img-fallback.js before the page paints. */
+  var THEME_BG = { light: '#FAF6EF', dark: '#1C1814' };
+  function applyTheme(t) {
+    document.documentElement.setAttribute('data-theme', t);
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', THEME_BG[t]);
+    document.querySelectorAll('.theme-toggle').forEach(function (b) {
+      b.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    });
+  }
+  applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.theme-toggle');
+    if (!b) return;
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('tos-theme', next); } catch (err) {}
+  });
+  /* no saved choice yet: follow the device if it switches (e.g. at sunset) */
+  if (window.matchMedia) {
+    var mq = matchMedia('(prefers-color-scheme: dark)');
+    var follow = function (ev) {
+      var saved = null;
+      try { saved = localStorage.getItem('tos-theme'); } catch (err) {}
+      if (!saved) applyTheme(ev.matches ? 'dark' : 'light');
+    };
+    if (mq.addEventListener) mq.addEventListener('change', follow);
+  }
 
   /* ---------- burger ---------- */
   var burger = document.querySelector('.burger');
