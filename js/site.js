@@ -19,6 +19,17 @@
     return SUN.replace(/__S__/g, size).replace(/__C__/g, color);
   }
 
+  /* ---------- small social icons (menu + footer) ---------- */
+  var IC = {
+    email: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 5.8 8.5-5.8"/></svg>',
+    whatsapp: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.2 20.8l4.5-1.2A8.8 8.8 0 1 0 12 3.2z"/><path d="M9.1 8.6c.3-.7 1.3-.8 1.6-.1l.5 1.1c.1.3 0 .7-.2 1l-.5.5c.5 1.1 1.4 2 2.5 2.5l.5-.5c.3-.3.7-.4 1-.2l1.1.5c.7.3.6 1.3-.1 1.6-1 .4-2.1.3-3.1-.2a9.4 9.4 0 0 1-3.5-3.5c-.5-1-.6-2.1-.2-3.1z" stroke-width="1.2"/></svg>',
+    telegram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 3.8L2.9 11l5.5 1.9.3 5.4 3.1-3.2 4.8 3.5 4.7-14.8z"/><path d="M8.4 12.9l12.9-9.1"/></svg>',
+    instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="0.5" fill="currentColor" stroke="none"/></svg>',
+    youtube: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.4l5 2.6-5 2.6z"/></svg>',
+    tiktok: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.6 3.5c.4 2.4 2 4 4.4 4.4v3a7.9 7.9 0 0 1-4.4-1.4v5.4a5.4 5.4 0 1 1-5.4-5.4c.3 0 .7 0 1 .1v3.2a2.3 2.3 0 1 0 1.3 2.1V3.5h3.1z"/></svg>',
+    spotify: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.6"/><path d="M8 9.9c2.8-.8 5.7-.5 8.1.9M8.3 12.6c2.3-.6 4.7-.3 6.6.8M8.7 15.1c1.8-.4 3.5-.2 5 .6"/></svg>'
+  };
+
   /* ---------- shared header ---------- */
   var HEADER =
     '<a class="brand" href="index.html"><img class="brand-logo" src="assets/img/logo2-brown.webp" alt="templeofsun · Alchemy of souls" data-onerr="swap"><span hidden>Temple of Sun</span></a>' +
@@ -51,35 +62,39 @@
     '</div>';
 
   var MOBILE =
-    '<div class="m-group"><a href="index.html">Home</a></div>' +
-    '<div class="m-group"><div class="m-label">Aromatherapy</div>' +
-    '  <a href="aromatherapy.html">Introduction</a><a href="collections.html">Collections</a>' +
-    '  <a class="m-sub" href="rainbow-collection.html">The Rainbow Collection</a>' +
-    '  <a class="m-sub" href="5-elements.html">The 5 Elements</a>' +
-    '  <a href="create-your-own-formula.html">Create Your Own Formula</a></div>' +
-    '<div class="m-group"><div class="m-label">Experiences</div>' +
-    '  <a href="retreats.html">Soul Alchemy Retreats</a><a href="treatments.html">Treatments</a>' +
-    '  <a href="mindfulness-labs.html">Mindfulness LABs</a><a href="meditation.html">Meditation Classes</a></div>' +
-    '<div class="m-group"><div class="m-label">Online Sessions</div>' +
-    /* session-links-mobile */'<a href="health-consultation.html">Health Consultation</a><a href="spiritual-mentoring.html">Spiritual Mentoring</a><a href="meditation-guidance.html">Meditation Guidance</a>' + '</div>' +
-    '<div class="m-group"><div class="m-label">About</div>' +
-    '  <a href="bio.html">My Story</a><a href="philosophy.html">Philosophy</a><a href="journal.html">Journal</a></div>' +
-    '<div class="m-group"><a href="contact.html">Contact</a></div>' +
-    '<div class="m-group m-small"><div class="m-label">Say hello</div>' +
-    '  <a href="mailto:templeofsunofficial@gmail.com">templeofsunofficial@gmail.com</a>' +
-    '  <a href="https://wa.me/36702879225">WhatsApp</a>' +
-    '  <a href="https://www.instagram.com/templeofsun/">Instagram</a></div>';
+    '<div class="m-group m-first"><a class="m-top" href="index.html">Home</a></div>' +
+    '<div class="m-group m-acc"><button class="m-head" type="button" aria-expanded="false" aria-controls="m-aroma">Aromatherapy<svg class="m-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
+    '<div class="m-panel" id="m-aroma"><div class="m-inner">' +
+    '<a href="aromatherapy.html">Introduction</a><a href="collections.html">Collections</a>' +
+    '<a class="m-sub" href="rainbow-collection.html">The Rainbow Collection</a>' +
+    '<a class="m-sub" href="5-elements.html">The 5 Elements</a>' +
+    '<a href="create-your-own-formula.html">Create Your Own Formula</a>' +
+    '</div></div></div>' +
+    '<div class="m-group m-acc"><button class="m-head" type="button" aria-expanded="false" aria-controls="m-exp">Experiences<svg class="m-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
+    '<div class="m-panel" id="m-exp"><div class="m-inner">' +
+    '<a href="retreats.html">Soul Alchemy Retreats</a><a href="treatments.html">Treatments</a>' +
+    '<a href="mindfulness-labs.html">Mindfulness LABs</a><a href="meditation.html">Meditation Classes</a>' +
+    '</div></div></div>' +
+    '<div class="m-group m-acc"><button class="m-head" type="button" aria-expanded="false" aria-controls="m-online">Online Sessions<svg class="m-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
+    '<div class="m-panel" id="m-online"><div class="m-inner">' +
+    /* session-links-mobile */'<a href="health-consultation.html">Health Consultation</a><a href="spiritual-mentoring.html">Spiritual Mentoring</a><a href="meditation-guidance.html">Meditation Guidance</a>' + 
+    '</div></div></div>' +
+    '<div class="m-group m-acc"><button class="m-head" type="button" aria-expanded="false" aria-controls="m-about">About<svg class="m-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
+    '<div class="m-panel" id="m-about"><div class="m-inner">' +
+    '<a href="bio.html">My Story</a><a href="philosophy.html">Philosophy</a><a href="journal.html">Journal</a>' +
+    '</div></div></div>' +
+    '<div class="m-group"><a class="m-top" href="contact.html">Contact</a></div>' +
+    '<div class="m-foot">' +
+    '  <a class="btn btn-solid m-book" href="contact.html?topic=session">Book a Session</a>' +
+    '  <div class="m-icons">' +
+    '    <a href="mailto:templeofsunofficial@gmail.com" aria-label="Email">' + IC.email + '</a>' +
+    '    <a href="https://wa.me/36702879225" aria-label="WhatsApp">' + IC.whatsapp + '</a>' +
+    '    <a href="https://t.me/Templeofsunofficial" aria-label="Telegram">' + IC.telegram + '</a>' +
+    '    <a href="https://www.instagram.com/templeofsun/" aria-label="Instagram">' + IC.instagram + '</a>' +
+    '  </div>' +
+    '</div>';
 
   /* ---------- shared footer (minimal) ---------- */
-  var IC = {
-    email: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 5.8 8.5-5.8"/></svg>',
-    whatsapp: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2a8.8 8.8 0 0 0-7.6 13.2L3.2 20.8l4.5-1.2A8.8 8.8 0 1 0 12 3.2z"/><path d="M9.1 8.6c.3-.7 1.3-.8 1.6-.1l.5 1.1c.1.3 0 .7-.2 1l-.5.5c.5 1.1 1.4 2 2.5 2.5l.5-.5c.3-.3.7-.4 1-.2l1.1.5c.7.3.6 1.3-.1 1.6-1 .4-2.1.3-3.1-.2a9.4 9.4 0 0 1-3.5-3.5c-.5-1-.6-2.1-.2-3.1z" stroke-width="1.2"/></svg>',
-    telegram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.3 3.8L2.9 11l5.5 1.9.3 5.4 3.1-3.2 4.8 3.5 4.7-14.8z"/><path d="M8.4 12.9l12.9-9.1"/></svg>',
-    instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="0.5" fill="currentColor" stroke="none"/></svg>',
-    youtube: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.2 9.4l5 2.6-5 2.6z"/></svg>',
-    tiktok: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.6 3.5c.4 2.4 2 4 4.4 4.4v3a7.9 7.9 0 0 1-4.4-1.4v5.4a5.4 5.4 0 1 1-5.4-5.4c.3 0 .7 0 1 .1v3.2a2.3 2.3 0 1 0 1.3 2.1V3.5h3.1z"/></svg>',
-    spotify: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8.6"/><path d="M8 9.9c2.8-.8 5.7-.5 8.1.9M8.3 12.6c2.3-.6 4.7-.3 6.6.8M8.7 15.1c1.8-.4 3.5-.2 5 .6"/></svg>'
-  };
   var FOOTER =
     '<div class="footer-min">' +
     '  <a class="brand" href="index.html"><img class="brand-logo-f" src="assets/img/logo2-brown.webp" alt="templeofsun · Alchemy of souls" data-onerr="swap"><span hidden>Temple of Sun</span></a>' +
@@ -95,7 +110,7 @@
     '  </div>' +
     '</div>' +
     '<div class="footer-bottom">' +
-    '  <span>© <span data-year></span> Temple of Sun · Aromatherapy &amp; Healing Retreats · Péter Frák, IFA member · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="faq.html">FAQ</a></span>' +
+    '  <span class="f-copy">© <span data-year></span> Temple of Sun · Aromatherapy &amp; Healing Retreats</span><span class="f-who">Péter Frák, IFA member</span><span class="f-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="faq.html">FAQ</a></span>' +
     '  <span class="f-legal">Aromatherapy at Temple of Sun is a complementary practice; it supports wellbeing and never replaces medical diagnosis, treatment or care.</span>' +
     '</div>';
 
@@ -187,6 +202,31 @@
       if (open) staggerMenu();
     });
   }
+  function closeMenu() {
+    if (!document.body.classList.contains('menu-open')) return;
+    document.body.classList.remove('menu-open');
+    if (burger) burger.setAttribute('aria-label', 'Open menu');
+  }
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+  document.querySelectorAll('.mobile-menu a').forEach(function (a) {
+    a.addEventListener('click', closeMenu);
+    var here = location.pathname.split('/').pop() || 'index.html';
+    var href = (a.getAttribute('href') || '').split('/').pop();
+    if (href === here) a.setAttribute('aria-current', 'page');
+  });
+  /* folding sections: tap a heading to open it; the section of the page you are on starts open */
+  document.querySelectorAll('.mobile-menu .m-acc').forEach(function (g) {
+    var head = g.querySelector('.m-head');
+    if (g.querySelector('a[aria-current="page"]')) { g.classList.add('is-open'); head.setAttribute('aria-expanded', 'true'); }
+    head.addEventListener('click', function () {
+      var open = !g.classList.contains('is-open');
+      document.querySelectorAll('.mobile-menu .m-acc.is-open').forEach(function (o) {
+        if (o !== g) { o.classList.remove('is-open'); o.querySelector('.m-head').setAttribute('aria-expanded', 'false'); }
+      });
+      g.classList.toggle('is-open', open);
+      head.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
   function staggerMenu() {
     var links = document.querySelectorAll('.mobile-menu a');
     links.forEach(function (a, i) {

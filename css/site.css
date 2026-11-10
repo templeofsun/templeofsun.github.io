@@ -488,25 +488,52 @@ body.menu-open .burger span:nth-child(2){opacity:0}
 body.menu-open .burger span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 body.menu-open .burger span{background:var(--umber)!important}
 
-/* mobile menu */
+/* mobile menu (redesigned Nov 2026)
+   The top bar stays above the open menu, so the logo, the sun/moon button and
+   the burger-turned-cross are always there to close it. Sections sit between
+   fine rules; booking and contact live at the bottom. */
 .mobile-menu{
   position:fixed;inset:0;z-index:120;background:var(--porcelain);
-  padding:110px clamp(28px,7vw,60px) 40px;overflow-y:auto;
+  padding:84px 28px calc(28px + env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain;
+  display:flex;flex-direction:column;
   opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s;
 }
+body.menu-open{overflow:hidden}
 body.menu-open .mobile-menu{opacity:1;visibility:visible}
-.mobile-menu .m-group{margin-bottom:30px}
-.mobile-menu .m-label{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--sage);margin-bottom:10px}
-.mobile-menu a{
-  display:block;font-family:var(--serif);font-size:27px;line-height:1.65;
+body.menu-open .site-header{z-index:140;background:var(--porcelain);box-shadow:none}
+.mobile-menu .m-group{border-top:1px solid var(--hairline)}
+.mobile-menu .m-group.m-first{border-top:0}
+.mobile-menu a,.mobile-menu .m-head{
+  display:block;font-family:var(--serif);font-size:19px;line-height:1.5;padding:6px 0;
   color:var(--umber);text-decoration:none;
   opacity:0;transform:translateY(14px);
 }
-body.menu-open .mobile-menu a{opacity:1;transform:none;transition:opacity .5s var(--ease),transform .5s var(--ease)}
-.mobile-menu a:hover{color:var(--clay)}
-.mobile-menu a.m-sub{font-size:17px;padding-left:18px;color:var(--sage-ink)}
+.mobile-menu a.m-top,.mobile-menu .m-head{font-size:26px;line-height:1.3;padding:15px 0}
+.mobile-menu .m-head{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:none;border:0;cursor:pointer;text-align:left;
+}
+.mobile-menu .m-chev{width:20px;height:20px;flex:none;fill:none;stroke:var(--clay-ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s var(--ease)}
+.mobile-menu .m-acc.is-open .m-chev{transform:rotate(180deg)}
+.mobile-menu .m-acc.is-open .m-head{color:var(--clay-ink)}
+.mobile-menu .m-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.mobile-menu .m-acc.is-open .m-panel{grid-template-rows:1fr}
+.mobile-menu .m-inner{overflow:hidden;padding-left:14px;border-left:1px solid var(--hairline);margin-left:2px}
+.mobile-menu .m-acc.is-open .m-inner{margin-bottom:16px}
+html:not(.js) .mobile-menu .m-panel{grid-template-rows:1fr}
+body.menu-open .mobile-menu a,body.menu-open .mobile-menu .m-head{opacity:1;transform:none;transition:opacity .5s var(--ease),transform .5s var(--ease),color var(--t-fast)}
+.mobile-menu a:hover,.mobile-menu a[aria-current="page"]{color:var(--clay)}
+.mobile-menu a.m-sub{font-size:16px;line-height:1.5;padding:5px 0 5px 14px;color:var(--sage-ink)}
 .mobile-menu a.m-sub::before{content:'·';margin-right:8px;color:var(--gold)}
-.mobile-menu .m-small a{font-family:var(--sans);font-size:13px;letter-spacing:.1em;line-height:2.2}
+.mobile-menu a.m-sub[aria-current="page"]{color:var(--clay)}
+.mobile-menu .m-foot{margin-top:auto;padding-top:26px;border-top:1px solid var(--hairline)}
+.mobile-menu .m-foot a.m-book{color:var(--on-clay);display:flex;justify-content:center;width:100%;font-family:var(--sans);font-size:12px;line-height:1;padding:17px 20px}
+.mobile-menu .m-icons{display:flex;justify-content:center;gap:14px;margin-top:20px}
+.mobile-menu .m-icons a{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:44px;height:44px;border:1px solid var(--hairline);border-radius:50%;color:var(--clay-ink)
+}
+.mobile-menu .m-icons svg{width:19px;height:19px}
 @media(max-width:960px){
   .nav-desktop{display:none}
   .burger{display:block}
@@ -1019,6 +1046,10 @@ button.product:focus-visible,button.product-el:focus-visible,a.product:focus-vis
 }
 .footer-bottom a{color:var(--sage);text-decoration:none;border-bottom:1px solid var(--hairline);transition:color var(--t-fast) ease,border-color var(--t-fast) ease}
 .footer-bottom a:hover{color:var(--umber);border-color:var(--gold)}
+.footer-bottom .f-who::before,.footer-bottom .f-links::before{content:'·';margin:0 .55em}
+@media(min-width:601px){.footer-bottom .f-who,.footer-bottom .f-links{margin-left:-14px}}
+.footer-bottom .f-links a+a{position:relative;margin-left:1.1em}
+.footer-bottom .f-links a+a::before{content:'·';position:absolute;left:-.75em;color:var(--sage)}
 .footer-bottom .f-legal{flex-basis:100%;text-align:center;font-size:10.5px;letter-spacing:.05em;color:var(--sage);opacity:.72;line-height:1.5;margin-top:2px}
 @media(max-width:560px){.footer-bottom{justify-content:center;text-align:center}}
 
@@ -2081,3 +2112,68 @@ html[data-theme="dark"] .t-item img:hover{filter:grayscale(1) brightness(0) inve
 /* IFA has white lettering inside its badge: flip it instead, so the letters stay readable */
 html[data-theme="dark"] .t-item img[src*="logos/ifa"]{filter:grayscale(1) invert(.88) opacity(.65)}
 html[data-theme="dark"] .t-item img[src*="logos/ifa"]:hover{filter:grayscale(1) invert(.92) opacity(.95)}
+
+/* =====================================================================
+   PHONE FOOTER (Nov 2026): icons in a balanced 4 + 3, small print stacked
+   and readable, and room at the bottom so the WhatsApp button never sits
+   on top of the text. Desktop is unchanged.
+   ===================================================================== */
+@media(max-width:600px){
+  .footer-min{padding:60px 24px 44px}
+  .f-icons{max-width:232px;gap:14px 16px;margin:30px auto 0}
+  .footer-bottom>span{text-wrap:balance}
+  .footer-bottom{flex-direction:column;gap:6px;padding:24px 24px calc(96px + env(safe-area-inset-bottom));font-size:12px;line-height:1.6}
+  .footer-bottom .f-who::before,.footer-bottom .f-links::before{content:none}
+  .footer-bottom .f-links{margin-top:10px;display:flex;gap:22px}
+  .footer-bottom .f-links a+a{margin-left:0}
+  .footer-bottom .f-links a+a::before{content:none}
+  .footer-bottom .f-links a{padding:6px 0;border-bottom:1px solid var(--hairline)}
+  .footer-bottom .f-legal{font-size:11.5px;opacity:.85;max-width:34ch;margin-top:14px;line-height:1.6}
+}
+
+/* =====================================================================
+   PHONE LAYOUT FIXES (Nov 2026). Phone widths only; desktop untouched.
+   ===================================================================== */
+@media(max-width:600px){
+  /* home slideshow: arrows move down beside the dots instead of on top of the logo card */
+  .hero-arrow{top:auto;bottom:62px;transform:none;padding:12px}
+  .hero-arrow svg{width:22px;height:22px}
+  .hero-arrow.prev{left:calc(50% - 138px)}
+  .hero-arrow.next{right:calc(50% - 138px)}
+
+  /* home "Choose your path": shorter photos, so four paths are not four screens */
+  .grid-4 > .card .frame.ratio-45{aspect-ratio:4/3}
+
+  /* blend grids (Rainbow, 5 Elements): two per row */
+  .chip-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+  .chip-grid .product{padding:14px}
+  .chip-grid .prod-img .frame{margin:-14px -14px 12px}
+  .chip-grid .product .k{font-size:9.5px;letter-spacing:.16em}
+  .chip-grid .product h3{font-size:17px;line-height:1.2}
+  .chip-grid .product .for{font-size:12.5px;line-height:1.45}
+  .chip-grid .product .row{margin-top:10px;padding-top:10px}
+  .chip-grid .product .price{font-size:15px}
+  .chip-grid .product .soon{display:none}
+  .chip-grid .product-el h3{font-size:18px}
+
+  /* blend pages: the two buttons the same full width; "more from" two per row */
+  .bp-cta .btn{flex:1 1 100%;justify-content:center;text-align:center}
+  .bp-more-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .bp-more-grid .frame{min-height:0}
+  .bp-more-name{font-size:18px}
+
+  /* aromatherapy plant parts: two per row */
+  #plant-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px}
+  #plant-grid .panel{padding:20px 12px}
+  #plant-grid h3{font-size:19px!important}
+  #plant-grid p{font-size:12.5px!important}
+}
+/* journal posts: the side-menu rules above (.jr-rail .jr-toc) were overriding
+   the tablet/phone layout, squeezing "On this page" next to "All entries" */
+@media(max-width:1040px){
+  .jr-rail .jr-toc{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:baseline}
+  .jr-rail .jr-toc-h{padding:0;border:none}
+}
+@media(max-width:640px){
+  .jr-rail .jr-toc{display:none}
+}
