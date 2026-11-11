@@ -82,6 +82,7 @@ def build_csp(hashes) -> str:
         # there is no known real-world attack through CSS alone.
         "style-src 'self' 'unsafe-inline'",
         f"script-src {script_src}",
+        # The checkout posts orders to the site itself ('/api/order' on Cloudflare).
         "connect-src 'self'",
         "manifest-src 'self'",
         # The site has no iframes and no web workers.

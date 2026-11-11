@@ -99,7 +99,7 @@ def coverage() -> list:
     text = LLMS.read_text(encoding="utf-8")
     missing = []
     for p in sorted(ROOT.glob("*.html")) + sorted((ROOT / "products").glob("*.html")):
-        if p.name == "404.html":
+        if p.name in ("404.html", "checkout.html", "thanks.html"):  # private shop steps
             continue
         rel = p.name if p.parent == ROOT else f"products/{p.name}"
         if rel == "index.html":

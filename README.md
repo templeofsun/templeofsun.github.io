@@ -100,10 +100,14 @@ Then copy the folder into this repo, commit and push to `main`. GitHub rebuilds 
 ```text
 .
 ├── index.html, retreats.html, …   the 25 main pages
+├── checkout.html, thanks.html     the shop's checkout and thank-you pages (hidden from search)
 ├── products/                      the 23 blend pages (built, see the next section)
 ├── journal/                       Péter's journal posts
 ├── css/site.css                   all styling: colours at the top, dark mode and phone fixes at the bottom
 ├── js/site.js                     menu, footer, slideshow, gallery, lightbox, forms, light/dark button
+├── css/shop.css                   cart panel, checkout and thank-you page styling
+├── js/shop.js                     the cart, checkout and order sending (settings at the top)
+├── js/shop-data.js                the cart's price list (built, do not edit)
 ├── js/img-fallback.js             loads first on every page: picks light or dark, catches broken images
 ├── assets/                        photos, guest videos, fonts, icons
 ├── docs/images/                   the pictures in this README
@@ -121,7 +125,7 @@ Some pages are built from data files. Edit the file on the left, run the build, 
 
 | Edit this | To change |
 |---|---|
-| `tools/blend-pages.json` | the 23 blend pages |
+| `tools/blend-pages.json` | the 23 blend pages and the cart's prices (`js/shop-data.js`) |
 | `tools/session-pages.json` | Health Consultation, Spiritual Mentoring, Meditation Guidance |
 | `js/site.js` (`HEADER`, `MOBILE`, `FOOTER`) | the menu and footer on every page |
 | `tools/redirects.json` | old addresses that forward to new pages |
@@ -183,7 +187,9 @@ Not dates, just the order.
 - [ ] Contact form and newsletter connected
 - [ ] Domain moved to Cloudflare
 - [ ] Launch build with `--live`
-- [ ] Shop, once the tax details are ready
+- [x] Cart and checkout (orders go to Péter, no online payment)
+- [ ] Shop sending: on Cloudflare, add an order function and set `orderUrl` at the top of `js/shop.js`
+- [ ] Shop: postage prices and tax details from Péter
 - [ ] Translations: Portuguese, then Hungarian, then German
 
 ---

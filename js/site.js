@@ -154,6 +154,11 @@
   wa.innerHTML = IC.whatsapp;
   document.body.appendChild(wa);
 
+  /* shop: cart, checkout and thank-you page. All its code is in js/shop.js */
+  var shopJs = document.createElement('script');
+  shopJs.src = ROOT + 'js/shop.js';
+  document.head.appendChild(shopJs);
+
   var yearEl = document.querySelector('[data-year]');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -827,6 +832,12 @@
         press: 'Press or an interview'
       };
       if (map[m[1]]) topicSel.value = map[m[1]];
+    }
+    /* "Ask Peter" on a blend page: start the message with the blend's name */
+    var blendParam = new URLSearchParams(window.location.search).get('blend');
+    var msgBox = document.querySelector('textarea[name="message"]');
+    if (blendParam && msgBox && !msgBox.value) {
+      msgBox.value = 'About ' + blendParam.slice(0, 60) + ': ';
     }
   }
 

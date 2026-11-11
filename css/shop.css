@@ -1,0 +1,184 @@
+/* ============================================================
+   TEMPLE OF SUN: shop.css
+   Look of the cart and checkout. Loaded by js/shop.js on every page,
+   and linked directly in checkout.html and thanks.html.
+   Uses the colour tokens from site.css, so dark mode comes for free.
+
+   Contents
+     1. Header cart button
+     2. Quantity picker
+     3. Cart panel
+     4. Cart lines (panel and checkout)
+     5. Product page buttons
+     6. Checkout page
+     7. Thank-you page
+     8. Phone
+   ============================================================ */
+
+/* ---------- 1. Header cart button ---------- */
+.cart-btn{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;
+  width:36px;height:36px;padding:0;margin-left:6px;
+  background:none;border:1px solid transparent;border-radius:50%;
+  color:var(--umber);cursor:pointer;transition:border-color var(--t-fast),color var(--t-fast);
+  animation:cartIn .5s var(--ease);
+}
+.cart-btn[hidden]{display:none}
+.cart-btn:hover{border-color:var(--hairline);color:var(--clay)}
+.cart-btn svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.cart-count{
+  position:absolute;top:1px;right:-2px;min-width:17px;height:17px;padding:0 4px;
+  border-radius:9px;background:var(--clay-btn);color:var(--on-clay);
+  font-size:10px;font-weight:600;line-height:17px;text-align:center;letter-spacing:0;
+}
+@keyframes cartIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+
+/* ---------- 2. Quantity picker ---------- */
+.qty{display:none;align-items:stretch;border:1px solid var(--clay-deep);border-radius:2px;height:54px}
+.js .qty,.qty.qty-sm{display:inline-flex}
+.qty button{
+  width:44px;background:none;border:none;color:var(--clay-ink);font-size:18px;cursor:pointer;
+  transition:background var(--t-fast),color var(--t-fast);
+}
+.qty button:hover{background:var(--oat-deep)}
+.qty input{
+  width:40px;border:none;background:none;text-align:center;color:var(--umber);
+  font-family:var(--sans);font-size:15px;font-weight:600;-moz-appearance:textfield;appearance:textfield;
+}
+.qty input::-webkit-outer-spin-button,.qty input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.qty.qty-sm{height:34px;border-color:var(--hairline)}
+.qty.qty-sm button{width:32px;font-size:15px}
+.qty.qty-sm input{width:30px;font-size:13.5px}
+
+/* ---------- 3. Cart panel ---------- */
+.cart-shade{
+  position:fixed;inset:0;z-index:300;background:rgba(40,30,20,.32);
+  opacity:0;transition:opacity .35s ease;
+}
+.cart-drawer{
+  position:fixed;top:0;right:0;bottom:0;z-index:310;width:min(420px,100%);
+  display:flex;flex-direction:column;background:var(--porcelain);
+  box-shadow:-18px 0 50px rgba(40,30,20,.18);
+  transform:translateX(100%);transition:transform .4s var(--ease);
+}
+.cart-shade[hidden],.cart-drawer[hidden]{display:none}
+.cart-open .cart-shade{opacity:1}
+.cart-open .cart-drawer{transform:none}
+.cart-open .wa-float{opacity:0;pointer-events:none}
+.shop-page ~ .wa-float{display:none} /* not on checkout and thank-you: they have their own buttons */
+
+.cd-head{display:flex;align-items:center;justify-content:space-between;padding:22px 26px;border-bottom:1px solid var(--hairline)}
+.cd-title{font-size:30px;margin:0}
+.cd-close{
+  width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;
+  background:none;border:1px solid var(--hairline);border-radius:50%;color:var(--umber);cursor:pointer;
+}
+.cd-close:hover{color:var(--clay);border-color:var(--clay)}
+.cd-close svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round}
+.cd-body{flex:1;overflow-y:auto;padding:8px 26px;overscroll-behavior:contain}
+.cd-empty{margin:30px 0;color:var(--sage);font-family:var(--serif);font-style:italic;font-size:21px}
+.cd-foot{padding:20px 26px 26px;border-top:1px solid var(--hairline);background:var(--oat)}
+.cd-foot[hidden]{display:none}
+.cd-sub{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 8px;max-width:none;color:var(--umber)}
+.cd-sub strong{font-size:20px;font-weight:600}
+.cd-sub-soft{font-size:14px;color:var(--sage)}
+.cd-note{font-size:13px;color:var(--sage);margin:0 0 18px;max-width:none;line-height:1.55}
+.cd-checkout{display:block;width:100%;text-align:center}
+.cd-continue{
+  display:block;margin:14px auto 0;background:none;border:none;cursor:pointer;
+  font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--clay-ink);
+}
+.cd-continue:hover{color:var(--clay)}
+
+/* ---------- 4. Cart lines (panel and checkout) ---------- */
+.cl-list{list-style:none;margin:0;padding:0}
+.cl{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:start;padding:18px 0;border-bottom:1px solid var(--hairline)}
+.cl:last-child{border-bottom:none}
+.cl-img{display:block;width:64px;height:64px;border-radius:2px;overflow:hidden;background:var(--oat-deep)}
+.cl-img img{width:100%;height:100%;object-fit:cover}
+.cl-main{min-width:0;display:flex;flex-direction:column;gap:2px}
+.cl-name{font-family:var(--serif);font-size:20px;font-weight:600;line-height:1.2;color:var(--umber)}
+.cl-name:hover{color:var(--clay)}
+.cl-meta{font-size:13px;color:var(--sage)}
+.cl-row{display:flex;align-items:center;gap:14px;margin-top:8px}
+.cl-remove{
+  background:none;border:none;padding:0;cursor:pointer;font-family:var(--sans);font-size:12.5px;
+  color:var(--sage);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--hairline);
+}
+.cl-remove:hover{color:var(--clay-ink)}
+.cl-total{font-size:15px;font-weight:600;color:var(--umber);white-space:nowrap}
+
+/* ---------- 5. Product page buttons ---------- */
+.bp-cta .btn.is-added,.bp-rail-btn.is-added{background:var(--sage-ink);border-color:var(--sage-ink);color:var(--on-clay)}
+
+/* ---------- 6. Checkout page ---------- */
+.shop-page{padding-top:44px}
+.co-head{margin-bottom:clamp(30px,4vw,50px)}
+.co-head h1{font-size:clamp(40px,5.4vw,64px)}
+.co-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(34px,5vw,70px);align-items:start}
+.co-form{display:grid;gap:44px}
+.co-set{border:none;margin:0;padding:0;display:grid;gap:26px;min-width:0}
+.co-set legend{
+  font-family:var(--serif);font-size:26px;font-weight:600;color:var(--umber);
+  margin-bottom:22px;padding:0;
+}
+.co-opt{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-left:10px}
+.field .req{color:var(--clay-ink)}
+.co-check{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--ink);cursor:pointer;line-height:1.55}
+.co-check input{width:18px;height:18px;margin-top:3px;flex:none;accent-color:var(--clay-btn)}
+.co-check a{color:var(--clay-ink);text-decoration:underline;text-underline-offset:3px}
+.co-sub[hidden]{display:none}
+.co-trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.co-send{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.co-status{font-size:14px;color:var(--sage);margin:0}
+.co-status:empty{display:none}
+.co-summary{background:var(--card-bg);border:1px solid var(--hairline);padding:26px 28px 22px}
+.co-sum-title{font-size:28px;margin:0 0 6px}
+.co-summary .cl-list{margin-bottom:16px;border-bottom:1px solid var(--hairline)}
+@media(min-width:900px){.co-summary{position:sticky;top:104px}}
+.co-fallback{border:1px solid var(--clay);background:var(--oat);padding:24px 26px}
+.co-fallback[hidden]{display:none}
+.co-fallback p{margin:0 0 16px}
+.co-fallback .btn-row{justify-content:flex-start;margin-top:0}
+.co-empty{text-align:center;padding:30px 0 60px}
+.co-empty[hidden],[data-checkout-full][hidden]{display:none}
+.co-empty .btn-row{margin-top:24px}
+
+/* ---------- 7. Thank-you page ---------- */
+.th-box{max-width:620px;margin:0 auto;text-align:center}
+.th-warm{color:var(--clay);font-size:21px;line-height:1.45;margin:14px auto 10px;max-width:44ch}
+.th-ref{
+  display:inline-block;margin:6px 0 8px;padding:8px 18px;cursor:pointer;
+  background:none;border:1px solid var(--hairline);border-radius:2px;
+  font-family:var(--sans);font-size:16px;font-weight:600;letter-spacing:.12em;color:var(--clay-ink);
+  transition:border-color var(--t-fast),background var(--t-fast);
+}
+.th-ref:hover{border-color:var(--clay);background:var(--card-bg)}
+.th-ref.is-copied{border-color:var(--sage-ink)}
+.th-copy-hint{font-size:12.5px;color:var(--sage);margin:0 auto 26px}
+.th-order[hidden]{display:none}
+.th-lines{list-style:none;margin:0 auto 30px;padding:0;max-width:440px;text-align:left}
+.th-lines li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--hairline);font-size:15px}
+.th-lines .th-sub{font-weight:600;border-bottom:none}
+.th-lines a{color:var(--umber);text-decoration:underline;text-decoration-color:var(--hairline);text-underline-offset:4px;transition:color var(--t-fast),text-decoration-color var(--t-fast)}
+.th-lines a:hover{color:var(--clay-ink);text-decoration-color:var(--clay)}
+.th-via{color:var(--clay-ink)}
+
+/* ---------- 8. Phone ---------- */
+@media(max-width:900px){
+  .co-grid{grid-template-columns:1fr}
+  .co-summary{order:-1}
+}
+@media(max-width:560px){
+  .cart-drawer{width:100%}
+  .cd-head,.cd-body,.cd-foot{padding-left:20px;padding-right:20px}
+  .co-summary{padding:20px 18px 16px}
+  .co-send .btn{width:100%;text-align:center}
+  .co-fallback{padding:20px 18px}
+  .co-fallback .btn-row{flex-direction:column;align-items:stretch}
+  .co-fallback .btn{text-align:center}
+}
+@media(max-width:640px){
+  .bp-cta .qty{flex:0 0 auto}
+  .bp-cta .qty + .btn{flex:1 1 0%;min-width:0;padding-inline:14px}
+}

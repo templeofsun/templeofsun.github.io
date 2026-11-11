@@ -120,6 +120,7 @@ def main() -> None:
     # Content first — the headers are fingerprinted from the finished pages,
     # so anything that rewrites a page has to run before them.
     run("generate-product-pages.py", "product pages")
+    run("generate-shop-data.py", "the cart price list")
     run("generate-session-pages.py", "online session pages")
     run("build-poem-page.py", "the poem page")
     run("sync-journal.py", "the journal list")

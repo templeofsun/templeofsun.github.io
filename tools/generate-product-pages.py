@@ -19,6 +19,7 @@ import html
 import json
 import re
 import sys
+from urllib.parse import quote
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -95,8 +96,8 @@ PAGE = """<!DOCTYPE html>
           <p class="bp-for">For {forline}.</p>
           <p class="bp-price"><strong>{price}</strong> <span>· {size}</span></p>
           <div class="bp-cta">
-            <a class="btn btn-solid" href="../contact.html?topic=order">Enquire about {name}</a>
-            <a class="btn" href="https://wa.me/36702879225" target="_blank" rel="noopener">Ask Peter</a>
+{buy_hero}
+            <a class="btn" href="../contact.html?topic=oils&amp;blend={blend_q}">Ask Peter</a>
           </div>
           <dl class="bp-facts">
             <div><dt>Collection</dt><dd><a href="../{collection_url}">{collection}</a></dd></div>
@@ -118,8 +119,8 @@ PAGE = """<!DOCTYPE html>
     <aside class="bp-rail" aria-label="Order {name}">
       <div class="bp-rail-in">
         <p class="bp-rail-price"><strong>{price}</strong> <span>{size}</span></p>
-        <a class="btn btn-solid bp-rail-btn" href="../contact.html?topic=order">Enquire about {name}</a>
-        <a class="btn bp-rail-btn" href="https://wa.me/36702879225" target="_blank" rel="noopener">Ask Peter</a>
+{buy_rail}
+        <a class="btn bp-rail-btn" href="../contact.html?topic=oils&amp;blend={blend_q}">Ask Peter</a>
         <p class="bp-rail-note">Blended by Péter Frák from 100% pure, laboratory-tested
         essential oils, in a meditative state, with blessings and intention.</p>
         <p class="bp-rail-quiz">Not sure this is yours?
@@ -247,6 +248,31 @@ def build_schema(slug: str, blend: dict, source: dict, url: str, image_abs: str)
     return json.dumps(graph, ensure_ascii=False, separators=(", ", ": "))
 
 
+# The shop switch. True: "Add to cart" (js/shop.js). False: the old
+# "Enquire about ..." link to the contact page. Rerun the build after changing.
+SHOP_ON = True
+
+
+def buy_buttons(slug: str, name: str) -> tuple:
+    """The order buttons in the page top and in the side rail."""
+    if not SHOP_ON:
+        return (
+            f'            <a class="btn btn-solid" href="../contact.html?topic=order">Enquire about {name}</a>',
+            f'        <a class="btn btn-solid bp-rail-btn" href="../contact.html?topic=order">Enquire about {name}</a>',
+        )
+    # Without JavaScript the buttons fall back to the contact page.
+    hero = (
+        '            <div class="qty" data-qty>'
+        '<button type="button" data-step="-1" aria-label="One less">−</button>'
+        f'<input type="number" min="1" max="20" value="1" inputmode="numeric" aria-label="Quantity of {name}">'
+        '<button type="button" data-step="1" aria-label="One more">+</button></div>\n'
+        f'            <a class="btn btn-solid" href="../contact.html?topic=order" data-add-to-cart="{slug}">Add to cart</a>'
+    )
+    rail = (f'        <a class="btn btn-solid bp-rail-btn" href="../contact.html?topic=order" '
+            f'data-add-to-cart="{slug}">Add to cart</a>')
+    return hero, rail
+
+
 LIST_START = "<!-- blend-pages start -->"
 LIST_END = "<!-- blend-pages end -->"
 
@@ -344,7 +370,11 @@ def main() -> None:
             summary = plain(blend["body"])
             description = summary[:155].rsplit(" ", 1)[0] + "…" if len(summary) > 155 else summary
 
+            buy_hero, buy_rail = buy_buttons(slug, esc(blend["name"]))
             page = PAGE.format(
+                buy_hero=buy_hero,
+                blend_q=quote(blend["name"]),
+                buy_rail=buy_rail,
                 title=esc(f"{blend['name']} · {source['collection']} | Temple of Sun"),
                 og_title=esc(f"{blend['name']} · Temple of Sun"),
                 description=esc(description),
