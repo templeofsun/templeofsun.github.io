@@ -25,15 +25,16 @@
   <section>
     <div class="wrap">
 
-      <div class="co-head">
-        <span class="label">Checkout</span>
-        <h1>Your order</h1>
-        <p class="lead italic" style="margin-top:14px;color:var(--clay);font-size:21px">an order request, no payment online</p>
-        <p style="max-width:54ch">Send your order request to Péter. He will contact you personally by phone or email to confirm postage and arrange payment. Your blends are sent once payment is complete.</p>
-      </div>
-
       <div data-checkout-full>
         <div class="co-grid">
+
+          <div class="co-main">
+          <div class="co-head">
+            <span class="label">Checkout</span>
+            <h1>Your order</h1>
+            <p class="lead italic" style="margin-top:14px;color:var(--clay);font-size:21px">an order request, no payment online</p>
+            <p style="max-width:54ch">Send your order request to Péter. He will contact you personally by phone or email to confirm postage and arrange payment. Your blends are sent once payment is complete.</p>
+          </div>
 
           <form class="co-form" autocomplete="on">
 
@@ -93,13 +94,15 @@
             </div>
 
           </form>
+          </div>
 
-          <aside class="co-summary" data-order-summary aria-label="Your order"></aside>
+          <aside class="co-summary" data-order-summary aria-label="Order summary"></aside>
 
         </div>
       </div>
 
       <div class="co-empty" data-checkout-empty hidden>
+        <h1 class="co-empty-title">Your cart</h1>
         <p class="cd-empty">Your cart is empty.</p>
         <div class="btn-row">
           <a class="btn btn-solid" href="rainbow-collection.html">The Rainbow Collection</a>

@@ -113,8 +113,10 @@
 
 /* ---------- 6. Checkout page ---------- */
 .shop-page{padding-top:44px}
+.shop-page > section{padding-top:clamp(20px,3vw,36px)}
 .co-head{margin-bottom:clamp(30px,4vw,50px)}
 .co-head h1{font-size:clamp(40px,5.4vw,64px)}
+.co-empty-title{font-size:clamp(40px,5.4vw,64px);margin-bottom:6px}
 .co-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(34px,5vw,70px);align-items:start}
 .co-form{display:grid;gap:44px}
 .co-set{border:none;margin:0;padding:0;display:grid;gap:26px;min-width:0}
@@ -167,7 +169,11 @@
 /* ---------- 8. Phone ---------- */
 @media(max-width:900px){
   .co-grid{grid-template-columns:1fr}
-  .co-summary{order:-1}
+  /* phone: heading, then the order summary, then the form */
+  .co-main{display:contents}
+  .co-head{order:0;margin-bottom:0}
+  .co-summary{order:1}
+  .co-form{order:2}
 }
 @media(max-width:560px){
   .cart-drawer{width:100%}

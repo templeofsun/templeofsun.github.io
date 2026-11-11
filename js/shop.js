@@ -277,7 +277,7 @@
     var box = checkout.querySelector('[data-order-summary]');
     if (!n) { box.innerHTML = ''; return; }
     box.innerHTML =
-      '<h2 class="co-sum-title">Your order</h2>' +
+      '<h2 class="co-sum-title">Order summary</h2>' +
       '<ul class="cl-list">' + lines(list).map(function (l) { return lineHtml(l, true); }).join('') + '</ul>' +
       '<p class="cd-sub"><span>Subtotal</span><strong>' + money(subtotal(list)) + '</strong></p>' +
       '<p class="cd-sub cd-sub-soft"><span>Postage</span><span>arranged with Péter</span></p>' +
