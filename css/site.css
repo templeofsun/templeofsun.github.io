@@ -2177,3 +2177,11 @@ html[data-theme="dark"] .t-item img[src*="logos/ifa"]:hover{filter:grayscale(1) 
 @media(max-width:640px){
   .jr-rail .jr-toc{display:none}
 }
+
+/* contact page on phones: the page's own contact icons sit right above the
+   footer, so the footer icons and the floating WhatsApp button are hidden
+   there to avoid showing the same icons three times */
+@media(max-width:600px){
+  body:has(.contact-form) .site-footer .f-icons{display:none}
+  body:has(.contact-form) .wa-float{display:none}
+}
