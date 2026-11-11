@@ -138,10 +138,6 @@
 .co-sum-title{font-size:28px;margin:0 0 6px}
 .co-summary .cl-list{margin-bottom:16px;border-bottom:1px solid var(--hairline)}
 @media(min-width:900px){.co-summary{position:sticky;top:104px}}
-.co-fallback{border:1px solid var(--clay);background:var(--oat);padding:24px 26px}
-.co-fallback[hidden]{display:none}
-.co-fallback p{margin:0 0 16px}
-.co-fallback .btn-row{justify-content:flex-start;margin-top:0}
 .co-empty{text-align:center;padding:30px 0 60px}
 .co-empty[hidden],[data-checkout-full][hidden]{display:none}
 .co-empty .btn-row{margin-top:24px}
@@ -164,7 +160,6 @@
 .th-lines .th-sub{font-weight:600;border-bottom:none}
 .th-lines a{color:var(--umber);text-decoration:underline;text-decoration-color:var(--hairline);text-underline-offset:4px;transition:color var(--t-fast),text-decoration-color var(--t-fast)}
 .th-lines a:hover{color:var(--clay-ink);text-decoration-color:var(--clay)}
-.th-via{color:var(--clay-ink)}
 
 /* ---------- 8. Phone ---------- */
 @media(max-width:900px){
@@ -180,9 +175,6 @@
   .cd-head,.cd-body,.cd-foot{padding-left:20px;padding-right:20px}
   .co-summary{padding:20px 18px 16px}
   .co-send .btn{width:100%;text-align:center}
-  .co-fallback{padding:20px 18px}
-  .co-fallback .btn-row{flex-direction:column;align-items:stretch}
-  .co-fallback .btn{text-align:center}
 }
 @media(max-width:640px){
   .bp-cta .qty{flex:0 0 auto}

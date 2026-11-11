@@ -26,13 +26,10 @@
     /* Where the order request is sent, to be emailed to Péter. Planned: a
        Cloudflare function on the site itself, e.g. '/api/order', once the
        domain is on Cloudflare. It receives the JSON below and answers
-       { "success": true }. While this is empty, or if sending fails, the
-       buyer gets WhatsApp and email buttons instead.
-       TEMPORARY: that fallback is for the test site only. Remove it once
-       the Cloudflare sending works; the final checkout is fully automatic. */
+       { "success": true }.
+       TEST SITE: while this is empty, "Send order request" goes straight to
+       the thank-you page and nothing is sent to anyone. */
     orderUrl: '',
-    whatsapp: '36702879225',
-    email: 'templeofsunofficial@gmail.com',
     maxQty: 20,
     cartKey: 'tos-cart',
     lastOrderKey: 'tos-last-order'
@@ -342,38 +339,15 @@
     return t.join('\n');
   }
 
-  function whatsappLink(o) {
-    return 'https://wa.me/' + SETTINGS.whatsapp + '?text=' + encodeURIComponent(o.text);
-  }
-  function emailLink(o) {
-    return 'mailto:' + SETTINGS.email + '?subject=' + encodeURIComponent('Order ' + o.ref) +
-           '&body=' + encodeURIComponent(o.text);
-  }
-
-  function finish(order, via) {
+  function finish(order) {
     try {
       sessionStorage.setItem(SETTINGS.lastOrderKey, JSON.stringify({
-        ref: order.ref, via: via, lines: order.lines, subtotal: order.subtotal, email: order.email,
+        ref: order.ref, lines: order.lines, subtotal: order.subtotal, email: order.email,
         firstName: order.name.split(/\s+/)[0]
       }));
     } catch (e) {}
     clearCart();
     location.href = ROOT + 'thanks.html';
-  }
-
-  /* Without a form key, or when sending fails: offer WhatsApp and email,
-     with the whole order already written in. */
-  function showFallback(order, reason) {
-    var box = checkout.querySelector('[data-order-fallback]');
-    box.querySelector('[data-fallback-reason]').textContent = reason;
-    var wa = box.querySelector('[data-send-whatsapp]');
-    var mail = box.querySelector('[data-send-email]');
-    wa.href = whatsappLink(order);
-    mail.href = emailLink(order);
-    wa.onclick = function () { setTimeout(function () { finish(order, 'whatsapp'); }, 600); };
-    mail.onclick = function () { setTimeout(function () { finish(order, 'email'); }, 1200); };
-    box.hidden = false;
-    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   function bindCheckout() {
@@ -401,10 +375,7 @@
       if (form.elements.botcheck && form.elements.botcheck.checked) return; /* a bot ticked the hidden box */
       var order = buildOrder(form);
 
-      if (!SETTINGS.orderUrl) {
-        showFallback(order, 'Please send your order request to Péter by WhatsApp or email. Your order is already written in.');
-        return;
-      }
+      if (!SETTINGS.orderUrl) { finish(order); return; } /* test site: nothing is sent */
 
       submit.disabled = true;
       status.textContent = 'Sending your order request…';
@@ -423,13 +394,12 @@
         .then(function (r) { return r.json(); })
         .then(function (res) {
           if (!res || !res.success) throw new Error('not sent');
-          finish(order, 'form');
+          finish(order);
         })
         .catch(function () {
           submit.disabled = false;
           status.textContent = '';
-          showFallback(order, 'Your order request could not be sent from the website just now. ' +
-                              'Please send it by WhatsApp or email instead. Your order is already written in.');
+          status.textContent = 'Your order request could not be sent just now. Please try again in a moment.';
         });
     });
   }
@@ -472,11 +442,6 @@
       }).join('') +
       '<li class="th-sub"><span>Subtotal</span><span>' + money(order.subtotal) + '</span></li>';
     box.querySelector('[data-thanks-order]').hidden = false;
-    if (order.via !== 'form') {
-      box.querySelector('[data-thanks-via]').textContent =
-        'Please make sure your ' + (order.via === 'whatsapp' ? 'WhatsApp message' : 'email') +
-        ' to Péter was sent. If it was not, please write to him directly.';
-    }
   }
 
   /* copy to the clipboard, with an older fallback for browsers without the API */
