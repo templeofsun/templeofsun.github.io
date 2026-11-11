@@ -108,6 +108,7 @@ Then copy the folder into this repo, commit and push to `main`. GitHub rebuilds 
 ├── css/shop.css                   cart panel, checkout and thank-you page styling
 ├── js/shop.js                     the cart, checkout and order sending (settings at the top)
 ├── js/shop-data.js                the cart's price list (built, do not edit)
+├── js/shop-postage.js             postage rates and countries for the checkout (edit by hand)
 ├── js/img-fallback.js             loads first on every page: picks light or dark, catches broken images
 ├── assets/                        photos, guest videos, fonts, icons
 ├── docs/images/                   the pictures in this README
@@ -126,6 +127,7 @@ Some pages are built from data files. Edit the file on the left, run the build, 
 | Edit this | To change |
 |---|---|
 | `tools/blend-pages.json` | the 23 blend pages and the cart's prices (`js/shop-data.js`) |
+| `js/shop-postage.js` | postage rates and countries at checkout |
 | `tools/session-pages.json` | Health Consultation, Spiritual Mentoring, Meditation Guidance |
 | `js/site.js` (`HEADER`, `MOBILE`, `FOOTER`) | the menu and footer on every page |
 | `tools/redirects.json` | old addresses that forward to new pages |

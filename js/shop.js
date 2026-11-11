@@ -5,8 +5,9 @@
    confirms postage and how to pay.
 
    Loaded on every page by js/site.js. Reads the price list from
-   js/shop-data.js (generated, do not edit) and its look from
-   css/shop.css. No dependencies.
+   js/shop-data.js (generated, do not edit), the postage rates from
+   js/shop-postage.js (edit by hand) and its look from css/shop.css.
+   No dependencies.
 
    Contents
      1. Settings
@@ -37,6 +38,7 @@
 
   var ROOT = document.documentElement.getAttribute('data-root') || '';
   var PRODUCTS = {};
+  var POSTAGE = [];
 
   /* ---------- 2. Helpers ---------- */
   function money(cents) {
@@ -144,7 +146,7 @@
       '<div class="cd-body" data-cart-lines></div>' +
       '<div class="cd-foot">' +
       '  <p class="cd-sub"><span>Subtotal</span><strong data-cart-subtotal></strong></p>' +
-      '  <p class="cd-note">No payment is taken online. After you send your order request, Péter contacts you to confirm postage and arrange payment.</p>' +
+      '  <p class="cd-note" data-cart-postage-note>No payment is taken online. Postage is added at checkout, once you choose your country.</p>' +
       '  <a class="btn btn-solid cd-checkout" href="' + ROOT + 'checkout.html">Checkout</a>' +
       '  <button type="button" class="cd-continue">Continue browsing</button>' +
       '</div>';
@@ -230,6 +232,11 @@
         ? '<ul class="cl-list">' + lines(list).map(function (l) { return lineHtml(l, true); }).join('') + '</ul>'
         : '<p class="cd-empty">Your cart is empty.</p>';
       drawer.querySelector('[data-cart-subtotal]').textContent = money(subtotal(list));
+      if (POSTAGE.length) {
+        drawer.querySelector('[data-cart-postage-note]').textContent =
+          'No payment is taken online. Postage from ' + money(lowestPostage()) +
+          ' is added at checkout, once you choose your country.';
+      }
       drawer.querySelector('.cd-foot').hidden = n === 0;
     }
     renderCheckout(list);
@@ -276,9 +283,44 @@
     box.innerHTML =
       '<h2 class="co-sum-title">Order summary</h2>' +
       '<ul class="cl-list">' + lines(list).map(function (l) { return lineHtml(l, true); }).join('') + '</ul>' +
-      '<p class="cd-sub"><span>Subtotal</span><strong>' + money(subtotal(list)) + '</strong></p>' +
-      '<p class="cd-sub cd-sub-soft"><span>Postage</span><span>arranged with Péter</span></p>' +
+      '<p class="cd-sub"><span>Subtotal</span><span>' + money(subtotal(list)) + '</span></p>' +
+      postageRows(subtotal(list), postageFor(chosenCountry())) +
       '<p class="cd-note">Delivery usually takes around five working days, depending on the country.</p>';
+  }
+
+  /* ---- postage (rates live in js/shop-postage.js) ---- */
+  function postageFor(country) {
+    if (!country) return null;
+    for (var i = 0; i < POSTAGE.length; i++) {
+      if (POSTAGE[i].countries.indexOf(country) !== -1) return POSTAGE[i];
+    }
+    return null;
+  }
+  function chosenCountry() {
+    var sel = checkout && checkout.querySelector('select[name="country"]');
+    return sel ? sel.value : '';
+  }
+  function lowestPostage() {
+    return POSTAGE.reduce(function (m, r) { return Math.min(m, r.price); }, Infinity);
+  }
+  function postageRows(sub, region) {
+    if (!region) {
+      return '<p class="cd-sub cd-sub-soft"><span>Postage</span><span>choose your country</span></p>';
+    }
+    return '<p class="cd-sub cd-sub-soft"><span>Postage, ' + esc(region.name) + '</span><span>' + money(region.price) + '</span></p>' +
+      (region.note ? '<p class="cd-note">' + esc(region.note) + '</p>' : '') +
+      '<p class="cd-sub cd-total"><span>Total</span><strong>' + money(sub + region.price) + '</strong></p>';
+  }
+  function fillCountries(sel) {
+    var keep = sel.value;
+    sel.innerHTML = '<option value="">Choose your country</option>' +
+      POSTAGE.map(function (r) {
+        return '<optgroup label="' + esc(r.name + ' · postage ' + money(r.price)) + '">' +
+          r.countries.slice().sort().map(function (c) {
+            return '<option value="' + esc(c) + '">' + esc(c) + '</option>';
+          }).join('') + '</optgroup>';
+      }).join('');
+    sel.value = keep;
   }
 
   function field(form, name) {
@@ -302,6 +344,8 @@
       postcode: field(form, 'postcode'),
       city: field(form, 'city'),
       country: field(form, 'country'),
+      postage: 0,
+      postageRegion: '',
       invoice: form.elements.invoice && form.elements.invoice.checked,
       company: field(form, 'company'),
       vat: field(form, 'vat'),
@@ -309,6 +353,9 @@
       gift: field(form, 'gift'),
       message: field(form, 'message')
     };
+    var region = postageFor(order.country);
+    if (region) { order.postage = region.price; order.postageRegion = region.name; }
+    order.total = order.subtotal + order.postage;
     order.text = orderText(order);
     return order;
   }
@@ -321,7 +368,9 @@
       t.push(l.qty + ' × ' + l.name + (l.size ? ' (' + l.size + ')' : '') +
              (l.qty > 1 ? ', ' + money(l.price) + ' each = ' : ' = ') + money(l.total));
     });
-    t.push('Subtotal: ' + money(o.subtotal) + ' (postage and payment to arrange)');
+    t.push('Subtotal: ' + money(o.subtotal));
+    t.push('Postage (' + o.postageRegion + '): ' + money(o.postage));
+    t.push('Total: ' + money(o.total) + ' (payment to arrange)');
     t.push('');
     t.push('Name: ' + o.name);
     t.push('Email: ' + o.email);
@@ -343,6 +392,7 @@
     try {
       sessionStorage.setItem(SETTINGS.lastOrderKey, JSON.stringify({
         ref: order.ref, lines: order.lines, subtotal: order.subtotal, email: order.email,
+        postage: order.postage, postageRegion: order.postageRegion, total: order.total,
         firstName: order.name.split(/\s+/)[0]
       }));
     } catch (e) {}
@@ -367,6 +417,10 @@
     });
     checkout.addEventListener('click', onLineClick);
     checkout.addEventListener('change', onLineChange);
+
+    var countrySel = form.elements.country;
+    fillCountries(countrySel);
+    countrySel.addEventListener('change', function () { render(); });
 
     /* the browser checks the required fields before this runs */
     form.addEventListener('submit', function (e) {
@@ -440,7 +494,11 @@
         return '<li>' + (page ? '<a href="' + esc(page) + '">' + label + '</a>' : '<span>' + label + '</span>') +
                '<span>' + money(l.total) + '</span></li>';
       }).join('') +
-      '<li class="th-sub"><span>Subtotal</span><span>' + money(order.subtotal) + '</span></li>';
+      '<li><span>Subtotal</span><span>' + money(order.subtotal) + '</span></li>' +
+      (order.postageRegion
+        ? '<li><span>Postage, ' + esc(order.postageRegion) + '</span><span>' + money(order.postage) + '</span></li>' +
+          '<li class="th-sub"><span>Total</span><span>' + money(order.total) + '</span></li>'
+        : '');
     box.querySelector('[data-thanks-order]').hidden = false;
   }
 
@@ -462,6 +520,7 @@
   /* ---------- 8. Start ---------- */
   function start() {
     PRODUCTS = window.TOS_PRODUCTS || {};
+    POSTAGE = (window.TOS_POSTAGE && window.TOS_POSTAGE.regions) || [];
     buildChrome();
     bindProductPage();
     bindCheckout();
@@ -474,6 +533,7 @@
   var needsCss = !document.querySelector('link[href$="css/shop.css"]');
   Promise.all([
     needsCss ? loadOnce('link', { rel: 'stylesheet', href: ROOT + 'css/shop.css' }) : null,
-    window.TOS_PRODUCTS ? null : loadOnce('script', { src: ROOT + 'js/shop-data.js' })
+    window.TOS_PRODUCTS ? null : loadOnce('script', { src: ROOT + 'js/shop-data.js' }),
+    window.TOS_POSTAGE ? null : loadOnce('script', { src: ROOT + 'js/shop-postage.js' })
   ]).then(start, start);
 })();

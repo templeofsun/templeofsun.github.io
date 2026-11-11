@@ -33,7 +33,7 @@
             <span class="label">Checkout</span>
             <h1>Your order</h1>
             <p class="lead italic" style="margin-top:14px;color:var(--clay);font-size:21px">an order request, no payment online</p>
-            <p style="max-width:54ch">Send your order request to Péter. He will contact you personally by phone or email to confirm postage and arrange payment. Your blends are sent once payment is complete.</p>
+            <p style="max-width:54ch">Send your order request to Péter. He will contact you personally by phone or email to arrange payment. Your blends are sent once payment is complete.</p>
           </div>
 
           <form class="co-form" autocomplete="on">
@@ -54,7 +54,8 @@
                 <div class="field"><label for="co-postcode">Postcode <span class="req" aria-hidden="true">*</span></label><input id="co-postcode" name="postcode" type="text" autocomplete="postal-code" required></div>
                 <div class="field"><label for="co-city">City <span class="req" aria-hidden="true">*</span></label><input id="co-city" name="city" type="text" autocomplete="address-level2" required></div>
               </div>
-              <div class="field"><label for="co-country">Country <span class="req" aria-hidden="true">*</span></label><input id="co-country" name="country" type="text" autocomplete="country-name" required></div>
+              <div class="field"><label for="co-country">Country <span class="req" aria-hidden="true">*</span></label><select id="co-country" name="country" autocomplete="country-name" required><option value="">Choose your country</option></select>
+                <p class="co-hint">Péter ships within Europe. Your country is not in the list? <a href="contact.html?topic=order">Ask Péter</a>.</p></div>
             </fieldset>
 
             <fieldset class="co-set">

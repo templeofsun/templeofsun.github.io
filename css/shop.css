@@ -82,6 +82,9 @@
 .cd-sub{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 8px;max-width:none;color:var(--umber)}
 .cd-sub strong{font-size:20px;font-weight:600}
 .cd-sub-soft{font-size:14px;color:var(--sage)}
+.cd-total{margin-top:6px;padding-top:12px;border-top:1px solid var(--hairline)}
+.co-hint{font-size:13px;color:var(--sage);margin:8px 0 0;max-width:none}
+.co-hint a{color:var(--clay-ink);text-decoration:underline;text-underline-offset:3px}
 .cd-note{font-size:13px;color:var(--sage);margin:0 0 18px;max-width:none;line-height:1.55}
 .cd-checkout{display:block;width:100%;text-align:center}
 .cd-continue{
